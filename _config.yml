@@ -4,8 +4,6 @@ relative_permalinks: true
 
 # Setup
 title:            wishyouhappy
-tagline:          The Jekyll Butler
-url:              http://blog.wish.com
 paginate:         1
 baseurl:          /
 author:
@@ -13,8 +11,9 @@ author:
 
 pages_list:       
   About: '/about'
-  Archive: '/archive'
-  Feed: '/index.html'
+  Blogs: '/blogs'
+  Photo: '/photos'
+  Painting: '/painting'
 
 
 
