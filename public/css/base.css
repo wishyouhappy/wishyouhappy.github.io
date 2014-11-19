@@ -422,13 +422,34 @@ h1 {
 
 .backStyle{
   /*background-image: url("../image/11.jpg");*/
-  background-size: cover;
+  /*background-size: cover;*/
 
 }
-html body{
+/*body{
   height :100%;
-   background-image: url("../image/13.jpg");
+  background: url(../image/13.jpg) no-repeat fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
+}*/
+#bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+  overflow-x: hidden;
 }
 .span-time{
   float: right;
@@ -444,16 +465,10 @@ html body{
   border-radius: 50px;
   background-color: #ffffff;
   margin: 0 auto;
-  padding-bottom: 300px;
   margin-top:100px;
-
-
+  margin-bottom:50px;
+  z-index: 2;
+  position: relative;
+  min-height: 500px
 }
 
-/*body{
-  background-image: url("../image/4.jpg");
-  background-size: cover;
-}*/
-/*.comments{
-
-}*/
