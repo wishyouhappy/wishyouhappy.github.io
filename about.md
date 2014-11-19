@@ -5,12 +5,12 @@ title: About
 <div class ="container">
 	<h2>About me</h2>
 	<p>
-	  Hey there! I am Juan(Wish) Li, a northwestern university majoriing in computer engineering. I love piano, painting and travel and coding. 
+	  Hey there! I am Juan(Wish) Li, a northwestern university majoring in computer engineering. I love piano, painting and travel and coding. 
 	</p>
 
 	<h2>Contact me</h2>
 	<p>
-	  If you want to get in touch with me send me <a href="mailto: juanli2014@u.northwestern.edu">Email</a>
+	  If you want to get in touch with me send me <a class ="a-emphasize" href="MAILTO:juanli2014@u.northwestern.edu">Email</a>
 	</p>
 </div>
 

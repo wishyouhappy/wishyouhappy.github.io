@@ -43,7 +43,13 @@ li {
 }
 
 .header {
-  margin: 75px 0 25px 0;
+  padding-top: 35px;
+  margin: 0 0 25px 0;
+  width: 100%;
+  height: 120px;
+}
+.header1{
+  padding-top:0px;
 }
   .header a, .header b {
     color: #444;
@@ -52,7 +58,7 @@ li {
     -webkit-transition: color 0.25s ease-in;
   }
   .header a:hover, .header a:hover b {
-    color: #307EA9;
+    color: #307EA9 !important;
   }
 
   .name a {
@@ -96,7 +102,7 @@ li {
   }
 
 .container {
-  width: 650px;
+  width: 750px;
   margin: 0 auto;
 }
 
@@ -122,10 +128,10 @@ li {
 
 h1 {
   margin: 0;
-  font-family: 'Avenir Next LT W01 Bold';
+  font-family: 'Avenir Next LT W01';
   font-weight: bold;
   font-size: 34px;
-  font-weight: 400;
+  font-weight: 200;
   color: #444;
 }
   h1 em, h1 i {
@@ -138,8 +144,8 @@ h1 {
     margin: 50px -30px 20px -30px;
     padding: 10px 30px 10px 25px;
     border-left: 5px solid #eee;
-    font-family: 'Avenir Next LT W01 Bold';
-    font-weight: bold;
+    font-family: 'Avenir Next LT W01';
+    font-weight: 200;
     font-size: 24px;
     color: #444;
   }
@@ -152,11 +158,10 @@ h1 {
   h3 {
     margin: 50px -30px 20px -27px;
     padding: 15px 30px;
-    font-family: 'Avenir Next LT W01 Bold';
-    font-weight: bold;
-    border-left: 3px solid #eee;
+    font-family: 'Avenir Next LT W01';
+     border-left: 3px solid #eee;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 200;
     color: #444;
   }
 
@@ -186,6 +191,7 @@ h1 {
     max-width: 770px;
     border-radius: 4px;
   }
+  
   .content li {
     margin-bottom: 20px;
   }
@@ -306,10 +312,13 @@ h1 {
     color: #999;
   }
 .footer {
-  margin-top: 150px;
+  /*bottom:0;*/
+  margin-top: 300px;
   background-size: cover;
   box-shadow: inset 0 0 15px rgba(0,0,0,.5);
   padding: 25px;
+  /*position:fixed;*/
+  width:100%;
 }
   .twitter-follow {
     color: rgba(0,0,0,.8);
@@ -405,3 +414,46 @@ h1 {
   font-size: 14px;
   text-align: center;
 }
+.code-block{
+  border: 4px solid #E0E0E0 ;
+  border-radius: 20px;
+  padding: 4px;
+}
+
+.backStyle{
+  /*background-image: url("../image/11.jpg");*/
+  background-size: cover;
+
+}
+html body{
+  height :100%;
+   background-image: url("../image/13.jpg");
+  background-size: cover;
+}
+.span-time{
+  float: right;
+  font-size: 16px;
+  color: #999;
+}
+.a-emphasize{
+  color: #307EA9 !important;
+}
+.main-div{
+  width: 900px;
+  border: 2px solid #ffffff;
+  border-radius: 50px;
+  background-color: #ffffff;
+  margin: 0 auto;
+  padding-bottom: 300px;
+  margin-top:100px;
+
+
+}
+
+/*body{
+  background-image: url("../image/4.jpg");
+  background-size: cover;
+}*/
+/*.comments{
+
+}*/

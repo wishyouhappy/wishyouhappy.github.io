@@ -4,19 +4,19 @@
   {% include head.html %}
 
   <body>
-
-    <div class="header">
-      <div class="container">
+  <div class = "main-div">
+    <div class="header backStyle">
+      <div class="container" >
           <ul class = "menu">
           {% for page in site.pages_list %}
             &nbsp;&nbsp;&nbsp;
-            <li><a href="{{ page[1]  }}">{{ page[0] }}</a></li>
+            <li ><a href="{{ page[1]  }}" style="color: #888888 ">{{ page[0] }}</a></li>
           {% endfor %}
           </ul>
           <section class = "name">
 <!--             <a href="/" title="Home"><b>{{ site.title }}</b></a>
  -->          
-             <a href="/" title="Home"><b>wish</b></a>
+             <a href="/" title="Home" style="color: #888888; font-weight:800">wish</a>
 
            </section>
       </div>  
@@ -27,12 +27,12 @@
       </main>
       </div>
 
-      <footer class="footer">
+
+     <!--  <footer class="footer">
         <small>
           &copy; <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>. All rights reserved.
         </small>
-      </footer>
+      </footer> -->
     </div>
-
   </body>
 </html>

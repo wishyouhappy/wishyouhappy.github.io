@@ -7,5 +7,5 @@ title: Archive
 ## Blog Posts
 
 {% for post in site.posts %}
-  * {{ post.date | date_to_string }} &raquo; [ {{ post.title }} ]({{ post.url }})
+  * [ {{ post.title }} ]({{ post.url }}) <span class="span-time"> &raquo; {{ post.date | date_to_string }}</span>  
 {% endfor %}

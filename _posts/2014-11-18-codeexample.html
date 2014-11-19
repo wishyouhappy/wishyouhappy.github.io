@@ -1,0 +1,88 @@
+---
+layout: post
+title: Code highlight example in jekyll
+---
+---
+<div class ="container">
+	<p>
+		<ul>
+			<li>
+				Add <a href= "{{ site.baseurl }}public/css/syntax.css">syntax highlighter CSS file</a> to your site
+			</li>
+			<li>
+				Wrap your code use 
+
+
+			</li>
+		</ul>
+
+	</p>
+	<div class="code-block">
+	<pre>
+	{% raw %}
+	{% highlight js %}  
+	your javascript code
+	{% endhighlight %} 
+	</pre>
+	{% endraw %}
+</div>
+<h2>Code example</h2>
+<p>
+	Example1, html
+</p>
+
+<p>
+<div class="code-block">
+	{% raw %}
+	<pre>
+	{% highlight js %}
+	//example
+	var adder = new Function("a", "b");
+	adder(2, 6);
+	{% endhighlight %}
+	</pre>
+	</div>
+	output:
+	{% endraw %}
+	<div class="code-block">
+	{% highlight js linenos%}
+  //example
+  var adder = new Function("a", "b");
+  adder(2, 6);
+	{% endhighlight %}
+	</div>
+	</p>
+	<p>
+		Example2, html
+	</p>
+	<p>
+
+		{% raw %}
+		<div class="code-block">
+	<pre>
+	{% highlight ruby %}
+	def show
+	@widget = Widget(params[:id])
+	respond_to do |format|
+	format.html # show.html.erb
+	format.json { render json: @widget }
+	end
+	end
+	{% endhighlight %}
+	</pre>
+	</div>
+	{% endraw %}
+	output:
+<div class="code-block">
+	{% highlight ruby linenos %}
+	def show
+	@widget = Widget(params[:id])
+	respond_to do |format|
+	format.html # show.html.erb
+	format.json { render json: @widget }
+	end
+	end
+	{% endhighlight %}
+</div>
+	</p>
+
