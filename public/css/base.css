@@ -505,9 +505,18 @@ h1 {
    display:none;
 }
 .header {
-  margin-top: 20px;
-  margin-bottom: -40px;
-  padding: 0px;
+  padding-top: 0px;
+  margin-bottom:  50px;
+  padding: 20px;
+  background: url(../image/13.jpg) no-repeat fixed; 
+  height :80px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.painting{
+  display: none !important;
+  visibility: hidden !important;
 }
 
 .name {
@@ -518,8 +527,17 @@ h1 {
 }
 
 .menu {
-  display: none;
-  position: relative;
+  position: absolute;
+  margin-top: 60px;
+  left: 1px;
+  margin-bottom: 40px;
+}
+ul{
+  padding-left: 1px
+}
+.painting:last-child{
+  display: none !important;
+  visibility: hidden !important;
 }
 
 .social {
@@ -556,6 +574,7 @@ h1 {
   margin: 0;
   padding: 0 0 10px 0;
   font-size: 18px;
+  background-image: 
 }
 
   h2, h3 {
