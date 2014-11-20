@@ -614,13 +614,18 @@ h1 {
     font-size: 16px;
   }
 
-  .code .pre,  .content pre, .content p code,  .content p ,.code-block, .container ,.page-date ,.header1, ul{
+  .code .pre,  .content pre, .content p code,  .content p ,.code-block, .container ,.page-date ,.header1,ul li{
     font-size:12px !important;
     margin-left: 10px !important;
   }
 
   .container ul li,  .container p{
     font-size: 14px;
+  }
+  .header1{
+    display: block;
+    position: relative;
+   margin-left: 10px !important;
   }
  
  .code-block{
