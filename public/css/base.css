@@ -142,7 +142,7 @@ h1 {
 
   h2 {
     margin: 50px -30px 20px -30px;
-    padding: 10px 30px 10px 25px;
+    padding: 10px 30px 10px 15px;
     border-left: 5px solid #eee;
     font-family: 'Avenir Next LT W01';
     font-weight: 200;
@@ -420,11 +420,7 @@ h1 {
   padding: 4px;
 }
 
-.backStyle{
-  /*background-image: url("../image/11.jpg");*/
-  /*background-size: cover;*/
 
-}
 /*body{
   height :100%;
   background: url(../image/13.jpg) no-repeat fixed; 
@@ -465,10 +461,21 @@ h1 {
   border-radius: 50px;
   background-color: #ffffff;
   margin: 0 auto;
-  margin-top:100px;
+  margin-top:150px;
   margin-bottom:50px;
   z-index: 2;
   position: relative;
   min-height: 500px
+}
+
+#container1{
+  position: absolute;
+    top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  z-index: 1;
+
 }
 
