@@ -63,7 +63,7 @@ li {
 
   .name a {
     font-size: 30px;
-    font-family: 'Avenir Next W01 Thin';
+    font-family: 'Avenir Next W01 Thin Bold';
     font-weight: normal;
     text-transform: uppercase;
   }
@@ -461,11 +461,12 @@ h1 {
   border-radius: 50px;
   background-color: #ffffff;
   margin: 0 auto;
-  margin-top:150px;
+  margin-top:0px;
   margin-bottom:50px;
   z-index: 2;
   position: relative;
-  min-height: 500px
+  min-height: 500px;
+  padding-top:20px;
 }
 
 #container1{
@@ -477,6 +478,14 @@ h1 {
   margin: auto; 
   z-index: 1;
 
+}
+
+.top-title{
+  margin: 0 auto;
+  margin-top:20px;
+  margin-bottom:0px;
+  z-index: 2;
+  position: relative;
 }
 
 /*for mobile*/
@@ -497,6 +506,8 @@ h1 {
   width: 100%;
   padding-left: 5px;
   margin:0px;
+  margin-top: 30px
+
 }
 #bg {
   display:none;
@@ -506,10 +517,10 @@ h1 {
 }
 .header {
   padding-top: 0px;
-  margin-bottom:  50px;
+  margin-bottom: 10px;
   padding: 20px;
   background: url(../image/13.jpg) no-repeat fixed; 
-  height :80px;
+  height :60px;
   border: 1px solid white;
   border-radius: 10px;
 }
@@ -528,9 +539,9 @@ h1 {
 
 .menu {
   position: absolute;
-  margin-top: 60px;
+  margin-top: 50px;
   left: 1px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 ul{
   padding-left: 2px
@@ -630,6 +641,10 @@ h1 {
  
  .code-block{
   width: 100%;
+ }
+
+ .margin5{
+  margin-bottom: 5px;
  }
 
 }
