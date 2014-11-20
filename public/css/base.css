@@ -489,13 +489,13 @@ h1 {
 .container {
   width: 100%;
   overflow-x: visible;
-  padding: 0px;
+  padding-left: 5px;
   margin:0px;
 }
 
 .main-div{
   width: 100%;
-  padding: 0px;
+  padding-left: 5px;
   margin:0px;
 }
 #bg {
@@ -533,7 +533,7 @@ h1 {
   margin-bottom: 40px;
 }
 ul{
-  padding-left: 1px
+  padding-left: 2px
 }
 .painting:last-child{
   display: none !important;
