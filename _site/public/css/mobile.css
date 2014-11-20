@@ -6,6 +6,10 @@ body {
   width: 100%;
   overflow-x: visible;
 }
+.main-div{
+  width: 100%;
+  overflow-x: visible;
+}
 
 .header {
   margin-top: 50px;
