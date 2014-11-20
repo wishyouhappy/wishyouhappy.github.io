@@ -6,9 +6,18 @@ body {
   width: 100%;
   overflow-x: visible;
 }
+
 .main-div{
   width: 100%;
-  overflow-x: visible;
+  border: 2px solid #ffffff;
+  border-radius: 50px;
+  background-color: #ffffff;
+  margin: 0 auto;
+  margin-top:50px;
+  margin-bottom:20px;
+  z-index: 2;
+  position: relative;
+  min-height: 400px
 }
 
 .header {
@@ -24,7 +33,7 @@ body {
 }
 
 .menu {
-  display: none;
+  float: right;
 }
 
 .social {
