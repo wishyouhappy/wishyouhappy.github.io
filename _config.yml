@@ -4,8 +4,10 @@ relative_permalinks: true
 
 # Setup
 title:            wishyouhappy
+url: http:
 paginate:         1
 baseurl:          /
+url: http://wishyouhappy.li.com
 author:
   name:           wishyouhappy
 
