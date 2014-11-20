@@ -12,6 +12,10 @@ title: About
 	<p>
 	  If you want to get in touch with me send me <a class ="a-emphasize" href="MAILTO:juanli2014@u.northwestern.edu">Email</a>
 	</p>
+
+	   <svg viewBox="0 0 100 25" class="shape-tab">
+      <use xlink:href="#shape-tab"></use>
+    </svg>
 </div>
 
 

@@ -8,7 +8,7 @@ Particle.prototype = {
 
 		this.alive = true;
 
-		this.radius = radius || 5;
+		this.radius = radius || 8;
 		this.wander = 0.15;
 		this.theta = random( TWO_PI );
 		this.drag = 0.92;
@@ -50,8 +50,8 @@ Particle.prototype = {
 // Example
 // ----------------------------------------
 
-var MAX_PARTICLES = 50;
-var COLOURS = [ '#FFFFCC', '#9933FF', '#00FF99', '#F38630', '#FA6900', '#FF4E50', '#99CCFF' ];
+var MAX_PARTICLES = 500;
+var COLOURS = [ '#ADE6F1', '#D2E9E8', '#E0E4CC', '#A9E2F3', '#CCBFF2', '#F8E0EC', '#FAEA9B' ];
 
 var particles = [];
 var pool = [];
@@ -78,7 +78,7 @@ demo.spawn = function( x, y ) {
 		pool.push( particles.shift() );
 
 	particle = pool.length ? pool.pop() : new Particle();
-	particle.init( x, y, random( 1, 3 ) );
+	particle.init( x, y, random( 1, 6 ) );
 
 	particle.wander = random( 0.5, 2.0 );
 	particle.color = random( COLOURS );
