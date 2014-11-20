@@ -616,6 +616,7 @@ h1 {
 
   .code .pre,  .content pre, .content p code,  .content p ,.code-block, .container .page-date{
     font-size:12px !important;
+    margin-left: 10px !important;
   }
 
   .container ul li,  .container p{
