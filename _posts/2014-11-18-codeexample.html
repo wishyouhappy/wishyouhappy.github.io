@@ -86,3 +86,47 @@ title: Code highlight example in jekyll
 </div>
 	</p>
 
+	<h2>Add line number to your code</h2>
+<p>
+	simple way:  
+		{% raw %}
+		<div class="code-block">
+	<pre>
+	{% highlight ruby linenos%}
+	def show
+	@widget = Widget(params[:id])
+	{% endhighlight %}
+	</pre>
+	</div>
+	{% endraw %}
+
+</p>
+
+<p>Seperate the line number with your code, add the following to your css: </p>
+
+<div class="code-block">
+	{% highlight css linenos %}
+.highlight .lineno { color: #ccc; display:inline-block; padding: 0 5px; border-right:1px solid #ccc; }
+.highlight pre code { display: block; white-space: pre; overflow-x: auto; word-wrap: normal; }
+	{% endhighlight %}
+</div>
+
+
+
+<p>Make your line number unselectable, add the following css</p>
+
+<div class="code-block">
+	{% highlight css linenos %}
+.highlight .lineno { color: #ccc; display:inline-block; padding: 0 5px; border-right:1px solid #ccc; }
+.highlight pre code { display: block; white-space: pre; overflow-x: auto; word-wrap: normal; }
+	{% endhighlight %}
+</div>
+.highlight .lineno {-webkit-user-select: none;-moz-user-select: none; -o-user-select: none;} 
+.lineno::-moz-selection {background-color: transparent;} /* Mozilla specific */
+.lineno::selection {background-color: transparent;} /* Other major browsers */
+</div>
+
+<h2>More</h2>
+<p>Whole syntax css file for your blog <a href="{{ site.baseurl }}public/css/syntax.css">syntax.css</a></p>
+
+
