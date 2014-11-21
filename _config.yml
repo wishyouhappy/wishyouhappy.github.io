@@ -4,7 +4,6 @@ relative_permalinks: true
 
 # Setup
 title:            wishyouhappy
-url: 
 paginate:         1
 baseurl:          /
 author:
