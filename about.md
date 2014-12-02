@@ -5,7 +5,7 @@ title: About
 <div class ="container">
 	<h2>About me</h2>
 	<p>
-	  Hey there! I am Juan(Wish) Li, a northwestern university student majoring in computer engineering. I love piano, painting and travel and coding. 
+	  Hey there! I am Juan Li (Christina), a northwestern university student majoring in computer engineering. I love piano, painting and travel and coding. 
 	</p>
 
 	<h2>Coding skills</h2>
