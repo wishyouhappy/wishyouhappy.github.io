@@ -13,7 +13,7 @@ pages_list:
   About: '/about'
   Blogs: '/blogs'
   Photo: '/photos'
-  Painting: '/painting'
+  Gallary: '/gallary'
 
 code_dir: source/downloads/code
 
