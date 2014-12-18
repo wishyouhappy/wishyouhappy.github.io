@@ -12,7 +12,7 @@
     
   </title>
 
-  <link rel="icon" type="image/png"  href="/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon"  href="/public/image/leave.ico">
 
   <!-- CSS -->
   <link type="text/css" rel="stylesheet" href="http://fast.fonts.com/cssapi/d70ca5cd-778e-48cc-9e59-6b276425c670.css"/>
@@ -59,7 +59,7 @@
           <section class = "name">
 <!--             <a href="/" title="Home"><b>wishyouhappy</b></a>
  -->          
-             <a href="/" title="Home" style="color: #565656; font-weight:800">wish</a>
+             <a href="/" title="Home" style="color: #565656; font-weight:800">wishyouhappy</a>
 
            </section>
       </div>  
@@ -151,6 +151,46 @@
 </div>
 	</p>
 
+	<h2>Add line number to your code</h2>
+<p>
+	simple way:  
+		
+		<div class="code-block">
+	<pre>
+	{% highlight ruby linenos%}
+	def show
+	@widget = Widget(params[:id])
+	{% endhighlight %}
+	</pre>
+	</div>
+	
+
+</p>
+
+<p>Seperate the line number with your code, add the following to your css: </p>
+
+<div class="code-block">
+	<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="lineno">1</span> <span class="nc">.highlight</span> <span class="nc">.lineno</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#ccc</span><span class="p">;</span> <span class="k">display</span><span class="o">:</span><span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span> <span class="k">padding</span><span class="o">:</span> <span class="m">0</span> <span class="m">5px</span><span class="p">;</span> <span class="k">border-right</span><span class="o">:</span><span class="m">1px</span> <span class="k">solid</span> <span class="m">#ccc</span><span class="p">;</span> <span class="p">}</span>
+<span class="lineno">2</span> <span class="nc">.highlight</span> <span class="nt">pre</span> <span class="nt">code</span> <span class="p">{</span> <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span> <span class="k">white-space</span><span class="o">:</span> <span class="n">pre</span><span class="p">;</span> <span class="k">overflow-x</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span> <span class="n">word</span><span class="o">-</span><span class="n">wrap</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span> <span class="p">}</span></code></pre></div>
+</div>
+
+
+
+<p>Make your line number unselectable, add the following css</p>
+
+<div class="code-block">
+	<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="lineno">1</span> <span class="nc">.highlight</span> <span class="nc">.lineno</span> <span class="p">{</span><span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">select</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span><span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">select</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="o">-</span><span class="n">o</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">select</span><span class="o">:</span> <span class="k">none</span><span class="p">;}</span> 
+<span class="lineno">2</span> <span class="nc">.lineno</span><span class="o">:</span><span class="nd">:-moz-selection</span> <span class="p">{</span><span class="k">background-color</span><span class="o">:</span> <span class="k">transparent</span><span class="p">;}</span> <span class="c">/* Mozilla specific */</span>
+<span class="lineno">3</span> <span class="nc">.lineno</span><span class="o">:</span><span class="nd">:selection</span> <span class="p">{</span><span class="k">background-color</span><span class="o">:</span> <span class="k">transparent</span><span class="p">;}</span> <span class="c">/* Other major browsers */</span></code></pre></div>
+</div>
+<h2>More</h2>
+<p>Whole syntax css file for your blog <a href="/public/css/syntax.css">syntax.css</a></p>
+
+</div>
+
+
+
+
 
 </div>
 
@@ -160,9 +200,9 @@
     
       <li>
         
-          <a href="/2013/12/31/whats-jekyll/">
-            What's Jekyll?
-            <small><time datetime="2013-12-31T00:00:00-06:00">31 Dec 2013</time></small>
+          <a href="/2014/12/17/morris%20traversal-traverse%20a%20binary%20tree%20without%20stack/">
+            Morris traversal-traverse a binary tree without stack
+            <small><time datetime="2014-12-17T00:00:00-06:00">17 Dec 2014</time></small>
           </a>
         
       </li>
@@ -192,7 +232,7 @@
 
      <!--  <footer class="footer">
         <small>
-          &copy; <time datetime="2014-11-20T18:51:00-06:00">2014</time>. All rights reserved.
+          &copy; <time datetime="2014-12-17T21:04:18-06:00">2014</time>. All rights reserved.
         </small>
       </footer> -->
     </div>

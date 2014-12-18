@@ -1,0 +1,300 @@
+---
+layout: post
+title: Morris traversal-traverse a binary tree without stack
+---
+
+<div class ="container">
+
+<h2>About morris traversal</h2>
+
+<p>It aims at traversing an binary tree in inorder without using stack.</p>
+
+<p>The main idea:
+Create links to the successor(use leaf node's left or right null pointer)
+Print the data using these links
+Revert the changes to restore original tree.</p>
+
+<h2>Inorder Example</h2>
+
+<p>Let's explain inorder traversal as an example:
+If the current node has left child, find the predecessor of current node, set current as its right child. In this way, we can return to parent after finish traverse the left subtree.</p>
+
+<p>See details on the following picture:</p>
+
+<img src= "{{ site.baseurl }}public/image/morristraversal1.jpg">
+
+<p>The presudo code is below:</p>
+
+
+    <div class="code-block">
+    {% highlight lisp linenos%}
+  Initialize current as root
+  While current is not NULL
+  If current does not have left child  
+     a. Print current’s data
+     b. Go to the right, i.e., current = current->right
+  Else
+     a. Find the predecessor of current node
+     b. If predecessor's right child is null,
+         1) make current the right child of its predecessor
+         2)Go to this left child, i.e., current = current->left
+      Else:
+         1) if predecessor's right child is current node, set predecessor's right child to null
+         2) print current node, set current node to its right child
+    {% endhighlight %}
+    </div>
+
+
+
+<h2>Jave implementation:</h2>
+
+    <div class="code-block">
+    {% highlight java linenos%}
+
+        public void morrisTraversal(TreeNode root){
+        if(root == null) return;
+        
+        TreeNode pre = null;
+        while(root != null){
+            if(root.left == null){
+                System.out.println(root.val);
+                root = root.right;
+            }else{
+                /* find predecessor */
+                pre = root.left;
+                while(pre.right != null && pre.right != root)
+                    pre = pre.right;
+                
+                /* if predecessor's right == null, set current node as its right child */
+                if(pre.right == null){
+                    pre.right = root;
+                    root = root.left;
+                }else{
+                    /* recover tree, when return to parent node the second time */
+                    pre.right = null;
+                    System.out.println(root.val);
+                    root = root.right;
+                }
+            }
+        }
+    }
+
+
+ {% endhighlight %}
+    </div>
+
+<h2>Analysis:</h2>
+
+<p>To find predecessor, we visit a node at most 3 times, so the overall time complexity is O(n)</p>
+
+<h2>Preorder and Postorder</h2>
+
+<p>The morris traverse can be applied to preorder traverse and postorder traverse with some changes.</p>
+
+<h3>preorder</h3>
+
+<p>It's very similar with inorder, just change the print out sequence.</p>
+
+<p>The presudo code is below:</p>
+
+
+ 
+    <div class="code-block">
+    {% highlight lisp linenos%}
+
+ Initialize current as root
+  While current is not NULL
+  If current does not have left child   
+     a. Print current node
+     b. Go to the right, i.e., current = current->right
+  Else
+     a. Find the predecessor of current node
+     b. If predecessor's right child is null,
+         1) make current the right child of its predecessor
+         2) Print current node
+         3)Go to this left child, i.e., current = current->left
+      Else:
+         1) if predecessor's right child is current node, set predecessor's right child to null
+         2) set current node to its right child
+
+ {% endhighlight %}
+    </div>
+
+
+<p>java implementation:</p>
+
+    <div class="code-block">
+    {% highlight java linenos%}
+
+public void morrisTraversal(TreeNode root){
+        if(root == null) return;
+        
+        TreeNode pre = null;
+        while(root != null){
+            if(root.left == null){
+                System.out.println(root.val);
+                root = root.right;
+            }else{
+                /* find predecessor */
+                pre = root.left;
+                while(pre.right != null && pre.right != root)
+                    pre = pre.right;
+                
+                /* if predecessor's right == null, set current node as its right child */
+                if(pre.right == null){
+                    pre.right = root;
+                    System.out.println(root.val);
+                    root = root.left;
+                }else{
+                    /* recover tree, when return to parent node the second time */
+                    pre.right = null;
+                    root = root.right;
+                }
+            }
+        }
+    }
+
+     {% endhighlight %}
+    </div>
+
+<h3>postorder</h3>
+
+<p>We need to create a dummy node and set root as its left child.</p>
+
+<p>The presudo code is below:</p>
+
+
+    <div class="code-block">
+    {% highlight lisp linenos%}
+
+Initialize current as root
+  While current is not NULL
+  If current does not have left child   
+      Go to the right, i.e., current = current->right
+  Else
+     a. Find the predecessor of current node
+     b. If predecessor's right child is null,
+         1) make current the right child of its predecessor
+         2)Go to this left child, i.e., current = current->left
+      Else:
+         1) if predecessor's right child is current node, set predecessor's right child to null
+         2) print out all nodes on path from current's left to current's predecessor reversely.
+         3) set current node to its right child
+
+
+ {% endhighlight %}
+    </div>
+
+<p>java implementation:</p>
+
+    <div class="code-block">
+    {% highlight java linenos%}
+
+public void morrisTraversal(TreeNode root){
+        if(root == null) return;
+        
+        TreeNode pre = null;
+        TreeNode dummy = new TreeNode(0);
+        dummy.left = root;
+        root = dummy;
+        while(root != null){
+            if(root.left == null){
+                root = root.right;
+            }else{
+                /* find predecessor */
+                pre = root.left;
+                while(pre.right != null && pre.right != root)
+                    pre = pre.right;
+                
+                /* if predecessor's right == null, set current node as its right child */
+                if(pre.right == null){
+                    pre.right = root;
+                    root = root.left;
+                }else{
+                    /* recover tree, when return to parent node the second time */
+                    pre.right = null;
+                    printPathReverse(root.left, pre);
+                    root = root.right;
+                }
+            }
+        }
+    }
+
+
+ {% endhighlight %}
+    </div>
+
+    <h2> Recover binary tree use morris traverse</h2>
+    <p>Two elements of a binary search tree (BST) are swapped by mistake. Recover the tree without changing its structure.<p>
+    <p>We can easily solve this problem by recursion or using stack. What should we do if it requires us to use constant space? Mirros Traverse! </p>
+
+    <p>java implementation:</p>
+
+    <div class="code-block">
+    {% highlight java linenos%}
+
+package leetcode;
+
+/**
+ * @author wish
+ *
+ */
+public class BinaryTree_RecoverBinarySearchTree {
+    /*
+     * O(1) space
+     */
+    public void recoverTree(TreeNode root) {
+        /* arr[0] arr[1] stroe two swapped elements, arr[2] store pre.*/
+        TreeNode[] arr = new TreeNode[2];
+        morrisTraversal(root, arr);
+        int temp = arr[0].val;
+        arr[0].val = arr[1].val;
+        arr[1].val = temp;
+    }
+    
+    
+    public void morrisTraversal(TreeNode root, TreeNode[] arr){
+        if(root == null) return;
+        
+        TreeNode pre = null; /* predecessor*/
+        TreeNode previous = null;
+        while(root != null){
+            if(root.left == null){
+                if( previous != null && previous.val > root.val){
+                    if(arr[0] == null) arr[0] = previous;
+                    arr[1] = root;
+                }
+                previous = root;
+                root = root.right;
+            }else{
+                /* find predecessor */
+                pre = root.left;
+                while(pre.right != null && pre.right != root)
+                    pre = pre.right;
+                
+                /* if predecessor's right == null, set current node as its right child */
+                if(pre.right == null){
+                    pre.right = root;
+                    root = root.left;
+                }else{
+                    /* recover tree, when return to parent node the second time */
+                    pre.right = null;
+                    if( previous != null && previous.val > root.val){
+                        if(arr[0] == null) arr[0] = previous;
+                        arr[1] = root;
+                    }   
+                    previous = root;
+                    root = root.right;
+                }
+            }
+        }
+    }
+}
+
+
+
+ {% endhighlight %}
+    </div>
+
+
+</div>
