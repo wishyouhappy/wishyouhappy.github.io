@@ -27,20 +27,20 @@ If the current node has left child, find the predecessor of current node, set cu
 
 
     <div class="code-block">
-    {% highlight lisp linenos%}
-  Initialize current as root
-  While current is not NULL
-  If current does not have left child  
-     a. Print current’s data
-     b. Go to the right, i.e., current = current->right
-  Else
-     a. Find the predecessor of current node
-     b. If predecessor's right child is null,
-         1) make current the right child of its predecessor
-         2)Go to this left child, i.e., current = current->left
-      Else:
-         1) if predecessor's right child is current node, set predecessor's right child to null
-         2) print current node, set current node to its right child
+    {% highlight python linenos%}
+  initialize current as root
+  while current is not NULL:
+    if current does not have left child: 
+       a. Print current’s data
+       b. Go to the right, i.e., current = current->right
+    else:
+       a. Find the predecessor of current node
+       b. if predecessor's right child is null:
+           1) make current the right child of its predecessor
+           2)Go to this left child, i.e., current = current->left
+        else:
+           1) if predecessor's right child is current node, set predecessor's right child to null
+           2) print current node, set current node to its right child
     {% endhighlight %}
     </div>
 
@@ -100,22 +100,22 @@ If the current node has left child, find the predecessor of current node, set cu
 
  
     <div class="code-block">
-    {% highlight lisp linenos%}
+    {% highlight python linenos%}
 
- Initialize current as root
-  While current is not NULL
-  If current does not have left child   
-     a. Print current node
-     b. Go to the right, i.e., current = current->right
-  Else
-     a. Find the predecessor of current node
-     b. If predecessor's right child is null,
-         1) make current the right child of its predecessor
-         2) Print current node
-         3)Go to this left child, i.e., current = current->left
-      Else:
-         1) if predecessor's right child is current node, set predecessor's right child to null
-         2) set current node to its right child
+ initialize current as root
+  while current is not NULL:
+    if current does not have left child:  
+       a. Print current node
+       b. Go to the right, i.e., current = current->right
+    else
+       a. Find the predecessor of current node
+       b. if predecessor's right child is null:
+           1) make current the right child of its predecessor
+           2) Print current node
+           3)Go to this left child, i.e., current = current->left
+        else:
+           1) if predecessor's right child is current node, set predecessor's right child to null
+           2) set current node to its right child
 
  {% endhighlight %}
     </div>
@@ -165,21 +165,21 @@ public void morrisTraversal(TreeNode root){
 
 
     <div class="code-block">
-    {% highlight lisp linenos%}
+    {% highlight python linenos%}
 
-Initialize current as root
-  While current is not NULL
-  If current does not have left child   
-      Go to the right, i.e., current = current->right
-  Else
-     a. Find the predecessor of current node
-     b. If predecessor's right child is null,
-         1) make current the right child of its predecessor
-         2)Go to this left child, i.e., current = current->left
-      Else:
-         1) if predecessor's right child is current node, set predecessor's right child to null
-         2) print out all nodes on path from current's left to current's predecessor reversely.
-         3) set current node to its right child
+  initialize current as root
+  while current is not NULL: 
+    if current does not have left child:
+        Go to the right, i.e., current = current->right
+    else:
+       a. Find the predecessor of current node
+       b. if predecessor's right child is null:
+           1) make current the right child of its predecessor
+           2)Go to this left child, i.e., current = current->left
+        else:
+           1) if predecessor's right child is current node, set predecessor's right child to null
+           2) print out all nodes on path from current's left to current's predecessor reversely.
+           3) set current node to its right child
 
 
  {% endhighlight %}
