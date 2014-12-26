@@ -24,10 +24,10 @@ String pattern = "ABDAB"</p>
 
 <p>So what is the partial match array? It's the prefix and suffix matching information in the pattern string from beginning to end.</p>
 
-<p>1) "A": none prefix and suffix
-2) "AB": prefix A, suffix B. No matching
-3) "ABD": prefix A or AB, suffix D or BD. No matching
-4) "ABDA": prefix A, AB or ABD, suffix A, DA or BDA. There is a matching between prefix and suffix, that is "A"
+<p>1) "A": none prefix and suffix<br>
+2) "AB": prefix A, suffix B. No matching<br>
+3) "ABD": prefix A or AB, suffix D or BD. No matching<br>
+4) "ABDA": prefix A, AB or ABD, suffix A, DA or BDA. There is a matching between prefix and suffix, that is "A"<br>
 5) "ABDAB": prefix A, AB, ABD or ABDA suffix B, AB, DAB or BDAB. There is a matching between prefix and suffix, that is "AB"</p>
 
 <p>After the above steps, we get our partial match array:
