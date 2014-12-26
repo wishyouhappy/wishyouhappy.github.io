@@ -52,7 +52,7 @@
           
             &nbsp;&nbsp;&nbsp;
             
-              <li ><a href="/painting" style="color: #626262 " class="painting">Painting</a></li>          
+              <li ><a href="/gallary" style="color: #626262 ">Gallary</a></li>
             
           
           </ul>
@@ -78,9 +78,9 @@
 
 <p>It aims at traversing an binary tree in inorder without using stack.</p>
 
-<p>The main idea:
-Create links to the successor(use leaf node's left or right null pointer)
-Print the data using these links
+<p>The main idea:<br/>
+Create links to the successor(use leaf node's left or right null pointer)<br/>
+Print the data using these links<br>
 Revert the changes to restore original tree.</p>
 
 <h2>Inorder Example</h2>
@@ -96,19 +96,19 @@ If the current node has left child, find the predecessor of current node, set cu
 
 
     <div class="code-block">
-    <div class="highlight"><pre><code class="language-lisp" data-lang="lisp"><span class="lineno"> 1</span> <span class="nv">Initialize</span> <span class="nv">current</span> <span class="nv">as</span> <span class="nv">root</span>
-<span class="lineno"> 2</span>   <span class="nv">While</span> <span class="nv">current</span> <span class="nv">is</span> <span class="nb">not</span> <span class="nv">NULL</span>
-<span class="lineno"> 3</span>   <span class="nv">If</span> <span class="nv">current</span> <span class="nv">does</span> <span class="nb">not</span> <span class="nv">have</span> <span class="nv">left</span> <span class="nv">child</span>  
-<span class="lineno"> 4</span>      <span class="nv">a.</span> <span class="nv">Print</span> <span class="nv">current</span><span class="err">’</span><span class="nv">s</span> <span class="nv">data</span>
-<span class="lineno"> 5</span>      <span class="nv">b.</span> <span class="nv">Go</span> <span class="nv">to</span> <span class="k">the</span> <span class="nv">right,</span> <span class="nv">i.e.,</span> <span class="nv">current</span> <span class="nb">=</span> <span class="nv">current-&gt;right</span>
-<span class="lineno"> 6</span>   <span class="nv">Else</span>
-<span class="lineno"> 7</span>      <span class="nv">a.</span> <span class="nv">Find</span> <span class="k">the</span> <span class="nv">predecessor</span> <span class="nv">of</span> <span class="nv">current</span> <span class="nv">node</span>
-<span class="lineno"> 8</span>      <span class="nv">b.</span> <span class="nv">If</span> <span class="nv">predecessor</span><span class="ss">&#39;s</span> <span class="nv">right</span> <span class="nv">child</span> <span class="nv">is</span> <span class="nv">null,</span>
-<span class="lineno"> 9</span>          <span class="mi">1</span><span class="p">)</span> <span class="nv">make</span> <span class="nv">current</span> <span class="k">the</span> <span class="nv">right</span> <span class="nv">child</span> <span class="nv">of</span> <span class="nv">its</span> <span class="nv">predecessor</span>
-<span class="lineno">10</span>          <span class="mi">2</span><span class="p">)</span><span class="nv">Go</span> <span class="nv">to</span> <span class="nv">this</span> <span class="nv">left</span> <span class="nv">child,</span> <span class="nv">i.e.,</span> <span class="nv">current</span> <span class="nb">=</span> <span class="nv">current-&gt;left</span>
-<span class="lineno">11</span>       <span class="nv">Else:</span>
-<span class="lineno">12</span>          <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="nv">predecessor</span><span class="ss">&#39;s</span> <span class="nv">right</span> <span class="nv">child</span> <span class="nv">is</span> <span class="nv">current</span> <span class="nv">node,</span> <span class="nb">set</span> <span class="nv">predecessor</span><span class="ss">&#39;s</span> <span class="nv">right</span> <span class="nv">child</span> <span class="nv">to</span> <span class="nb">null</span>
-<span class="lineno">13</span>          <span class="mi">2</span><span class="p">)</span> <span class="nb">print</span> <span class="nv">current</span> <span class="nv">node,</span> <span class="nb">set</span> <span class="nv">current</span> <span class="nv">node</span> <span class="nv">to</span> <span class="nv">its</span> <span class="nv">right</span> <span class="nv">child</span></code></pre></div>
+    <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="n">initialize</span> <span class="n">current</span> <span class="k">as</span> <span class="n">root</span>
+<span class="lineno"> 2</span>   <span class="k">while</span> <span class="n">current</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">NULL</span><span class="p">:</span>
+<span class="lineno"> 3</span>     <span class="k">if</span> <span class="n">current</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">have</span> <span class="n">left</span> <span class="n">child</span><span class="p">:</span> 
+<span class="lineno"> 4</span>        <span class="n">a</span><span class="o">.</span> <span class="n">Print</span> <span class="n">current</span><span class="err">’</span><span class="n">s</span> <span class="n">data</span>
+<span class="lineno"> 5</span>        <span class="n">b</span><span class="o">.</span> <span class="n">Go</span> <span class="n">to</span> <span class="n">the</span> <span class="n">right</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="p">,</span> <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span>
+<span class="lineno"> 6</span>     <span class="k">else</span><span class="p">:</span>
+<span class="lineno"> 7</span>        <span class="n">a</span><span class="o">.</span> <span class="n">Find</span> <span class="n">the</span> <span class="n">predecessor</span> <span class="n">of</span> <span class="n">current</span> <span class="n">node</span>
+<span class="lineno"> 8</span>        <span class="n">b</span><span class="o">.</span> <span class="k">if</span> <span class="n">predecessor</span><span class="s">&#39;s right child is null:</span>
+<span class="lineno"> 9</span>            <span class="mi">1</span><span class="p">)</span> <span class="n">make</span> <span class="n">current</span> <span class="n">the</span> <span class="n">right</span> <span class="n">child</span> <span class="n">of</span> <span class="n">its</span> <span class="n">predecessor</span>
+<span class="lineno">10</span>            <span class="mi">2</span><span class="p">)</span><span class="n">Go</span> <span class="n">to</span> <span class="n">this</span> <span class="n">left</span> <span class="n">child</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="p">,</span> <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">left</span>
+<span class="lineno">11</span>         <span class="k">else</span><span class="p">:</span>
+<span class="lineno">12</span>            <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">predecessor</span><span class="s">&#39;s right child is current node, set predecessor&#39;</span><span class="n">s</span> <span class="n">right</span> <span class="n">child</span> <span class="n">to</span> <span class="n">null</span>
+<span class="lineno">13</span>            <span class="mi">2</span><span class="p">)</span> <span class="k">print</span> <span class="n">current</span> <span class="n">node</span><span class="p">,</span> <span class="nb">set</span> <span class="n">current</span> <span class="n">node</span> <span class="n">to</span> <span class="n">its</span> <span class="n">right</span> <span class="n">child</span></code></pre></div>
     </div>
 
 
@@ -162,20 +162,20 @@ If the current node has left child, find the predecessor of current node, set cu
 
  
     <div class="code-block">
-    <div class="highlight"><pre><code class="language-lisp" data-lang="lisp"><span class="lineno"> 1</span> <span class="nv">Initialize</span> <span class="nv">current</span> <span class="nv">as</span> <span class="nv">root</span>
-<span class="lineno"> 2</span>   <span class="nv">While</span> <span class="nv">current</span> <span class="nv">is</span> <span class="nb">not</span> <span class="nv">NULL</span>
-<span class="lineno"> 3</span>   <span class="nv">If</span> <span class="nv">current</span> <span class="nv">does</span> <span class="nb">not</span> <span class="nv">have</span> <span class="nv">left</span> <span class="nv">child</span>   
-<span class="lineno"> 4</span>      <span class="nv">a.</span> <span class="nv">Print</span> <span class="nv">current</span> <span class="nv">node</span>
-<span class="lineno"> 5</span>      <span class="nv">b.</span> <span class="nv">Go</span> <span class="nv">to</span> <span class="k">the</span> <span class="nv">right,</span> <span class="nv">i.e.,</span> <span class="nv">current</span> <span class="nb">=</span> <span class="nv">current-&gt;right</span>
-<span class="lineno"> 6</span>   <span class="nv">Else</span>
-<span class="lineno"> 7</span>      <span class="nv">a.</span> <span class="nv">Find</span> <span class="k">the</span> <span class="nv">predecessor</span> <span class="nv">of</span> <span class="nv">current</span> <span class="nv">node</span>
-<span class="lineno"> 8</span>      <span class="nv">b.</span> <span class="nv">If</span> <span class="nv">predecessor</span><span class="ss">&#39;s</span> <span class="nv">right</span> <span class="nv">child</span> <span class="nv">is</span> <span class="nv">null,</span>
-<span class="lineno"> 9</span>          <span class="mi">1</span><span class="p">)</span> <span class="nv">make</span> <span class="nv">current</span> <span class="k">the</span> <span class="nv">right</span> <span class="nv">child</span> <span class="nv">of</span> <span class="nv">its</span> <span class="nv">predecessor</span>
-<span class="lineno">10</span>          <span class="mi">2</span><span class="p">)</span> <span class="nv">Print</span> <span class="nv">current</span> <span class="nv">node</span>
-<span class="lineno">11</span>          <span class="mi">3</span><span class="p">)</span><span class="nv">Go</span> <span class="nv">to</span> <span class="nv">this</span> <span class="nv">left</span> <span class="nv">child,</span> <span class="nv">i.e.,</span> <span class="nv">current</span> <span class="nb">=</span> <span class="nv">current-&gt;left</span>
-<span class="lineno">12</span>       <span class="nv">Else:</span>
-<span class="lineno">13</span>          <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="nv">predecessor</span><span class="ss">&#39;s</span> <span class="nv">right</span> <span class="nv">child</span> <span class="nv">is</span> <span class="nv">current</span> <span class="nv">node,</span> <span class="nb">set</span> <span class="nv">predecessor</span><span class="ss">&#39;s</span> <span class="nv">right</span> <span class="nv">child</span> <span class="nv">to</span> <span class="nb">null</span>
-<span class="lineno">14</span>          <span class="mi">2</span><span class="p">)</span> <span class="nb">set</span> <span class="nv">current</span> <span class="nv">node</span> <span class="nv">to</span> <span class="nv">its</span> <span class="nv">right</span> <span class="nv">child</span></code></pre></div>
+    <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="n">initialize</span> <span class="n">current</span> <span class="k">as</span> <span class="n">root</span>
+<span class="lineno"> 2</span>   <span class="k">while</span> <span class="n">current</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">NULL</span><span class="p">:</span>
+<span class="lineno"> 3</span>     <span class="k">if</span> <span class="n">current</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">have</span> <span class="n">left</span> <span class="n">child</span><span class="p">:</span>  
+<span class="lineno"> 4</span>        <span class="n">a</span><span class="o">.</span> <span class="n">Print</span> <span class="n">current</span> <span class="n">node</span>
+<span class="lineno"> 5</span>        <span class="n">b</span><span class="o">.</span> <span class="n">Go</span> <span class="n">to</span> <span class="n">the</span> <span class="n">right</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="p">,</span> <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span>
+<span class="lineno"> 6</span>     <span class="k">else</span>
+<span class="lineno"> 7</span>        <span class="n">a</span><span class="o">.</span> <span class="n">Find</span> <span class="n">the</span> <span class="n">predecessor</span> <span class="n">of</span> <span class="n">current</span> <span class="n">node</span>
+<span class="lineno"> 8</span>        <span class="n">b</span><span class="o">.</span> <span class="k">if</span> <span class="n">predecessor</span><span class="s">&#39;s right child is null:</span>
+<span class="lineno"> 9</span>            <span class="mi">1</span><span class="p">)</span> <span class="n">make</span> <span class="n">current</span> <span class="n">the</span> <span class="n">right</span> <span class="n">child</span> <span class="n">of</span> <span class="n">its</span> <span class="n">predecessor</span>
+<span class="lineno">10</span>            <span class="mi">2</span><span class="p">)</span> <span class="n">Print</span> <span class="n">current</span> <span class="n">node</span>
+<span class="lineno">11</span>            <span class="mi">3</span><span class="p">)</span><span class="n">Go</span> <span class="n">to</span> <span class="n">this</span> <span class="n">left</span> <span class="n">child</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="p">,</span> <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">left</span>
+<span class="lineno">12</span>         <span class="k">else</span><span class="p">:</span>
+<span class="lineno">13</span>            <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">predecessor</span><span class="s">&#39;s right child is current node, set predecessor&#39;</span><span class="n">s</span> <span class="n">right</span> <span class="n">child</span> <span class="n">to</span> <span class="n">null</span>
+<span class="lineno">14</span>            <span class="mi">2</span><span class="p">)</span> <span class="nb">set</span> <span class="n">current</span> <span class="n">node</span> <span class="n">to</span> <span class="n">its</span> <span class="n">right</span> <span class="n">child</span></code></pre></div>
     </div>
 
 
@@ -219,19 +219,19 @@ If the current node has left child, find the predecessor of current node, set cu
 
 
     <div class="code-block">
-    <div class="highlight"><pre><code class="language-lisp" data-lang="lisp"><span class="lineno"> 1</span> <span class="nv">Initialize</span> <span class="nv">current</span> <span class="nv">as</span> <span class="nv">root</span>
-<span class="lineno"> 2</span>   <span class="nv">While</span> <span class="nv">current</span> <span class="nv">is</span> <span class="nb">not</span> <span class="nv">NULL</span>
-<span class="lineno"> 3</span>   <span class="nv">If</span> <span class="nv">current</span> <span class="nv">does</span> <span class="nb">not</span> <span class="nv">have</span> <span class="nv">left</span> <span class="nv">child</span>   
-<span class="lineno"> 4</span>       <span class="nv">Go</span> <span class="nv">to</span> <span class="k">the</span> <span class="nv">right,</span> <span class="nv">i.e.,</span> <span class="nv">current</span> <span class="nb">=</span> <span class="nv">current-&gt;right</span>
-<span class="lineno"> 5</span>   <span class="nv">Else</span>
-<span class="lineno"> 6</span>      <span class="nv">a.</span> <span class="nv">Find</span> <span class="k">the</span> <span class="nv">predecessor</span> <span class="nv">of</span> <span class="nv">current</span> <span class="nv">node</span>
-<span class="lineno"> 7</span>      <span class="nv">b.</span> <span class="nv">If</span> <span class="nv">predecessor</span><span class="ss">&#39;s</span> <span class="nv">right</span> <span class="nv">child</span> <span class="nv">is</span> <span class="nv">null,</span>
-<span class="lineno"> 8</span>          <span class="mi">1</span><span class="p">)</span> <span class="nv">make</span> <span class="nv">current</span> <span class="k">the</span> <span class="nv">right</span> <span class="nv">child</span> <span class="nv">of</span> <span class="nv">its</span> <span class="nv">predecessor</span>
-<span class="lineno"> 9</span>          <span class="mi">2</span><span class="p">)</span><span class="nv">Go</span> <span class="nv">to</span> <span class="nv">this</span> <span class="nv">left</span> <span class="nv">child,</span> <span class="nv">i.e.,</span> <span class="nv">current</span> <span class="nb">=</span> <span class="nv">current-&gt;left</span>
-<span class="lineno">10</span>       <span class="nv">Else:</span>
-<span class="lineno">11</span>          <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="nv">predecessor</span><span class="ss">&#39;s</span> <span class="nv">right</span> <span class="nv">child</span> <span class="nv">is</span> <span class="nv">current</span> <span class="nv">node,</span> <span class="nb">set</span> <span class="nv">predecessor</span><span class="ss">&#39;s</span> <span class="nv">right</span> <span class="nv">child</span> <span class="nv">to</span> <span class="nb">null</span>
-<span class="lineno">12</span>          <span class="mi">2</span><span class="p">)</span> <span class="nb">print</span> <span class="nv">out</span> <span class="nv">all</span> <span class="nv">nodes</span> <span class="nv">on</span> <span class="nv">path</span> <span class="nv">from</span> <span class="nv">current</span><span class="ss">&#39;s</span> <span class="nv">left</span> <span class="nv">to</span> <span class="nv">current</span><span class="ss">&#39;s</span> <span class="nv">predecessor</span> <span class="nv">reversely.</span>
-<span class="lineno">13</span>          <span class="mi">3</span><span class="p">)</span> <span class="nb">set</span> <span class="nv">current</span> <span class="nv">node</span> <span class="nv">to</span> <span class="nv">its</span> <span class="nv">right</span> <span class="nv">child</span></code></pre></div>
+    <div class="highlight"><pre><code class="language-python" data-lang="python"><span class="lineno"> 1</span> <span class="n">initialize</span> <span class="n">current</span> <span class="k">as</span> <span class="n">root</span>
+<span class="lineno"> 2</span>   <span class="k">while</span> <span class="n">current</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">NULL</span><span class="p">:</span> 
+<span class="lineno"> 3</span>     <span class="k">if</span> <span class="n">current</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">have</span> <span class="n">left</span> <span class="n">child</span><span class="p">:</span>
+<span class="lineno"> 4</span>         <span class="n">Go</span> <span class="n">to</span> <span class="n">the</span> <span class="n">right</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="p">,</span> <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span>
+<span class="lineno"> 5</span>     <span class="k">else</span><span class="p">:</span>
+<span class="lineno"> 6</span>        <span class="n">a</span><span class="o">.</span> <span class="n">Find</span> <span class="n">the</span> <span class="n">predecessor</span> <span class="n">of</span> <span class="n">current</span> <span class="n">node</span>
+<span class="lineno"> 7</span>        <span class="n">b</span><span class="o">.</span> <span class="k">if</span> <span class="n">predecessor</span><span class="s">&#39;s right child is null:</span>
+<span class="lineno"> 8</span>            <span class="mi">1</span><span class="p">)</span> <span class="n">make</span> <span class="n">current</span> <span class="n">the</span> <span class="n">right</span> <span class="n">child</span> <span class="n">of</span> <span class="n">its</span> <span class="n">predecessor</span>
+<span class="lineno"> 9</span>            <span class="mi">2</span><span class="p">)</span><span class="n">Go</span> <span class="n">to</span> <span class="n">this</span> <span class="n">left</span> <span class="n">child</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="p">,</span> <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">left</span>
+<span class="lineno">10</span>         <span class="k">else</span><span class="p">:</span>
+<span class="lineno">11</span>            <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">predecessor</span><span class="s">&#39;s right child is current node, set predecessor&#39;</span><span class="n">s</span> <span class="n">right</span> <span class="n">child</span> <span class="n">to</span> <span class="n">null</span>
+<span class="lineno">12</span>            <span class="mi">2</span><span class="p">)</span> <span class="k">print</span> <span class="n">out</span> <span class="nb">all</span> <span class="n">nodes</span> <span class="n">on</span> <span class="n">path</span> <span class="kn">from</span> <span class="nn">current</span><span class="s">&#39;s left to current&#39;</span><span class="n">s</span> <span class="n">predecessor</span> <span class="n">reversely</span><span class="o">.</span>
+<span class="lineno">13</span>            <span class="mi">3</span><span class="p">)</span> <span class="nb">set</span> <span class="n">current</span> <span class="n">node</span> <span class="n">to</span> <span class="n">its</span> <span class="n">right</span> <span class="n">child</span></code></pre></div>
     </div>
 
 <p>java implementation:</p>
@@ -344,6 +344,15 @@ If the current node has left child, find the predecessor of current node, set cu
     
       <li>
         
+          <a href="/2014/12/26/kmp%20algorithm(knuth-morris-pratt)/">
+            KMP(knuth-morris-pratt) algorithm
+            <small><time datetime="2014-12-26T00:00:00-06:00">26 Dec 2014</time></small>
+          </a>
+        
+      </li>
+    
+      <li>
+        
           <a href="/2014/11/18/codeexample/">
             Code highlight example in jekyll
             <small><time datetime="2014-11-18T00:00:00-06:00">18 Nov 2014</time></small>
@@ -376,7 +385,7 @@ If the current node has left child, find the predecessor of current node, set cu
 
      <!--  <footer class="footer">
         <small>
-          &copy; <time datetime="2014-12-17T21:04:18-06:00">2014</time>. All rights reserved.
+          &copy; <time datetime="2014-12-25T19:22:26-06:00">2014</time>. All rights reserved.
         </small>
       </footer> -->
     </div>

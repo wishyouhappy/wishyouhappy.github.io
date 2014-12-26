@@ -1,0 +1,133 @@
+---
+layout: post
+title: KMP(knuth-morris-pratt) algorithm
+---
+
+<div class ="container">
+
+<h2>About KMP</h2>
+
+<p>KMP algorithm is one of string search algorithm. Given two strings(generally one long text, one short pattern), deternmine whether one string (the pattern) appears in the other string.</p>
+
+<p>For example: given one string "ABCCEFGHI", check if it contains "CEF".</p>
+
+<p>We can solve this problem by doing naive string matching one by one. The time complexity would be O(n * m), m, n are the length of the two string seperately.</p>
+
+<p>KMP algorithm does some pre-work over the pattern(short string): create an partial match array of the pattern, this auxiliary array help us avoid some unnecessary matching. The time complexity of KMP is O(n), n is length of the longer string. See details below.</p>
+
+<h2>Skipping iterations in KMP</h2>
+
+<p>Considering the folloing example:</p>
+
+<p>String text = "ABDEABCDABDABB"
+String pattern = "ABDAB"</p>
+
+<p>So what is the partial match array? It's the prefix and suffix matching information in the pattern string from beginning to end.</p>
+
+<p>1) "A": none prefix and suffix
+2) "AB": prefix A, suffix B. No matching
+3) "ABD": prefix A or AB, suffix D or BD. No matching
+4) "ABDA": prefix A, AB or ABD, suffix A, DA or BDA. There is a matching between prefix and suffix, that is "A"
+5) "ABDAB": prefix A, AB, ABD or ABDA suffix B, AB, DAB or BDAB. There is a matching between prefix and suffix, that is "AB"</p>
+
+<p>After the above steps, we get our partial match array:
+{0, 0, 0, 1, 2}. We can easily figure out the number in the array is the length of the matching string between prefix and suffix at each index.</p>
+
+<p>How can this matching information about prefix and suffix in the pattern string help us improve our compare algorithm?</p>
+
+<p>In the example above, we begin compare the two strings from beginning, we find a mismatch at index 3. Are we need to compare again from the index 1 ?</p>
+
+<img src= "{{ site.baseurl }}public/image/kmp2.jpg">
+
+<p>No, we just need to jump to index 3. For the partial match array at index 2 --"ABD" is 0. You see if we start from index 1, "BD" in the text string is actually the suffix of "ABD", "AB" in the pattern string is the prefix of "ABD". So we can make sure that even we start from index 1, there will sure be no match.</p>
+
+<p>Let's change our test string a little bit, pattern string remains the same:</p>
+
+<p>String text = "ABDACDABDABB"
+String pattern = "ABDAB"</p>
+
+<p>The partial match array is still {0, 0, 0, 1, 2}</p>
+
+<img src= "{{ site.baseurl }}public/image/kmp3.jpg">
+
+<p>In this example, at index 4 we find a mismatch, we jump to index 3 other than 4, why? We can see it's 1 at index 4 in the partial match array.</p>
+
+<p>The jump index = length of match string(ABDA) - length of patial match = 4 -1 = 3. So we jump to index 4.</p>
+
+<p>This make sense, because they are all character 'A', there is a possible match. THIS COMES FROM THE MATCH OF PREFIX AND SUFFIX! We can finish compare the whole string in the same way.</p>
+
+<h2>Java implementation</h2>
+
+<p>Calculate partial match array:</p>
+
+    <div class="code-block">
+    {% highlight java linenos%}
+
+    public class KMPAlgorithm {
+    public static void main(String[] args) {
+        KMPAlgorithm kmp = new KMPAlgorithm();
+        String text = "ABDABCCCABDABDABCB";
+        String pattern = "ABDABC";
+        kmp.matchString(text, pattern);
+    }
+
+    public int[] getHelperArray(String pattern){
+        int i = 1, //suffix
+            j = 0, //prefix
+            len = pattern.length();
+        int[] helper = new int[len];
+        helper[0] = 0;
+        
+        while(i < len){
+            if(pattern.charAt(i) == pattern.charAt(j)){
+                j++;
+                helper[i] = j;
+                i++;
+            }else{
+                if(j != 0) j = helper[j-1];
+                else{
+                    helper[i] = 0;
+                    i++;
+                }
+            }
+                
+                
+        }
+        
+        System.out.println(Arrays.toString(helper));
+        
+        return helper; 
+    }
+
+    public void matchString(String text, String pattern){
+        int[] helper = getHelperArray(pattern);
+        int i = 0,
+            j = 0,
+            textLen = text.length(),
+            patternLen = pattern.length();
+        while(i < textLen && j < patternLen){
+            if(text.charAt(i) == pattern.charAt(j)){
+                j++;
+                i++;
+            }
+            
+            if(j == patternLen){
+                System.out.println("Found pattern at index: " + (i-patternLen));
+                j = helper[j-1];
+            }else if(text.charAt(i) != pattern.charAt(j)){
+                if(j !=- 0) j = helper[j-1];
+                else i++;
+            }
+        }
+        
+        
+    }
+    
+
+
+}
+
+
+ {% endhighlight %}
+    </div>
+    </div>
