@@ -115,7 +115,7 @@ String pattern = "ABDAB"</p>
                 System.out.println("Found pattern at index: " + (i-patternLen));
                 j = helper[j-1];
             }else if(text.charAt(i) != pattern.charAt(j)){
-                if(j !=- 0) j = helper[j-1];
+                if(j != 0) j = helper[j-1];
                 else i++;
             }
         }
