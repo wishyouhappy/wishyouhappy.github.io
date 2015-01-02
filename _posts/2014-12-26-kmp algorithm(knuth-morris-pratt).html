@@ -64,41 +64,6 @@ String pattern = "ABDAB"</p>
     {% highlight java linenos%}
 
     public class KMPAlgorithm {
-    public static void main(String[] args) {
-        KMPAlgorithm kmp = new KMPAlgorithm();
-        String text = "ABDABCCCABDABDABCB";
-        String pattern = "ABDABC";
-        kmp.matchString(text, pattern);
-    }
-
-    public int[] getHelperArray(String pattern){
-        int i = 1, //suffix
-            j = 0, //prefix
-            len = pattern.length();
-        int[] helper = new int[len];
-        helper[0] = 0;
-        
-        while(i < len){
-            if(pattern.charAt(i) == pattern.charAt(j)){
-                j++;
-                helper[i] = j;
-                i++;
-            }else{
-                if(j != 0) j = helper[j-1];
-                else{
-                    helper[i] = 0;
-                    i++;
-                }
-            }
-                
-                
-        }
-        
-        System.out.println(Arrays.toString(helper));
-        
-        return helper; 
-    }
-
     public void matchString(String text, String pattern){
         int[] helper = getHelperArray(pattern);
         int i = 0,
@@ -119,12 +84,32 @@ String pattern = "ABDAB"</p>
                 else i++;
             }
         }
-        
-        
     }
-    
 
-
+     public int[] getHelperArray(String pattern){
+        int i = 1, //suffix
+            j = 0, //prefix
+            len = pattern.length();
+        int[] helper = new int[len];
+        helper[0] = 0;
+        
+        while(i < len){
+            if(pattern.charAt(i) == pattern.charAt(j)){
+                j++;
+                helper[i] = j;
+                i++;
+            }else{
+                if(j != 0) j = helper[j-1];
+                else{
+                    helper[i] = 0;
+                    i++;
+                }
+            }
+        }
+        
+        System.out.println(Arrays.toString(helper));
+        return helper; 
+    }
 }
 
 
