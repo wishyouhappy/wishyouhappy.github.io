@@ -64,21 +64,18 @@ String pattern = "ABDAB"</p>
     {% highlight java linenos%}
 
     public class KMPAlgorithm {
-    public void matchString(String text, String pattern){
+    public int matchString(String text, String pattern){
         int[] helper = getHelperArray(pattern);
         int i = 0,
             j = 0,
             textLen = text.length(),
             patternLen = pattern.length();
         while(i < textLen && j < patternLen){
+            
             if(text.charAt(i) == pattern.charAt(j)){
                 j++;
                 i++;
-            }
-            
-            if(j == patternLen){
-                System.out.println("Found pattern at index: " + (i-patternLen));
-                j = helper[j-1];
+                if(j == patternLen) return i - patternLen;
             }else if(text.charAt(i) != pattern.charAt(j)){
                 if(j != 0) j = helper[j-1];
                 else i++;
