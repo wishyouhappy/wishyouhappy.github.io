@@ -418,6 +418,7 @@ h1 {
   border: 2px solid #E0E0E0 ;
   border-radius: 10px;
   padding: 4px;
+  font-size: 14px !important;
 }
 
 
@@ -625,7 +626,7 @@ h1 {
     font-size: 16px;
   }
 
-  .code .pre,  .content pre, .content p code,  .content p ,.code-block, .container ,.page-date ,.header1,ul li{
+  .code .pre,  .content pre, .content p code,  .content p , .container ,.page-date ,.header1,ul li{
     font-size:12px !important;
     margin-left: 10px !important;
   }
