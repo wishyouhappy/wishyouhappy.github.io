@@ -1,0 +1,110 @@
+---
+layout: post
+title: Moore's voting algorithm
+---
+
+<div class ="container">
+
+
+<p>A linear time majority vote algorithm.</p>
+
+<p>Eg : sequence:  1, 2, 3, 2, 3, 2, 2, 2 the majority element is 2. Use this algorithm we can determine the majority in linear time. A majority element in an array is an element that apepears more than size/2 times.</p>
+
+<p>Basic idea: we cancel out each occurrence of an element e with all other element that are different from e. Then e exit till end if e is a majority candidate.(Remember it is not certainly the candidate. We need to check if it is the majority)</p>
+
+<p>Detail:
+Considering we maintain a  current candidate and a counter. Initially, the current candidate is the first element and the counter is 1.</p>
+
+<p>When we move the pointer forward over an element e:
+If the counter is 0, we set the current candidate to e and we set the counter to 1.
+If the counter is not 0, we increment or decrement the counter according to whether e is the current candidate.</p>
+
+<p>For example:</p>
+
+<p>Array of 1, 2, 3, 2, 3, 2, 2, 2:</p>
+
+<p>initialize : count = 1, candidate index 0,</p>
+
+<p>index 1: count = 0 (1 != 2)
+         because count change to 0, set count = 1, candidate as current(2)
+         count = 1, candidate: 2</p>
+
+<p>index 2: count = 0(2 != 3)
+         count = 1, candidate: 3</p>
+
+<p>index 3: count = 0(3 != 2)
+         count = 1, candidate: 2</p>
+
+<p>index 4: count = 0(2 != 3)
+         count = 1, candidate: 3</p>
+
+<p>index 5: count = 0(3 != 2)
+         count = 1, candidate: 2</p>
+
+<p>index 6: count = 2(2 == 2)</p>
+
+<p>index 7: count = 3(2 == 2)</p>
+
+<p>So the majority candidate is 2. We need to traverse the array again to check if this candidate is the real majorrity.</p>
+
+<p>See other example by step on this link: <a href = "http://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html#step01"> click </a></p>
+
+<p>Java implementation to find the majority candidate</p>
+
+ <div class="code-block">
+    {% highlight java linenos%}
+
+        public int findCandidate(int[] num){
+        if(num == null || num.length == 0) return -1;
+        int count = 1;
+        int candidate = num[0];
+        for(int i = 1; i < num.length; i++){
+            if(num[i] != candidate) count--;
+            else count++;
+            if (count == 0){
+                count = 1;
+                candidate = num[i];
+            }
+        }
+        return candidate;
+    }
+    {% endhighlight %}
+</div>
+
+<p>If we use other data structures, we might also find the majority candidate in one pass. For example if we use hashmap in java to record occurences times of each element</p>
+
+ <div class="code-block">
+    {% highlight java linenos%}
+
+    public int findCandidate(int[] num) {
+       if(num == null || num.length == 0) return -1;
+       Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+       if(num.length == 1) return num[0];
+       for(int i = 0; i < num.length; i++){
+           if(!map.containsKey(num[i])) map.put(num[i], 1);
+           else{
+               int count = map.get(num[i]) + 1;
+               if(count > num.length/2 ) return num[i];
+               map.put(num[i], map.get(num[i]) + 1);
+           }
+       }
+       return -1;
+    }
+    {% endhighlight %}
+</div>
+
+
+<p>If we just want to find the majority element, and we assume that the majority element must exist, then we can sort the array and get the mid element. We can achieve this in nlgn time</p>
+
+ <div class="code-block">
+    {% highlight java linenos%}
+
+    public int majorityElement(int[] num) {
+        Arrays.sort(num);
+        return num[num.length/2];
+    } 
+    {% endhighlight %}
+</div>
+
+
+</div>
