@@ -15,7 +15,7 @@ title: About
 	<li>Framework: Struts, Spring, Hibernate, jQuery, YUI, BootStrap, Less, Backbone, zTree, uglifyJs.</li>
 	<li>Environment: JDK, Hadoop, NodeJs</li>
 	<li>Tools: SVN, git, SQL Developer, Dreamweaver, Axure RP, PowerDesigner.</li>
-	<li>Others:	Oracle, mysql, Tomcat, Eclipse</li>
+	<li>Others:	Oracle, mysql, Tomcat, Eclipse, Linux</li>
 	</ul>
 	</p>
 
