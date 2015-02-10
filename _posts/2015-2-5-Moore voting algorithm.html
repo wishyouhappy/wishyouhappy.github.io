@@ -52,7 +52,7 @@ If the counter is not 0, we increment or decrement the counter according to whet
     </div>
 
 <p>See other example by step on this link: <a href = "http://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html#step01"> click </a></p>
-
+<h3> Implement of Moore</h3>
 <p>Java implementation to find the majority candidate</p>
 
  <div class="code-block">
@@ -75,6 +75,7 @@ If the counter is not 0, we increment or decrement the counter according to whet
     {% endhighlight %}
 </div>
 
+<h3> Use hashmap to find majority in O(n)</h3>
 <p>If we use other data structures, we might also find the majority candidate in one pass. For example if we use hashmap in java to record occurences times of each element</p>
 
  <div class="code-block">
@@ -97,9 +98,10 @@ If the counter is not 0, we increment or decrement the counter according to whet
     {% endhighlight %}
 </div>
 
-
+<h3> Another idea</h3>
 <p>If we just want to find the majority element, and we assume that the majority element must exist, then we can sort the array and get the mid element. We can achieve this in nlgn time</p>
 
+<p>If the range of numbers is not big, we can use O(n) sort algorithms like radius to sort those numbers, then find majority. </p>
  <div class="code-block">
     {% highlight java linenos%}
 
@@ -110,7 +112,7 @@ If the counter is not 0, we increment or decrement the counter according to whet
     {% endhighlight %}
 </div>
 
-<p>If the range of numbers is not big, we can use O(n) sort algorithms like radius to sort those numbers, then find majority. </p>
+
 
 
 </div>
