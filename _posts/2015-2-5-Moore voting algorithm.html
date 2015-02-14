@@ -120,10 +120,9 @@ If the counter is not 0, we increment or decrement the counter according to whet
 <pre>
  Partition A into groups of size 5;
  For each group, pick the median of the group;
- Recursively call Select to find the median x of the dn/5e
-picked medians;
+ Recursively call Select to find the median x of the n/5 picked medians;
  AL = numbers in A that are smaller than x;
-AR = numbers in A that are larger than x;
+ AR = numbers in A that are larger than x;
  Return Select(AL, i) or x or Select(AR, i − AL.length − 1)
 depending on the value of i
 </pre>
