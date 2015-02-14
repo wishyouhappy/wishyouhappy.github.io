@@ -117,6 +117,7 @@ If the counter is not 0, we increment or decrement the counter according to whet
 <p> We can use the following algorithm to find the ith smallest element in O(n) time </p>
 
 <div class = "code-block">
+<pre>
  Partition A into groups of size 5;
  For each group, pick the median of the group;
  Recursively call Select to find the median x of the dn/5e
@@ -125,6 +126,7 @@ picked medians;
 AR = numbers in A that are larger than x;
  Return Select(AL, i) or x or Select(AR, i − AL.length − 1)
 depending on the value of i
+</pre>
 </div>
 
 </div>
