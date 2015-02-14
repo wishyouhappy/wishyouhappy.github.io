@@ -52,7 +52,7 @@ If the counter is not 0, we increment or decrement the counter according to whet
     </div>
 
 <p>See other example by step on this link: <a href = "http://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html#step01"> click </a></p>
-<h3> Implement of Moore</h3>
+<h3> Implementation of Moore</h3>
 <p>Java implementation to find the majority candidate</p>
 
  <div class="code-block">
@@ -98,7 +98,7 @@ If the counter is not 0, we increment or decrement the counter according to whet
     {% endhighlight %}
 </div>
 
-<h3> Another idea</h3>
+<h3> Others idea</h3>
 <p>If we just want to find the majority element, and we assume that the majority element must exist, then we can sort the array and get the mid element. We can achieve this in nlgn time</p>
 
 <p>If the range of numbers is not big, we can use O(n) sort algorithms like radix to sort those numbers, then find majority. </p>
@@ -112,7 +112,19 @@ If the counter is not 0, we increment or decrement the counter according to whet
     {% endhighlight %}
 </div>
 
+<br>
+<p>Similarly, if we just need to check if the n/2th smallest element is majority, we can use the select ith smallest algorithm to find the n/2th smallest element, then check if the element is a majority</p>
+<p> We can use the following algorithm to find the ith smallest element in O(n) time </p>
 
-
+<div class = "code-block">
+ Partition A into groups of size 5;
+ For each group, pick the median of the group;
+ Recursively call Select to find the median x of the dn/5e
+picked medians;
+ AL = numbers in A that are smaller than x;
+AR = numbers in A that are larger than x;
+ Return Select(AL, i) or x or Select(AR, i − AL.length − 1)
+depending on the value of i
+</div>
 
 </div>
