@@ -52,7 +52,7 @@
           
             &nbsp;&nbsp;&nbsp;
             
-              <li ><a href="/gallary" style="color: #626262 ">Gallary</a></li>
+              <li ><a href="/gallery" style="color: #626262 ">Gallery</a></li>
             
           
           </ul>
@@ -85,20 +85,18 @@
   <div class ="container">
 
 
-<p>A linear time majority vote algorithm.</p>
+<p>A linear time majority vote algorithm. A majority element in an array is an element that apepears more than size/2 times.</p>
 
-<p>Eg : sequence:  1, 2, 3, 2, 3, 2, 2, 2 the majority element is 2. Use this algorithm we can determine the majority in linear time. A majority element in an array is an element that apepears more than size/2 times.</p>
 
-<p>Basic idea: we cancel out each occurrence of an element e with all other element that are different from e. Then e exit till end if e is a majority candidate.(Remember it is not certainly the candidate. We need to check if it is the majority)</p>
+<p>Basic idea: we cancel out each occurrence of an element e with all other element that are different from e. Then e exit till end if e is a majority candidate.(Remember it is not certainly the majority. We need to check if it is the majority)</p>
 
 <p>Detail:
-Considering we maintain a  current candidate and a counter. Initially, the current candidate is the first element and the counter is 1.</p>
-
-<p>When we move the pointer forward over an element e:
+Considering we maintain a  current candidate and a counter. Initially, the current candidate is the first element and the counter is 1. When we move the pointer forward over an element e:
 If the counter is 0, we set the current candidate to e and we set the counter to 1.
 If the counter is not 0, we increment or decrement the counter according to whether e is the current candidate.</p>
 
 <p>For example:</p>
+<p>sequence:  1, 2, 3, 2, 3, 2, 2, 2 the majority element is 2. Use this algorithm we can determine the majority in linear time.</p>
 
     <div class="code-block">
 
@@ -131,7 +129,7 @@ If the counter is not 0, we increment or decrement the counter according to whet
     </div>
 
 <p>See other example by step on this link: <a href = "http://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html#step01"> click </a></p>
-
+<h3> Implementation of Moore</h3>
 <p>Java implementation to find the majority candidate</p>
 
  <div class="code-block">
@@ -151,6 +149,7 @@ If the counter is not 0, we increment or decrement the counter according to whet
 <span class="lineno">14</span>     <span class="o">}</span></code></pre></div>
 </div>
 
+<h3> Use hashmap to find majority in O(n)</h3>
 <p>If we use other data structures, we might also find the majority candidate in one pass. For example if we use hashmap in java to record occurences times of each element</p>
 
  <div class="code-block">
@@ -170,9 +169,10 @@ If the counter is not 0, we increment or decrement the counter according to whet
 <span class="lineno">14</span>     <span class="o">}</span></code></pre></div>
 </div>
 
-
+<h3> Other ideas</h3>
 <p>If we just want to find the majority element, and we assume that the majority element must exist, then we can sort the array and get the mid element. We can achieve this in nlgn time</p>
 
+<p>If the range of numbers is not big, we can use O(n) sort algorithms like radix to sort those numbers, then find majority. </p>
  <div class="code-block">
     <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span> <span class="kd">public</span> <span class="kt">int</span> <span class="nf">majorityElement</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
 <span class="lineno">2</span>         <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
@@ -180,6 +180,21 @@ If the counter is not 0, we increment or decrement the counter according to whet
 <span class="lineno">4</span>     <span class="o">}</span></code></pre></div>
 </div>
 
+<br>
+<p>Similarly, if we just need to check if the n/2th smallest element is majority, we can use the select ith smallest algorithm to find the n/2th smallest element, then check if the element is a majority</p>
+<p> We can use the following algorithm to find the ith smallest element in O(n) time </p>
+
+<div class = "code-block">
+<pre>
+ Partition A into groups of size 5;
+ For each group, pick the median of the group;
+ Recursively call Select to find the median x of the n/5 picked medians;
+ AL = numbers in A that are smaller than x;
+ AR = numbers in A that are larger than x;
+ Return Select(AL, i) or x or Select(AR, i − AL.length − 1)
+depending on the value of i
+</pre>
+</div>
 
 </div>
   
@@ -218,7 +233,7 @@ If the counter is not 0, we increment or decrement the counter according to whet
 
      <!--  <footer class="footer">
         <small>
-          &copy; <time datetime="2015-02-05T18:06:14-06:00">2015</time>. All rights reserved.
+          &copy; <time datetime="2015-02-14T18:34:18-06:00">2015</time>. All rights reserved.
         </small>
       </footer> -->
     </div>

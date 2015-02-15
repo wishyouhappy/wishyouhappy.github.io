@@ -6,20 +6,18 @@ title: Moore's voting algorithm
 <div class ="container">
 
 
-<p>A linear time majority vote algorithm.</p>
+<p>A linear time majority vote algorithm. A majority element in an array is an element that apepears more than size/2 times.</p>
 
-<p>Eg : sequence:  1, 2, 3, 2, 3, 2, 2, 2 the majority element is 2. Use this algorithm we can determine the majority in linear time. A majority element in an array is an element that apepears more than size/2 times.</p>
 
-<p>Basic idea: we cancel out each occurrence of an element e with all other element that are different from e. Then e exit till end if e is a majority candidate.(Remember it is not certainly the candidate. We need to check if it is the majority)</p>
+<p>Basic idea: we cancel out each occurrence of an element e with all other element that are different from e. Then e exit till end if e is a majority candidate.(Remember it is not certainly the majority. We need to check if it is the majority)</p>
 
 <p>Detail:
-Considering we maintain a  current candidate and a counter. Initially, the current candidate is the first element and the counter is 1.</p>
-
-<p>When we move the pointer forward over an element e:
+Considering we maintain a  current candidate and a counter. Initially, the current candidate is the first element and the counter is 1. When we move the pointer forward over an element e:
 If the counter is 0, we set the current candidate to e and we set the counter to 1.
 If the counter is not 0, we increment or decrement the counter according to whether e is the current candidate.</p>
 
 <p>For example:</p>
+<p>sequence:  1, 2, 3, 2, 3, 2, 2, 2 the majority element is 2. Use this algorithm we can determine the majority in linear time.</p>
 
     <div class="code-block">
 
@@ -98,7 +96,7 @@ If the counter is not 0, we increment or decrement the counter according to whet
     {% endhighlight %}
 </div>
 
-<h3> Others idea</h3>
+<h3> Other ideas</h3>
 <p>If we just want to find the majority element, and we assume that the majority element must exist, then we can sort the array and get the mid element. We can achieve this in nlgn time</p>
 
 <p>If the range of numbers is not big, we can use O(n) sort algorithms like radix to sort those numbers, then find majority. </p>
