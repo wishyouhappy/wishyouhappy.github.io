@@ -50,7 +50,7 @@ String pattern = "ABDAB"</p>
 
 <div align = center><img height = "400px"  src= "{{ site.baseurl }}public/image/kmp3.jpg"> </div>
 
-<p>In this example, at index 4 we find a mismatch. For text "ABDACDABDABB" We begin at index 4, for "ABDAB" we begin at index 1. Why? We can see it's 1 at index 3(j-1) in the partial match array.</p>
+<p>In this example, at index 4 we find a mismatch. For text "ABDACDABDABB" We begin at index 4, for "ABDAB" we begin at index 1. Why? We can see it's 1 at index 3(the prior element in the helper array) in the partial match array.</p>
 
 
 <p>This make sense, because they are all character 'A', there is a possible match. THIS COMES FROM THE MATCH OF PREFIX AND SUFFIX! We can finish compare the whole string in the same way.</p>
