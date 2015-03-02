@@ -24,19 +24,13 @@ title: Reservoir sampling
 
 
 <div class="code-block">
-    {% highlight java linenos%} 
-
+<pre>
     i = 0
-
     while input.hasNext
-
        with probability 1.0/++i
-
-               choice = this input Integer
-
+            choice = this input Integer
     print  choice
-
- {% endhighlight %}
+</pre>
  </div>
 
 <h3>The implementation of reservoir sampling of size 1:</h3>
@@ -51,7 +45,7 @@ public int randNum(){
     temp =  scan.nextInt();
     while(scan.hasNextInt()){
         res = scan.nextInt();
-        if(((new Random().nextInt(num)))  &lt; num-1){
+        if(((new Random().nextInt(num))) < num-1){
             res = temp;
         }
         temp = res;
@@ -67,11 +61,11 @@ public int randNum(){
 <p>Because we reserve the last element Nn in P = 1/n, thus:</p>
 
 <div class="code-block">
- {% highlight java linenos%} 
-  if(((new Random().nextInt(num)))  &lt; num-1){
+<pre>
+  if(((new Random().nextInt(num))) < num-1){
     res = temp;
   }
- {% endhighlight %}
+</pre>
  </div>
 
 <h2>Extension: select k elements from stream</h2>
@@ -84,17 +78,13 @@ k/n * (k/n+1 * k-1/k + (n+1 -k)/n+1) = k/m+1.</p>
 <h3>Pseduocode</h3>
 
 <div class="code-block">
-    {% highlight java linenos%} 
+<pre>
 Init : a reservoir with the size： k
-
 for i= k+1 to N
-
     M=random(1, i);
-
-    if( M &lt; k)
-
+    if( M < k)
         SWAP the Mth value and ith value
- {% endhighlight %}
+</pre>
  </div>
 
 <h3>The implementation of reservoir sampling of size K:</h3>
@@ -109,11 +99,11 @@ public int[] randNum(int k){
     int[] sample=new int[k];  
     while(scan.hasNextInt()){
         temp = scan.nextInt();
-        if(num &lt;= k){
+        if(num <= k){
             sample[num-1] = temp;
         }else{
             int j = new Random().nextInt(num);
-            if(j &lt; k){
+            if(j < k){
                 sample[j] = temp;
             }
         }
@@ -129,11 +119,11 @@ public int[] randNum(int k){
 
 <div class="code-block">
     {% highlight java linenos%} 
- if(num &lt;= k){
+ if(num <= k){
             sample[num-1] = temp;
         }else{
             int j = new Random().nextInt(num);
-            if(j &lt; k){
+            if(j < k){
                 sample[j] = temp;
             }
         }
