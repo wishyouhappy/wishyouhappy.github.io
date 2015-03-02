@@ -8,7 +8,7 @@
 
   <title>
     
-      wishyouhappy
+      wishyouhappy &middot;Reservoir sampling 
     
   </title>
 
@@ -69,19 +69,9 @@
     
       <div class="container">
       <main>
-        <div class="container">
-  
-  
-    <h2 class="post-title">
-      <a href="/2015/03/01/reservoir%20sampling/">
-        Reservoir sampling
-      </a>
-    </h2>
-    <div class ="margin5"></div>
-    <time datetime="2015-03-01T00:00:00-06:00" class="post-date">01 Mar 2015</time>
-
-  
- 
+        <div class ="container">
+  <h2>Reservoir sampling</h2>
+  <time datetime="2015-03-01T00:00:00-06:00" class="page-date">01 Mar 2015</time>
   <blockquote><p><b>Reservoir sampling</b> is a family of randomized algorithms for randomly choosing a sample of k items from a list S containing n items, where n is either a very large or unknown number. Typically n is large enough that the list doesn't fit into main memory(From wiki).</p></blockquote>
 
 <p><b>Goal</b>: Without knowing the input size of a stream, how to return an element(for example, an Integer of an Integer stream) in equal probability when the stream ends? For example, when we read the nth Integer, how to maintain that the probability of to choose an integer is  1/ n(total number of integers currently read).</p>
@@ -204,18 +194,41 @@ k/n * (k/n+1 * k-1/k + (n+1 -k)/n+1) = k/m+1.</p>
  </div>
 </body>
 </html>
-  
 </div>
 
-<div class="pagination">
-  
-    <a class="pagination-item older" href="/page2">Previous</a>
-  
-  
-    <span class="pagination-item newer">Next</span>
-  
-</div>
-
+<aside class="post-title">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        
+          <a href="/2015/02/05/Moore%20voting%20algorithm/">
+            Moore's voting algorithm
+            <small><time datetime="2015-02-05T00:00:00-06:00">05 Feb 2015</time></small>
+          </a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/2014/12/26/kmp%20algorithm(knuth-morris-pratt)/">
+            KMP(knuth-morris-pratt) algorithm
+            <small><time datetime="2014-12-26T00:00:00-06:00">26 Dec 2014</time></small>
+          </a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/2014/12/17/morris%20traversal-traverse%20a%20binary%20tree%20without%20stack/">
+            Morris traversal-traverse a binary tree without stack
+            <small><time datetime="2014-12-17T00:00:00-06:00">17 Dec 2014</time></small>
+          </a>
+        
+      </li>
+    
+  </ul>
+</aside>
 
   <div class="comments">
     <div id="disqus_thread"></div>
@@ -232,7 +245,6 @@ k/n * (k/n+1 * k-1/k + (n+1 -k)/n+1) = k/m+1.</p>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
   </div>
-
 
       </main>
       </div>
