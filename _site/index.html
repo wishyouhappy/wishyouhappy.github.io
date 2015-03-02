@@ -98,7 +98,7 @@
 </ul>
 
 
-<h3>Pseduocode:</h3>
+<h2>Pseduocode:</h2>
 
 
 <div class="code-block">
@@ -111,7 +111,7 @@
 </pre>
  </div>
 
-<h3>The implementation of reservoir sampling of size 1:</h3>
+<h2>The implementation of reservoir sampling of size 1:</h2>
 
 <div class="code-block">
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kt">int</span> <span class="nf">randNum</span><span class="o">(){</span>
@@ -150,7 +150,7 @@
 <p><strong>For Nn, we save it in P = k/n</strong>, that is, we replace an element in reservoir in P = k/n with Nn. When Nn+1, <strong><em>we reserve Nn+1 in P = k/n+1, and </em></strong>replace an element in reservoir in P = 1/k***. Then the possibility that the reservoir remains the same is
 k/n * (k/n+1 * k-1/k + (n+1 -k)/n+1) = k/m+1.</p>
 
-<h3>Pseduocode</h3>
+<h2>Pseduocode</h2>
 
 <div class="code-block">
 <pre>
@@ -162,7 +162,7 @@ for i= k+1 to N
 </pre>
  </div>
 
-<h3>The implementation of reservoir sampling of size K:</h3>
+<h2>The implementation of reservoir sampling of size K:</h2>
 
 <div class="code-block">
     <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">randNum</span><span class="o">(</span><span class="kt">int</span> <span class="n">k</span><span class="o">){</span>
@@ -238,7 +238,7 @@ for i= k+1 to N
 
      <!--  <footer class="footer">
         <small>
-          &copy; <time datetime="2015-03-01T20:36:37-06:00">2015</time>. All rights reserved.
+          &copy; <time datetime="2015-03-02T10:15:09-06:00">2015</time>. All rights reserved.
         </small>
       </footer> -->
     </div>

@@ -482,6 +482,8 @@ h1 {
     -webkit-text-align-last:justify;/*chrome 20+*/
   }
 
+  
+
 /*for mobile*/
 
 @media only screen and (max-device-width: 480px) {

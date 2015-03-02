@@ -20,7 +20,7 @@ title: Reservoir sampling
 </ul>
 
 
-<h3>Pseduocode:</h3>
+<h2>Pseduocode:</h2>
 
 
 <div class="code-block">
@@ -33,7 +33,7 @@ title: Reservoir sampling
 </pre>
  </div>
 
-<h3>The implementation of reservoir sampling of size 1:</h3>
+<h2>The implementation of reservoir sampling of size 1:</h2>
 
 <div class="code-block">
 {% highlight java linenos%} 
@@ -75,7 +75,7 @@ public int randNum(){
 <p><strong>For Nn, we save it in P = k/n</strong>, that is, we replace an element in reservoir in P = k/n with Nn. When Nn+1, <strong><em>we reserve Nn+1 in P = k/n+1, and </em></strong>replace an element in reservoir in P = 1/k***. Then the possibility that the reservoir remains the same is
 k/n * (k/n+1 * k-1/k + (n+1 -k)/n+1) = k/m+1.</p>
 
-<h3>Pseduocode</h3>
+<h2>Pseduocode</h2>
 
 <div class="code-block">
 <pre>
@@ -87,7 +87,7 @@ for i= k+1 to N
 </pre>
  </div>
 
-<h3>The implementation of reservoir sampling of size K:</h3>
+<h2>The implementation of reservoir sampling of size K:</h2>
 
 <div class="code-block">
     {% highlight java linenos%} 
