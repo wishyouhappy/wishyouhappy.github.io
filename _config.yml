@@ -12,8 +12,9 @@ author:
 pages_list:       
   About: '/about'
   Blogs: '/blogs'
-  Photo: '/photos'
+  Photo: '/photo'
   Gallery: '/gallery'
+
 
 code_dir: source/downloads/code
 

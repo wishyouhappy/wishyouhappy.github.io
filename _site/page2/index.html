@@ -22,7 +22,9 @@
   <link rel="stylesheet" href="/public/css/base.css">
   <link rel="stylesheet" href="/public/css/web-fonts.css" media="screen, projection" />
 
-  <link media="only screen and (max-device-width: 480px)" href="/public/css/mobile.css" />
+   <link media="only screen and (max-device-width: 480px)" href="/public/css/agency.css" />
+    <link media="only screen and (max-device-width: 480px)" href="/public/css/bootstrap.css" />
+    <link media="only screen and (max-device-width: 480px)" href="/public/css/mobile.css" />
   <!-- RSS -->
  <!--  <link rel="alternate" type="application/atom+xml" title="wishyouhappy" href="/atom.xml"> -->
 
@@ -30,43 +32,45 @@
 
 
   <body>
-  <div class="top-title">
-  <div class="header">
-      <div class="container" >
-          <ul class = "menu">
-          
-            &nbsp;&nbsp;&nbsp;
-            
-              <li ><a href="/about" style="color: #626262 ">About</a></li>
-            
-          
-            &nbsp;&nbsp;&nbsp;
-            
-              <li ><a href="/blogs" style="color: #626262 ">Blogs</a></li>
-            
-          
-            &nbsp;&nbsp;&nbsp;
-            
-              <li ><a href="/photos" style="color: #626262 ">Photo</a></li>
-            
-          
-            &nbsp;&nbsp;&nbsp;
-            
-              <li ><a href="/gallery" style="color: #626262 ">Gallery</a></li>
-            
-          
-          </ul>
-          <section class = "name">
-<!--             <a href="/" title="Home"><b>wishyouhappy</b></a>
- -->          
-             <a href="/" title="Home" style="color: #565656; font-weight:800">wishyouhappy</a>
 
-           </section>
-      </div>  
-    </div>
+  
+<div class="top-title" >
+  <div class="header">
+        <div class="container" >
+            <ul class = "menu head-ul">
+            
+              &nbsp;&nbsp;&nbsp;
+              
+                <li class="head-title"><a href="/about" style="color: #7a7a7a;">About</a></li>
+              
+            
+              &nbsp;&nbsp;&nbsp;
+              
+                <li class="head-title"><a href="/blogs" style="color: #7a7a7a;">Blogs</a></li>
+              
+            
+              &nbsp;&nbsp;&nbsp;
+              
+                <li class="head-title"><a href="/photo" style="color: #7a7a7a;">Photo</a></li>
+              
+            
+              &nbsp;&nbsp;&nbsp;
+              
+                <li class="head-title"><a href="/gallery" style="color: #7a7a7a;">Gallery</a></li>
+              
+            
+            </ul>
+  <!--           <section class = "name">       
+               <a href="/" title="Home" style="color: #565656; font-weight:800">wishyouhappy</a>
+
+             </section> -->
+        </div>
+
+      </div>
+</div>
     </div>
   <div class = "main-div">
-    
+
       <div class="container">
       <main>
         <div class="container">
@@ -98,35 +102,30 @@ If the counter is not 0, we increment or decrement the counter according to whet
 <p>For example:</p>
 <p>sequence:  1, 2, 3, 2, 3, 2, 2, 2 the majority element is 2. Use this algorithm we can determine the majority in linear time.</p>
 
-    <div class="code-block">
+    <div class="code-block1">
+<pre>
+Array of 1, 2, 3, 2, 3, 2, 2, 2:
 
-<p>Array of 1, 2, 3, 2, 3, 2, 2, 2:</p>
+initialize : count = 1, candidate index 0,
 
-<p>initialize : count = 1, candidate index 0,</p>
+index 1: count = 0 (1 != 2) because count change to 0,
+         set count = 1, candidate as current(2) count = 1, candidate: 2
 
-<p>index 1: count = 0 (1 != 2)
-         because count change to 0, set count = 1, candidate as current(2)
-         count = 1, candidate: 2</p>
+index 2: count = 0(2 != 3) count = 1, candidate: 3
 
-<p>index 2: count = 0(2 != 3)
-         count = 1, candidate: 3</p>
+index 3: count = 0(3 != 2) count = 1, candidate: 2
 
-<p>index 3: count = 0(3 != 2)
-         count = 1, candidate: 2</p>
+index 4: count = 0(2 != 3) count = 1, candidate: 3
 
-<p>index 4: count = 0(2 != 3)
-         count = 1, candidate: 3</p>
+index 5: count = 0(3 != 2) count = 1, candidate: 2
 
-<p>index 5: count = 0(3 != 2)
-         count = 1, candidate: 2</p>
+index 6: count = 2(2 == 2)
 
-<p>index 6: count = 2(2 == 2)</p>
+index 7: count = 3(2 == 2)
 
-<p>index 7: count = 3(2 == 2)</p>
-
-<p>So the majority candidate is 2. We need to traverse the array again to check if this candidate is the real majorrity.</p>
-
-    </div>
+So the majority candidate is 2. We need to traverse the array again to check if this candidate is the real majorrity.
+</pre>
+  </div>
 
 <p>See other example by step on this link: <a href = "http://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html#step01"> click </a></p>
 <h3> Implementation of Moore</h3>
@@ -184,7 +183,7 @@ If the counter is not 0, we increment or decrement the counter according to whet
 <p>Similarly, if we just need to check if the n/2th smallest element is majority, we can use the select ith smallest algorithm to find the n/2th smallest element, then check if the element is a majority</p>
 <p> We can use the following algorithm to find the ith smallest element in O(n) time </p>
 
-<div class = "code-block">
+<div class = "code-block1">
 <pre>
  Partition A into groups of size 5;
  For each group, pick the median of the group;
@@ -235,14 +234,18 @@ depending on the value of i
 
      <!--  <footer class="footer">
         <small>
-          &copy; <time datetime="2015-03-02T10:15:09-06:00">2015</time>. All rights reserved.
+          &copy; <time datetime="2015-03-22T22:13:24-05:00">2015</time>. All rights reserved.
         </small>
       </footer> -->
     </div>
-      <div id="bg">
-      <img src="/public/image/28.jpg"  alt="">
-     </div>
+<!--       <div id="bg"> -->
+      <!-- <img src="/public/image/55.jpg"  alt=""> -->
+     <!-- </div> -->
   <div id = "container1"></div>
+
+  <footer class = "tail">
+      
+  </footer>
   </body>
       <!-- js -->
 <script type="text/javascript" src='/public/js/sketch.min.js'></script>

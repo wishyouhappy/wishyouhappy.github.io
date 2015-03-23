@@ -16,7 +16,7 @@ title: Reservoir sampling
 <li>1) if the stream contains only one Integer, we return the Integer in P = 1 when stream ends.</li>
 <li>2) if the stream contains two Integers, we can use a random in (0, 1), if random &lt; 0.5, we returns the first Integer, if random >= 0.5 we return the second Integer.</li>
 <li>3) if we can only save one Integer, then when we read the third Integer, we need to discard one Integer from n1 and n2, assume we discard each of them in P = 1/2. We need to maintain that the P of choosing n3 is 1/3, thus we reserve n3 in p = 1/3. Thus, after read n3, P of reserve n1 = 1/2 * 2/3 = 1/3, P of reserve n2 = 1/2 * 2/3 = 1/3.</li>
-<li>4) Let's generalize this into n.  When<strong><em> we read Nn, we reserve it in 1/n</em></strong>, otherwise save the prior number in 1/n * (n-1)/n = 1/n.</li>
+<li>4) Let's generalize this into n.  When<strong> we read Nn, we reserve it in 1/n</strong>, otherwise save the prior number in 1/n * (n-1)/n = 1/n.</li>
 </ul>
 
 
@@ -24,13 +24,13 @@ title: Reservoir sampling
 
 
 <div class="code-block">
-<pre>
+{% highlight java linenos%} 
     i = 0
     while input.hasNext
        with probability 1.0/++i
             choice = this input Integer
     print  choice
-</pre>
+ {% endhighlight %}
  </div>
 
 <h2>The implementation of reservoir sampling of size 1:</h2>
@@ -61,30 +61,30 @@ public int randNum(){
 <p>Because we reserve the last element Nn in P = 1/n, thus:</p>
 
 <div class="code-block">
-<pre>
+{% highlight java linenos%} 
   if(((new Random().nextInt(num))) < num-1){
     res = temp;
   }
-</pre>
+ {% endhighlight %}
  </div>
 
 <h2>Extension: select k elements from stream</h2>
 
 <p>In the above example, we only need to randomly select one element, if we need to select k elements, then we need a reservoir of size k.</p>
 
-<p><strong>For Nn, we save it in P = k/n</strong>, that is, we replace an element in reservoir in P = k/n with Nn. When Nn+1, <strong><em>we reserve Nn+1 in P = k/n+1, and </em></strong>replace an element in reservoir in P = 1/k***. Then the possibility that the reservoir remains the same is
+<p><strong>For Nn, we save it in P = k/n</strong>, that is, we replace an element in reservoir in P = k/n with Nn. When Nn+1, <strong>we reserve Nn+1 in P = k/n+1,</strong> and replace an element in reservoir in P = 1/k***. Then the possibility that the reservoir remains the same is
 k/n * (k/n+1 * k-1/k + (n+1 -k)/n+1) = k/m+1.</p>
 
 <h2>Pseduocode</h2>
 
 <div class="code-block">
-<pre>
-Init : a reservoir with the size： k
+{% highlight java linenos%} 
+Init : a reservoir with the size: k
 for i= k+1 to N
     M=random(1, i);
     if( M < k)
         SWAP the Mth value and ith value
-</pre>
+ {% endhighlight %}
  </div>
 
 <h2>The implementation of reservoir sampling of size K:</h2>

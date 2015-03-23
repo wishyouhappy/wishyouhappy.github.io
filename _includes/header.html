@@ -1,0 +1,22 @@
+
+<div class="top-title" >
+  <div class="header">
+        <div class="container" >
+            <ul class = "menu head-ul">
+            {% for page in site.pages_list %}
+              &nbsp;&nbsp;&nbsp;
+              {% if page[0]  == "Painting" %}
+                <li class="head-title"><a href="{{ page[1] }}" style="color: #7a7a7a;" >{{ page[0] }}</a></li>          
+              {% else %}
+                <li class="head-title"><a href="{{ page[1] }}" style="color: #7a7a7a;">{{ page[0] }}</a></li>
+              {% endif %}
+            {% endfor %}
+            </ul>
+  <!--           <section class = "name">       
+               <a href="/" title="Home" style="color: #565656; font-weight:800">wishyouhappy</a>
+
+             </section> -->
+        </div>
+
+      </div>
+</div>

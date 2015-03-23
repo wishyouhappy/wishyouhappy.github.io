@@ -4,11 +4,16 @@ title: About
 ---
 <div class ="container">
 	<h2>About me</h2>
-	<p>
-	  Hey there! I am Juan Li (Christina), a northwestern university graduate student majoring in computer science. I love piano, painting and travel and coding. 
-	</p>
+	<img src = "{{ site.baseurl }}public/image/me3.png" style="float: left; margin-left: -20px; margin-right: 30px;">
 
-	<h2>Coding skills</h2>
+	  <p>Hey there! I am Christina, a northwestern university graduate student majoring in computer science. I am interested and skilled in web/software development. I am self-motivated and hard working. Maintain a little progress every day. </p>
+
+	
+
+	 <p>
+	  Wide range of hobbies. I love piano, drawing, travel and music. 
+
+<!-- 	<h2>Coding skills</h2>
 	<p>
 	<ul>
 	<li>Programming skills: Java, JSP, Javascript, HTML5, CSS3, XML, SQL, MapReduce programming, C++, Python.</li>
@@ -17,19 +22,19 @@ title: About
 	<li>Tools: SVN, git, SQL Developer, Dreamweaver, Axure RP, PowerDesigner.</li>
 	<li>Others:	Oracle, mysql, Tomcat, Eclipse, Linux</li>
 	</ul>
-	</p>
+	</p> -->
 
 	<h2>Contact me</h2>
 	<p>
-	  If you want to get in touch with me by <a class ="a-emphasize" href="MAILTO:juanli2014@u.northwestern.edu">Email</a>. &nbsp;
+	  I am enjoying meeting new people. If you want to get in touch with me by <a class ="a-emphasize" href="MAILTO:juanli2014@u.northwestern.edu">Email</a> &nbsp;or connect with me. 
 	
 	 </p>
-	 <p>
-	      Or find me here:
-	   <a href = "https://github.com/wishyouhappy" target = "_blank"><img style = "display: inline" src= "{{ site.baseurl }}public/image/github.png" ></a>
-	   <a href = "https://www.linkedin.com/in/wishyouhappy" target = "_blank"> <img style = "display: inline" src= "{{ site.baseurl }}public/image/linkedin.png"> </a>
-	  <a href = "https://www.facebook.com/people/Wish-Li/100006896508943" target = "_blank"> <img style = "display: inline" src= "{{ site.baseurl }}public/image/facebook.png" ></a>
-	</p>
+	 <div align = "center">
+	     
+	   <a href = "https://github.com/wishyouhappy" target = "_blank"><img style = "display: inline; height: 50px; width: 50px" src= "{{ site.baseurl }}public/image/g.png" ></a>
+	   <a href = "https://www.linkedin.com/in/wishyouhappy" target = "_blank"> <img style = "display: inline; height: 50px; width: 50px" src= "{{ site.baseurl }}public/image/l.png"> </a>
+	  <a href = "https://www.facebook.com/people/Wish-Li/100006896508943" target = "_blank"> <img style = "display: inline;height: 50px; width: 50px" src= "{{ site.baseurl }}public/image/f.png" ></a>
+	</div>
 
 	
 </div>

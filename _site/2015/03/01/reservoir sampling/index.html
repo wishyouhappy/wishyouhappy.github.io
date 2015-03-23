@@ -22,7 +22,9 @@
   <link rel="stylesheet" href="/public/css/base.css">
   <link rel="stylesheet" href="/public/css/web-fonts.css" media="screen, projection" />
 
-  <link media="only screen and (max-device-width: 480px)" href="/public/css/mobile.css" />
+   <link media="only screen and (max-device-width: 480px)" href="/public/css/agency.css" />
+    <link media="only screen and (max-device-width: 480px)" href="/public/css/bootstrap.css" />
+    <link media="only screen and (max-device-width: 480px)" href="/public/css/mobile.css" />
   <!-- RSS -->
  <!--  <link rel="alternate" type="application/atom+xml" title="wishyouhappy" href="/atom.xml"> -->
 
@@ -30,43 +32,45 @@
 
 
   <body>
-  <div class="top-title">
-  <div class="header">
-      <div class="container" >
-          <ul class = "menu">
-          
-            &nbsp;&nbsp;&nbsp;
-            
-              <li ><a href="/about" style="color: #626262 ">About</a></li>
-            
-          
-            &nbsp;&nbsp;&nbsp;
-            
-              <li ><a href="/blogs" style="color: #626262 ">Blogs</a></li>
-            
-          
-            &nbsp;&nbsp;&nbsp;
-            
-              <li ><a href="/photos" style="color: #626262 ">Photo</a></li>
-            
-          
-            &nbsp;&nbsp;&nbsp;
-            
-              <li ><a href="/gallery" style="color: #626262 ">Gallery</a></li>
-            
-          
-          </ul>
-          <section class = "name">
-<!--             <a href="/" title="Home"><b>wishyouhappy</b></a>
- -->          
-             <a href="/" title="Home" style="color: #565656; font-weight:800">wishyouhappy</a>
 
-           </section>
-      </div>  
-    </div>
+  
+<div class="top-title" >
+  <div class="header">
+        <div class="container" >
+            <ul class = "menu head-ul">
+            
+              &nbsp;&nbsp;&nbsp;
+              
+                <li class="head-title"><a href="/about" style="color: #7a7a7a;">About</a></li>
+              
+            
+              &nbsp;&nbsp;&nbsp;
+              
+                <li class="head-title"><a href="/blogs" style="color: #7a7a7a;">Blogs</a></li>
+              
+            
+              &nbsp;&nbsp;&nbsp;
+              
+                <li class="head-title"><a href="/photo" style="color: #7a7a7a;">Photo</a></li>
+              
+            
+              &nbsp;&nbsp;&nbsp;
+              
+                <li class="head-title"><a href="/gallery" style="color: #7a7a7a;">Gallery</a></li>
+              
+            
+            </ul>
+  <!--           <section class = "name">       
+               <a href="/" title="Home" style="color: #565656; font-weight:800">wishyouhappy</a>
+
+             </section> -->
+        </div>
+
+      </div>
+</div>
     </div>
   <div class = "main-div">
-    
+
       <div class="container">
       <main>
         <div class ="container">
@@ -84,7 +88,7 @@
 <li>1) if the stream contains only one Integer, we return the Integer in P = 1 when stream ends.</li>
 <li>2) if the stream contains two Integers, we can use a random in (0, 1), if random &lt; 0.5, we returns the first Integer, if random >= 0.5 we return the second Integer.</li>
 <li>3) if we can only save one Integer, then when we read the third Integer, we need to discard one Integer from n1 and n2, assume we discard each of them in P = 1/2. We need to maintain that the P of choosing n3 is 1/3, thus we reserve n3 in p = 1/3. Thus, after read n3, P of reserve n1 = 1/2 * 2/3 = 1/3, P of reserve n2 = 1/2 * 2/3 = 1/3.</li>
-<li>4) Let's generalize this into n.  When<strong><em> we read Nn, we reserve it in 1/n</em></strong>, otherwise save the prior number in 1/n * (n-1)/n = 1/n.</li>
+<li>4) Let's generalize this into n.  When<strong> we read Nn, we reserve it in 1/n</strong>, otherwise save the prior number in 1/n * (n-1)/n = 1/n.</li>
 </ul>
 
 
@@ -92,13 +96,11 @@
 
 
 <div class="code-block">
-<pre>
-    i = 0
-    while input.hasNext
-       with probability 1.0/++i
-            choice = this input Integer
-    print  choice
-</pre>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="lineno">2</span>     <span class="k">while</span> <span class="n">input</span><span class="o">.</span><span class="na">hasNext</span>
+<span class="lineno">3</span>        <span class="n">with</span> <span class="n">probability</span> <span class="mf">1.0</span><span class="o">/++</span><span class="n">i</span>
+<span class="lineno">4</span>             <span class="n">choice</span> <span class="o">=</span> <span class="k">this</span> <span class="n">input</span> <span class="n">Integer</span>
+<span class="lineno">5</span>     <span class="n">print</span>  <span class="n">choice</span></code></pre></div>
  </div>
 
 <h2>The implementation of reservoir sampling of size 1:</h2>
@@ -126,30 +128,26 @@
 <p>Because we reserve the last element Nn in P = 1/n, thus:</p>
 
 <div class="code-block">
-<pre>
-  if(((new Random().nextInt(num))) < num-1){
-    res = temp;
-  }
-</pre>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span> <span class="k">if</span><span class="o">(((</span><span class="k">new</span> <span class="nf">Random</span><span class="o">().</span><span class="na">nextInt</span><span class="o">(</span><span class="n">num</span><span class="o">)))</span> <span class="o">&lt;</span> <span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="o">){</span>
+<span class="lineno">2</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+<span class="lineno">3</span>   <span class="o">}</span></code></pre></div>
  </div>
 
 <h2>Extension: select k elements from stream</h2>
 
 <p>In the above example, we only need to randomly select one element, if we need to select k elements, then we need a reservoir of size k.</p>
 
-<p><strong>For Nn, we save it in P = k/n</strong>, that is, we replace an element in reservoir in P = k/n with Nn. When Nn+1, <strong><em>we reserve Nn+1 in P = k/n+1, and </em></strong>replace an element in reservoir in P = 1/k***. Then the possibility that the reservoir remains the same is
+<p><strong>For Nn, we save it in P = k/n</strong>, that is, we replace an element in reservoir in P = k/n with Nn. When Nn+1, <strong>we reserve Nn+1 in P = k/n+1,</strong> and replace an element in reservoir in P = 1/k***. Then the possibility that the reservoir remains the same is
 k/n * (k/n+1 * k-1/k + (n+1 -k)/n+1) = k/m+1.</p>
 
 <h2>Pseduocode</h2>
 
 <div class="code-block">
-<pre>
-Init : a reservoir with the size： k
-for i= k+1 to N
-    M=random(1, i);
-    if( M < k)
-        SWAP the Mth value and ith value
-</pre>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span> <span class="n">Init</span> <span class="o">:</span> <span class="n">a</span> <span class="n">reservoir</span> <span class="n">with</span> <span class="n">the</span> <span class="nl">size:</span> <span class="n">k</span>
+<span class="lineno">2</span> <span class="k">for</span> <span class="n">i</span><span class="o">=</span> <span class="n">k</span><span class="o">+</span><span class="mi">1</span> <span class="n">to</span> <span class="n">N</span>
+<span class="lineno">3</span>     <span class="n">M</span><span class="o">=</span><span class="n">random</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">i</span><span class="o">);</span>
+<span class="lineno">4</span>     <span class="k">if</span><span class="o">(</span> <span class="n">M</span> <span class="o">&lt;</span> <span class="n">k</span><span class="o">)</span>
+<span class="lineno">5</span>         <span class="n">SWAP</span> <span class="n">the</span> <span class="n">Mth</span> <span class="n">value</span> <span class="n">and</span> <span class="n">ith</span> <span class="n">value</span></code></pre></div>
  </div>
 
 <h2>The implementation of reservoir sampling of size K:</h2>
@@ -250,14 +248,18 @@ for i= k+1 to N
 
      <!--  <footer class="footer">
         <small>
-          &copy; <time datetime="2015-03-02T10:15:09-06:00">2015</time>. All rights reserved.
+          &copy; <time datetime="2015-03-22T22:13:24-05:00">2015</time>. All rights reserved.
         </small>
       </footer> -->
     </div>
-      <div id="bg">
-      <img src="/public/image/28.jpg"  alt="">
-     </div>
+<!--       <div id="bg"> -->
+      <!-- <img src="/public/image/55.jpg"  alt=""> -->
+     <!-- </div> -->
   <div id = "container1"></div>
+
+  <footer class = "tail">
+      
+  </footer>
   </body>
       <!-- js -->
 <script type="text/javascript" src='/public/js/sketch.min.js'></script>

@@ -11,6 +11,27 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'AvenirNextLTW01-Regular', Helvetica, sans-serif;
+  color:#7a7a7a;
+}
+
+/*.me-picture{
+  height:200px;
+  width:200px;
+  padding-left: -50px;
+  background-image: url("../image/me1.png");
+}*/
+
+.head-title{
+  background-image: url('../image/title1.png') !important;
+  display: inline-block !important;
+  height: 100px !important;
+  width: 100px !important;
+  padding-top: 40px;
+  text-align: center;
+}
+.head-ul{
+    height: 100px !important;
+
 }
 
 a {
@@ -31,6 +52,7 @@ li {
   font-size: 18px !important;
   margin-left: 0;
   line-height: 160%;
+
 }
 
 ::selection {
@@ -58,7 +80,7 @@ li {
     -webkit-transition: color 0.25s ease-in;
   }
   .header a:hover, .header a:hover b {
-    color: #307EA9 !important;
+    color: #9A2EFE !important;
   }
 
   .name a {
@@ -403,17 +425,30 @@ h1 {
   border-radius: 10px;
   padding: 4px;
   font-size: 14px !important;
+  background: #333333;
 }
+
+.code-block1{
+  border: 5px solid #E0E0E0 ;
+  border-radius: 10px;
+  padding: 4px;
+  font-size: 14px !important;
+  padding-left:10px;
+  background-color: #f5f5f5;
+
+}
+
 
 
 /*body{
   height :100%;
-  background: url(../image/13.jpg) no-repeat fixed; 
+  background: url(../image/2.png) no-repeat fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }*/
+
 #bg {
   position: fixed; 
   top: -50%; 
@@ -443,15 +478,14 @@ h1 {
 .main-div{
   width: 900px;
   border: 2px solid #ffffff;
-  border-radius: 50px;
+  border-radius: 100px;
   background-color: #ffffff;
   margin: 0 auto;
   margin-top:0px;
-  margin-bottom:50px;
+  margin-bottom:20px;
   z-index: 2;
   position: relative;
-  min-height: 500px;
-  padding-top:20px;
+  /*min-height: 500px;*/
 }
 
 #container1{
@@ -466,12 +500,26 @@ h1 {
 }
 
 .top-title{
+  height: 400px;
   margin: 0 auto;
-  margin-top:20px;
-  margin-bottom:0px;
+  margin-bottom:-20px;
   z-index: 2;
   position: relative;
+  background: url("../image/4444.png");
+  background-size: cover;
+  /*background: #111111;*/
 }
+.tail{
+  height: 400px;
+  margin: 0 auto;
+  z-index: 2;
+  position: relative;
+  background: url("../image/999.png");
+  background-size: cover;
+  /*background: #111111;*/
+}
+
+
   .container p {
     line-height: 145% !important;
     margin: 25px 0 !important;
@@ -607,6 +655,7 @@ h1 {
   .footer .meta {
     margin: 0 auto;
     float: inherit;
+    
   }
 .about-wrapper {
   height: 200px;

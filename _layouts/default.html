@@ -4,30 +4,11 @@
   {% include head.html %}
 
   <body>
-  <div class="top-title">
-  <div class="header">
-      <div class="container" >
-          <ul class = "menu">
-          {% for page in site.pages_list %}
-            &nbsp;&nbsp;&nbsp;
-            {% if page[0]  == "Painting" %}
-              <li ><a href="{{ page[1] }}" style="color: #626262 " class="painting">{{ page[0] }}</a></li>          
-            {% else %}
-              <li ><a href="{{ page[1] }}" style="color: #626262 ">{{ page[0] }}</a></li>
-            {% endif %}
-          {% endfor %}
-          </ul>
-          <section class = "name">
-<!--             <a href="/" title="Home"><b>{{ site.title }}</b></a>
- -->          
-             <a href="/" title="Home" style="color: #565656; font-weight:800">wishyouhappy</a>
 
-           </section>
-      </div>  
-    </div>
+  {% include header.html %}
     </div>
   <div class = "main-div">
-    
+
       <div class="container">
       <main>
         {{ content }}
@@ -41,10 +22,14 @@
         </small>
       </footer> -->
     </div>
-      <div id="bg">
-      <img src="{{ site.baseurl }}public/image/28.jpg"  alt="">
-     </div>
+<!--       <div id="bg"> -->
+      <!-- <img src="{{ site.baseurl }}public/image/55.jpg"  alt=""> -->
+     <!-- </div> -->
   <div id = "container1"></div>
+
+  <footer class = "tail">
+      
+  </footer>
   </body>
       <!-- js -->
 <script type="text/javascript" src='{{ site.baseurl }}public/js/sketch.min.js'></script>

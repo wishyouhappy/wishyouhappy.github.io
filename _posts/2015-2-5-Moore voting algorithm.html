@@ -19,35 +19,30 @@ If the counter is not 0, we increment or decrement the counter according to whet
 <p>For example:</p>
 <p>sequence:  1, 2, 3, 2, 3, 2, 2, 2 the majority element is 2. Use this algorithm we can determine the majority in linear time.</p>
 
-    <div class="code-block">
+    <div class="code-block1">
+<pre>
+Array of 1, 2, 3, 2, 3, 2, 2, 2:
 
-<p>Array of 1, 2, 3, 2, 3, 2, 2, 2:</p>
+initialize : count = 1, candidate index 0,
 
-<p>initialize : count = 1, candidate index 0,</p>
+index 1: count = 0 (1 != 2) because count change to 0,
+         set count = 1, candidate as current(2) count = 1, candidate: 2
 
-<p>index 1: count = 0 (1 != 2)
-         because count change to 0, set count = 1, candidate as current(2)
-         count = 1, candidate: 2</p>
+index 2: count = 0(2 != 3) count = 1, candidate: 3
 
-<p>index 2: count = 0(2 != 3)
-         count = 1, candidate: 3</p>
+index 3: count = 0(3 != 2) count = 1, candidate: 2
 
-<p>index 3: count = 0(3 != 2)
-         count = 1, candidate: 2</p>
+index 4: count = 0(2 != 3) count = 1, candidate: 3
 
-<p>index 4: count = 0(2 != 3)
-         count = 1, candidate: 3</p>
+index 5: count = 0(3 != 2) count = 1, candidate: 2
 
-<p>index 5: count = 0(3 != 2)
-         count = 1, candidate: 2</p>
+index 6: count = 2(2 == 2)
 
-<p>index 6: count = 2(2 == 2)</p>
+index 7: count = 3(2 == 2)
 
-<p>index 7: count = 3(2 == 2)</p>
-
-<p>So the majority candidate is 2. We need to traverse the array again to check if this candidate is the real majorrity.</p>
-
-    </div>
+So the majority candidate is 2. We need to traverse the array again to check if this candidate is the real majorrity.
+</pre>
+  </div>
 
 <p>See other example by step on this link: <a href = "http://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html#step01"> click </a></p>
 <h3> Implementation of Moore</h3>
@@ -114,7 +109,7 @@ If the counter is not 0, we increment or decrement the counter according to whet
 <p>Similarly, if we just need to check if the n/2th smallest element is majority, we can use the select ith smallest algorithm to find the n/2th smallest element, then check if the element is a majority</p>
 <p> We can use the following algorithm to find the ith smallest element in O(n) time </p>
 
-<div class = "code-block">
+<div class = "code-block1">
 <pre>
  Partition A into groups of size 5;
  For each group, pick the median of the group;
