@@ -6,12 +6,12 @@ title: About
 	<h2>About me</h2>
 	<img src = "{{ site.baseurl }}public/image/me3.png" style="float: left; margin-left: -20px; margin-right: 30px;">
 
-	  <p>Hey there! I am Christina, a northwestern university graduate student majoring in computer science. I am interested and skilled in web/software development. I am self-motivated and hard working. Maintain a little progress every day. </p>
+	  <p>Hey there! I am Christina, a northwestern university graduate student majoring in computer science. I am interested and skilled in web/software development.</p>
 
-	
+	  <p>I am self-motivated, hard-working and maintaining a little progress every day.</p>
 
 	 <p>
-	  Wide range of hobbies. I love piano, drawing, travel and music. 
+	  Wide range of hobbies, I love piano, drawing, travel and music. Wish I can see the beatiful scenery, story, people around the world.</p>
 
 <!-- 	<h2>Coding skills</h2>
 	<p>
