@@ -539,6 +539,10 @@ h1 {
   padding: 0 3px;
 }
 
+.span-time{
+  font-size: 14px;
+}
+
 .container {
   width: 100%;
   overflow-x: visible;
