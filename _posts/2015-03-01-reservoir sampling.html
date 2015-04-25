@@ -25,11 +25,11 @@ title: Reservoir sampling
 
 <div class="code-block">
 {% highlight java linenos%} 
-    i = 0
-    while input.hasNext
-       with probability 1.0/++i
-            choice = this input Integer
-    print  choice
+i = 0
+while input.hasNext
+   with probability 1.0/++i
+        choice = this input Integer
+print  choice
  {% endhighlight %}
  </div>
 
@@ -118,15 +118,15 @@ public int[] randNum(int k){
 <p>Because we reserve the last element Nn in P = k/n, thus:</p>
 
 <div class="code-block">
-    {% highlight java linenos%} 
-        if(num <= k){
-            sample[num-1] = temp;
-        }else{
-            int j = new Random().nextInt(num);
-            if(j < k){
-                sample[j] = temp;
-            }
-        }
+{% highlight java linenos%} 
+if(num <= k){
+    sample[num-1] = temp;
+}else{
+    int j = new Random().nextInt(num);
+    if(j < k){
+        sample[j] = temp;
+    }
+}
  {% endhighlight %}
  </div>
 </body>

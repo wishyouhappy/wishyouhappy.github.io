@@ -133,19 +133,19 @@ So the majority candidate is 2. We need to traverse the array again to check if 
 
  <div class="code-block">
     <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kt">int</span> <span class="nf">findCandidate</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">num</span><span class="o">){</span>
-<span class="lineno"> 2</span>         <span class="k">if</span><span class="o">(</span><span class="n">num</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">num</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-<span class="lineno"> 3</span>         <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-<span class="lineno"> 4</span>         <span class="kt">int</span> <span class="n">candidate</span> <span class="o">=</span> <span class="n">num</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-<span class="lineno"> 5</span>         <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
-<span class="lineno"> 6</span>             <span class="k">if</span><span class="o">(</span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="n">candidate</span><span class="o">)</span> <span class="n">count</span><span class="o">--;</span>
-<span class="lineno"> 7</span>             <span class="k">else</span> <span class="n">count</span><span class="o">++;</span>
-<span class="lineno"> 8</span>             <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
-<span class="lineno"> 9</span>                 <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-<span class="lineno">10</span>                 <span class="n">candidate</span> <span class="o">=</span> <span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-<span class="lineno">11</span>             <span class="o">}</span>
-<span class="lineno">12</span>         <span class="o">}</span>
-<span class="lineno">13</span>         <span class="k">return</span> <span class="n">candidate</span><span class="o">;</span>
-<span class="lineno">14</span>     <span class="o">}</span></code></pre></div>
+<span class="lineno"> 2</span>     <span class="k">if</span><span class="o">(</span><span class="n">num</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">num</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+<span class="lineno"> 3</span>     <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno"> 4</span>     <span class="kt">int</span> <span class="n">candidate</span> <span class="o">=</span> <span class="n">num</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+<span class="lineno"> 5</span>     <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+<span class="lineno"> 6</span>         <span class="k">if</span><span class="o">(</span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="n">candidate</span><span class="o">)</span> <span class="n">count</span><span class="o">--;</span>
+<span class="lineno"> 7</span>         <span class="k">else</span> <span class="n">count</span><span class="o">++;</span>
+<span class="lineno"> 8</span>         <span class="k">if</span> <span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="o">){</span>
+<span class="lineno"> 9</span>             <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno">10</span>             <span class="n">candidate</span> <span class="o">=</span> <span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+<span class="lineno">11</span>         <span class="o">}</span>
+<span class="lineno">12</span>     <span class="o">}</span>
+<span class="lineno">13</span>     <span class="k">return</span> <span class="n">candidate</span><span class="o">;</span>
+<span class="lineno">14</span> <span class="o">}</span></code></pre></div>
 </div>
 
 <h3> Use hashmap to find majority in O(n)</h3>
@@ -153,19 +153,19 @@ So the majority candidate is 2. We need to traverse the array again to check if 
 
  <div class="code-block">
     <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kt">int</span> <span class="nf">findCandidate</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
-<span class="lineno"> 2</span>        <span class="k">if</span><span class="o">(</span><span class="n">num</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">num</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-<span class="lineno"> 3</span>        <span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;();</span>
-<span class="lineno"> 4</span>        <span class="k">if</span><span class="o">(</span><span class="n">num</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="k">return</span> <span class="n">num</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
-<span class="lineno"> 5</span>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
-<span class="lineno"> 6</span>            <span class="k">if</span><span class="o">(!</span><span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">]))</span> <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="mi">1</span><span class="o">);</span>
-<span class="lineno"> 7</span>            <span class="k">else</span><span class="o">{</span>
-<span class="lineno"> 8</span>                <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
-<span class="lineno"> 9</span>                <span class="k">if</span><span class="o">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="n">num</span><span class="o">.</span><span class="na">length</span><span class="o">/</span><span class="mi">2</span> <span class="o">)</span> <span class="k">return</span> <span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-<span class="lineno">10</span>                <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-<span class="lineno">11</span>            <span class="o">}</span>
-<span class="lineno">12</span>        <span class="o">}</span>
-<span class="lineno">13</span>        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
-<span class="lineno">14</span>     <span class="o">}</span></code></pre></div>
+<span class="lineno"> 2</span>    <span class="k">if</span><span class="o">(</span><span class="n">num</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">num</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+<span class="lineno"> 3</span>    <span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;();</span>
+<span class="lineno"> 4</span>    <span class="k">if</span><span class="o">(</span><span class="n">num</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="k">return</span> <span class="n">num</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+<span class="lineno"> 5</span>    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
+<span class="lineno"> 6</span>        <span class="k">if</span><span class="o">(!</span><span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">]))</span> <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="mi">1</span><span class="o">);</span>
+<span class="lineno"> 7</span>        <span class="k">else</span><span class="o">{</span>
+<span class="lineno"> 8</span>            <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+<span class="lineno"> 9</span>            <span class="k">if</span><span class="o">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="n">num</span><span class="o">.</span><span class="na">length</span><span class="o">/</span><span class="mi">2</span> <span class="o">)</span> <span class="k">return</span> <span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+<span class="lineno">10</span>            <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+<span class="lineno">11</span>        <span class="o">}</span>
+<span class="lineno">12</span>    <span class="o">}</span>
+<span class="lineno">13</span>    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+<span class="lineno">14</span> <span class="o">}</span></code></pre></div>
 </div>
 
 <h3> Other ideas</h3>
@@ -174,9 +174,9 @@ So the majority candidate is 2. We need to traverse the array again to check if 
 <p>If the range of numbers is not big, we can use O(n) sort algorithms like radix to sort those numbers, then find majority. </p>
  <div class="code-block">
     <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span> <span class="kd">public</span> <span class="kt">int</span> <span class="nf">majorityElement</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">num</span><span class="o">)</span> <span class="o">{</span>
-<span class="lineno">2</span>         <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
-<span class="lineno">3</span>         <span class="k">return</span> <span class="n">num</span><span class="o">[</span><span class="n">num</span><span class="o">.</span><span class="na">length</span><span class="o">/</span><span class="mi">2</span><span class="o">];</span>
-<span class="lineno">4</span>     <span class="o">}</span></code></pre></div>
+<span class="lineno">2</span>   <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+<span class="lineno">3</span>   <span class="k">return</span> <span class="n">num</span><span class="o">[</span><span class="n">num</span><span class="o">.</span><span class="na">length</span><span class="o">/</span><span class="mi">2</span><span class="o">];</span>
+<span class="lineno">4</span> <span class="o">}</span></code></pre></div>
 </div>
 
 <br>
@@ -234,7 +234,7 @@ depending on the value of i
 
      <!--  <footer class="footer">
         <small>
-          &copy; <time datetime="2015-04-25T18:45:28-05:00">2015</time>. All rights reserved.
+          &copy; <time datetime="2015-04-25T18:51:08-05:00">2015</time>. All rights reserved.
         </small>
       </footer> -->
     </div>

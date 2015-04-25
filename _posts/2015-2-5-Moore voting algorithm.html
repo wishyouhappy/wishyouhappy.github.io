@@ -51,20 +51,20 @@ So the majority candidate is 2. We need to traverse the array again to check if 
  <div class="code-block">
     {% highlight java linenos%}
 
-        public int findCandidate(int[] num){
-        if(num == null || num.length == 0) return -1;
-        int count = 1;
-        int candidate = num[0];
-        for(int i = 1; i < num.length; i++){
-            if(num[i] != candidate) count--;
-            else count++;
-            if (count == 0){
-                count = 1;
-                candidate = num[i];
-            }
+public int findCandidate(int[] num){
+    if(num == null || num.length == 0) return -1;
+    int count = 1;
+    int candidate = num[0];
+    for(int i = 1; i < num.length; i++){
+        if(num[i] != candidate) count--;
+        else count++;
+        if (count == 0){
+            count = 1;
+            candidate = num[i];
         }
-        return candidate;
     }
+    return candidate;
+}
     {% endhighlight %}
 </div>
 
@@ -74,20 +74,20 @@ So the majority candidate is 2. We need to traverse the array again to check if 
  <div class="code-block">
     {% highlight java linenos%}
 
-    public int findCandidate(int[] num) {
-       if(num == null || num.length == 0) return -1;
-       Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-       if(num.length == 1) return num[0];
-       for(int i = 0; i < num.length; i++){
-           if(!map.containsKey(num[i])) map.put(num[i], 1);
-           else{
-               int count = map.get(num[i]) + 1;
-               if(count > num.length/2 ) return num[i];
-               map.put(num[i], map.get(num[i]) + 1);
-           }
+public int findCandidate(int[] num) {
+   if(num == null || num.length == 0) return -1;
+   Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+   if(num.length == 1) return num[0];
+   for(int i = 0; i < num.length; i++){
+       if(!map.containsKey(num[i])) map.put(num[i], 1);
+       else{
+           int count = map.get(num[i]) + 1;
+           if(count > num.length/2 ) return num[i];
+           map.put(num[i], map.get(num[i]) + 1);
        }
-       return -1;
-    }
+   }
+   return -1;
+}
     {% endhighlight %}
 </div>
 
@@ -98,10 +98,10 @@ So the majority candidate is 2. We need to traverse the array again to check if 
  <div class="code-block">
     {% highlight java linenos%}
 
-    public int majorityElement(int[] num) {
-        Arrays.sort(num);
-        return num[num.length/2];
-    } 
+public int majorityElement(int[] num) {
+  Arrays.sort(num);
+  return num[num.length/2];
+} 
     {% endhighlight %}
 </div>
 

@@ -134,25 +134,25 @@ String pattern = "ABDAB"</p>
 
     <div class="code-block">
     <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">getHelperArray</span><span class="o">(</span><span class="n">String</span> <span class="n">pattern</span><span class="o">){</span>
-<span class="lineno"> 2</span>         <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="cm">/*suffix*/</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="cm">/*prefix*/</span><span class="o">,</span> <span class="n">len</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-<span class="lineno"> 3</span>         <span class="kt">int</span><span class="o">[]</span> <span class="n">helper</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">len</span><span class="o">];</span>
-<span class="lineno"> 4</span>         <span class="n">helper</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-<span class="lineno"> 5</span>         
-<span class="lineno"> 6</span>         <span class="k">while</span><span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="o">){</span>
-<span class="lineno"> 7</span>             <span class="k">if</span><span class="o">(</span><span class="n">pattern</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">pattern</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)){</span>
-<span class="lineno"> 8</span>                 <span class="n">j</span><span class="o">++;</span>
-<span class="lineno"> 9</span>                 <span class="n">helper</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">j</span><span class="o">;</span>
-<span class="lineno">10</span>                 <span class="n">i</span><span class="o">++;</span>
-<span class="lineno">11</span>             <span class="o">}</span><span class="k">else</span><span class="o">{</span>
-<span class="lineno">12</span>                 <span class="k">if</span><span class="o">(</span><span class="n">j</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="n">j</span> <span class="o">=</span> <span class="n">helper</span><span class="o">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">];</span>
-<span class="lineno">13</span>                 <span class="k">else</span><span class="o">{</span>
-<span class="lineno">14</span>                     <span class="n">helper</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-<span class="lineno">15</span>                     <span class="n">i</span><span class="o">++;</span>
-<span class="lineno">16</span>                 <span class="o">}</span>
-<span class="lineno">17</span>             <span class="o">}</span>
-<span class="lineno">18</span>         <span class="o">}</span>
-<span class="lineno">19</span>         <span class="k">return</span> <span class="n">helper</span><span class="o">;</span> 
-<span class="lineno">20</span>     <span class="o">}</span></code></pre></div>
+<span class="lineno"> 2</span>     <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="cm">/*suffix*/</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="cm">/*prefix*/</span><span class="o">,</span> <span class="n">len</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+<span class="lineno"> 3</span>     <span class="kt">int</span><span class="o">[]</span> <span class="n">helper</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">len</span><span class="o">];</span>
+<span class="lineno"> 4</span>     <span class="n">helper</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="lineno"> 5</span>     
+<span class="lineno"> 6</span>     <span class="k">while</span><span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="o">){</span>
+<span class="lineno"> 7</span>         <span class="k">if</span><span class="o">(</span><span class="n">pattern</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">pattern</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)){</span>
+<span class="lineno"> 8</span>             <span class="n">j</span><span class="o">++;</span>
+<span class="lineno"> 9</span>             <span class="n">helper</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">j</span><span class="o">;</span>
+<span class="lineno">10</span>             <span class="n">i</span><span class="o">++;</span>
+<span class="lineno">11</span>         <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+<span class="lineno">12</span>             <span class="k">if</span><span class="o">(</span><span class="n">j</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="n">j</span> <span class="o">=</span> <span class="n">helper</span><span class="o">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">];</span>
+<span class="lineno">13</span>             <span class="k">else</span><span class="o">{</span>
+<span class="lineno">14</span>                 <span class="n">helper</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="lineno">15</span>                 <span class="n">i</span><span class="o">++;</span>
+<span class="lineno">16</span>             <span class="o">}</span>
+<span class="lineno">17</span>         <span class="o">}</span>
+<span class="lineno">18</span>     <span class="o">}</span>
+<span class="lineno">19</span>     <span class="k">return</span> <span class="n">helper</span><span class="o">;</span> 
+<span class="lineno">20</span> <span class="o">}</span></code></pre></div>
 </div>
 
 <p>String matching:</p>
@@ -160,28 +160,28 @@ String pattern = "ABDAB"</p>
 
 <div class="code-block">
     <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">matchString</span><span class="o">(</span><span class="n">String</span> <span class="n">text</span><span class="o">,</span> <span class="n">String</span> <span class="n">pattern</span><span class="o">){</span>
-<span class="lineno"> 2</span>         <span class="k">if</span><span class="o">(</span><span class="n">text</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">pattern</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="o">(</span><span class="n">text</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="n">pattern</span><span class="o">.</span><span class="na">length</span><span class="o">()))</span> <span class="k">return</span><span class="o">;</span>
-<span class="lineno"> 3</span>         <span class="k">if</span><span class="o">(</span><span class="n">pattern</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">))</span> <span class="k">return</span><span class="o">;</span>
-<span class="lineno"> 4</span>         <span class="kt">int</span><span class="o">[]</span> <span class="n">helper</span> <span class="o">=</span> <span class="n">getHelperArray</span><span class="o">(</span><span class="n">pattern</span><span class="o">);</span>
-<span class="lineno"> 5</span>         <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span>
-<span class="lineno"> 6</span>             <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span>
-<span class="lineno"> 7</span>             <span class="n">textLen</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="na">length</span><span class="o">(),</span>
-<span class="lineno"> 8</span>             <span class="n">patternLen</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
-<span class="lineno"> 9</span>         <span class="k">while</span><span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">textLen</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">patternLen</span><span class="o">){</span>
-<span class="lineno">10</span>             <span class="k">if</span><span class="o">(</span><span class="n">text</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">pattern</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)){</span>
-<span class="lineno">11</span>                 <span class="n">j</span><span class="o">++;</span>
-<span class="lineno">12</span>                 <span class="n">i</span><span class="o">++;</span>
-<span class="lineno">13</span>             <span class="o">}</span>
-<span class="lineno">14</span>             
-<span class="lineno">15</span>             <span class="k">if</span><span class="o">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">patternLen</span><span class="o">){</span>
-<span class="lineno">16</span>                 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Found pattern at index: &quot;</span> <span class="o">+</span> <span class="o">(</span><span class="n">i</span><span class="o">-</span><span class="n">patternLen</span><span class="o">));</span>
-<span class="lineno">17</span>                 <span class="n">j</span> <span class="o">=</span> <span class="n">helper</span><span class="o">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">];</span>
-<span class="lineno">18</span>             <span class="o">}</span><span class="k">else</span> <span class="nf">if</span><span class="o">((</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">textLen</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">patternLen</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">text</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">!=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)){</span>
-<span class="lineno">19</span>                 <span class="k">if</span><span class="o">(</span><span class="n">j</span> <span class="o">!=-</span> <span class="mi">0</span><span class="o">)</span> <span class="n">j</span> <span class="o">=</span> <span class="n">helper</span><span class="o">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">];</span>
-<span class="lineno">20</span>                 <span class="k">else</span> <span class="n">i</span><span class="o">++;</span>
-<span class="lineno">21</span>             <span class="o">}</span>
-<span class="lineno">22</span>         <span class="o">}</span>
-<span class="lineno">23</span>     <span class="o">}</span></code></pre></div>
+<span class="lineno"> 2</span>     <span class="k">if</span><span class="o">(</span><span class="n">text</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">pattern</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="o">(</span><span class="n">text</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="n">pattern</span><span class="o">.</span><span class="na">length</span><span class="o">()))</span> <span class="k">return</span><span class="o">;</span>
+<span class="lineno"> 3</span>     <span class="k">if</span><span class="o">(</span><span class="n">pattern</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">))</span> <span class="k">return</span><span class="o">;</span>
+<span class="lineno"> 4</span>     <span class="kt">int</span><span class="o">[]</span> <span class="n">helper</span> <span class="o">=</span> <span class="n">getHelperArray</span><span class="o">(</span><span class="n">pattern</span><span class="o">);</span>
+<span class="lineno"> 5</span>     <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span>
+<span class="lineno"> 6</span>         <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span>
+<span class="lineno"> 7</span>         <span class="n">textLen</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="na">length</span><span class="o">(),</span>
+<span class="lineno"> 8</span>         <span class="n">patternLen</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+<span class="lineno"> 9</span>     <span class="k">while</span><span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">textLen</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">patternLen</span><span class="o">){</span>
+<span class="lineno">10</span>         <span class="k">if</span><span class="o">(</span><span class="n">text</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">pattern</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)){</span>
+<span class="lineno">11</span>             <span class="n">j</span><span class="o">++;</span>
+<span class="lineno">12</span>             <span class="n">i</span><span class="o">++;</span>
+<span class="lineno">13</span>         <span class="o">}</span>
+<span class="lineno">14</span>         
+<span class="lineno">15</span>         <span class="k">if</span><span class="o">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">patternLen</span><span class="o">){</span>
+<span class="lineno">16</span>             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Found pattern at index: &quot;</span> <span class="o">+</span> <span class="o">(</span><span class="n">i</span><span class="o">-</span><span class="n">patternLen</span><span class="o">));</span>
+<span class="lineno">17</span>             <span class="n">j</span> <span class="o">=</span> <span class="n">helper</span><span class="o">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">];</span>
+<span class="lineno">18</span>         <span class="o">}</span><span class="k">else</span> <span class="nf">if</span><span class="o">((</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">textLen</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">patternLen</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">text</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">!=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">charAt</span><span class="o">(</span><span class="n">j</span><span class="o">)){</span>
+<span class="lineno">19</span>             <span class="k">if</span><span class="o">(</span><span class="n">j</span> <span class="o">!=-</span> <span class="mi">0</span><span class="o">)</span> <span class="n">j</span> <span class="o">=</span> <span class="n">helper</span><span class="o">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="o">];</span>
+<span class="lineno">20</span>             <span class="k">else</span> <span class="n">i</span><span class="o">++;</span>
+<span class="lineno">21</span>         <span class="o">}</span>
+<span class="lineno">22</span>     <span class="o">}</span>
+<span class="lineno">23</span> <span class="o">}</span></code></pre></div>
     </div>
     </div>
 </div>
@@ -242,7 +242,7 @@ String pattern = "ABDAB"</p>
 
      <!--  <footer class="footer">
         <small>
-          &copy; <time datetime="2015-04-25T18:45:28-05:00">2015</time>. All rights reserved.
+          &copy; <time datetime="2015-04-25T18:51:08-05:00">2015</time>. All rights reserved.
         </small>
       </footer> -->
     </div>

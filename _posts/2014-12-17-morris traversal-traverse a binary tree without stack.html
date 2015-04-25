@@ -28,8 +28,8 @@ If the current node has left child, find the predecessor of current node, set cu
 
     <div class="code-block">
     {% highlight python linenos%}
-  initialize current as root
-  while current is not NULL:
+initialize current as root
+while current is not NULL:
     if current does not have left child: 
        a. Print current’s data
        b. Go to the right, i.e., current = current->right
@@ -51,33 +51,33 @@ If the current node has left child, find the predecessor of current node, set cu
     <div class="code-block">
     {% highlight java linenos%}
 
-        public void morrisTraversal(TreeNode root){
-        if(root == null) return;
-        
-        TreeNode pre = null;
-        while(root != null){
-            if(root.left == null){
+public void morrisTraversal(TreeNode root){
+    if(root == null) return;
+    
+    TreeNode pre = null;
+    while(root != null){
+        if(root.left == null){
+            System.out.println(root.val);
+            root = root.right;
+        }else{
+            /* find predecessor */
+            pre = root.left;
+            while(pre.right != null && pre.right != root)
+                pre = pre.right;
+            
+            /* if predecessor's right == null, set current node as its right child */
+            if(pre.right == null){
+                pre.right = root;
+                root = root.left;
+            }else{
+                /* recover tree, when return to parent node the second time */
+                pre.right = null;
                 System.out.println(root.val);
                 root = root.right;
-            }else{
-                /* find predecessor */
-                pre = root.left;
-                while(pre.right != null && pre.right != root)
-                    pre = pre.right;
-                
-                /* if predecessor's right == null, set current node as its right child */
-                if(pre.right == null){
-                    pre.right = root;
-                    root = root.left;
-                }else{
-                    /* recover tree, when return to parent node the second time */
-                    pre.right = null;
-                    System.out.println(root.val);
-                    root = root.right;
-                }
             }
         }
     }
+}
 
 
  {% endhighlight %}
@@ -102,8 +102,8 @@ If the current node has left child, find the predecessor of current node, set cu
     <div class="code-block">
     {% highlight python linenos%}
 
- initialize current as root
-  while current is not NULL:
+initialize current as root
+while current is not NULL:
     if current does not have left child:  
        a. Print current node
        b. Go to the right, i.e., current = current->right
@@ -127,32 +127,32 @@ If the current node has left child, find the predecessor of current node, set cu
     {% highlight java linenos%}
 
 public void morrisTraversal(TreeNode root){
-        if(root == null) return;
-        
-        TreeNode pre = null;
-        while(root != null){
-            if(root.left == null){
+    if(root == null) return;
+    
+    TreeNode pre = null;
+    while(root != null){
+        if(root.left == null){
+            System.out.println(root.val);
+            root = root.right;
+        }else{
+            /* find predecessor */
+            pre = root.left;
+            while(pre.right != null && pre.right != root)
+                pre = pre.right;
+            
+            /* if predecessor's right == null, set current node as its right child */
+            if(pre.right == null){
+                pre.right = root;
                 System.out.println(root.val);
-                root = root.right;
+                root = root.left;
             }else{
-                /* find predecessor */
-                pre = root.left;
-                while(pre.right != null && pre.right != root)
-                    pre = pre.right;
-                
-                /* if predecessor's right == null, set current node as its right child */
-                if(pre.right == null){
-                    pre.right = root;
-                    System.out.println(root.val);
-                    root = root.left;
-                }else{
-                    /* recover tree, when return to parent node the second time */
-                    pre.right = null;
-                    root = root.right;
-                }
+                /* recover tree, when return to parent node the second time */
+                pre.right = null;
+                root = root.right;
             }
         }
     }
+}
 
      {% endhighlight %}
     </div>
@@ -167,8 +167,8 @@ public void morrisTraversal(TreeNode root){
     <div class="code-block">
     {% highlight python linenos%}
 
-  initialize current as root
-  while current is not NULL: 
+initialize current as root
+while current is not NULL: 
     if current does not have left child:
         Go to the right, i.e., current = current->right
     else:
@@ -191,34 +191,34 @@ public void morrisTraversal(TreeNode root){
     {% highlight java linenos%}
 
 public void morrisTraversal(TreeNode root){
-        if(root == null) return;
-        
-        TreeNode pre = null;
-        TreeNode dummy = new TreeNode(0);
-        dummy.left = root;
-        root = dummy;
-        while(root != null){
-            if(root.left == null){
-                root = root.right;
+    if(root == null) return;
+    
+    TreeNode pre = null;
+    TreeNode dummy = new TreeNode(0);
+    dummy.left = root;
+    root = dummy;
+    while(root != null){
+        if(root.left == null){
+            root = root.right;
+        }else{
+            /* find predecessor */
+            pre = root.left;
+            while(pre.right != null && pre.right != root)
+                pre = pre.right;
+            
+            /* if predecessor's right == null, set current node as its right child */
+            if(pre.right == null){
+                pre.right = root;
+                root = root.left;
             }else{
-                /* find predecessor */
-                pre = root.left;
-                while(pre.right != null && pre.right != root)
-                    pre = pre.right;
-                
-                /* if predecessor's right == null, set current node as its right child */
-                if(pre.right == null){
-                    pre.right = root;
-                    root = root.left;
-                }else{
-                    /* recover tree, when return to parent node the second time */
-                    pre.right = null;
-                    printPathReverse(root.left, pre);
-                    root = root.right;
-                }
+                /* recover tree, when return to parent node the second time */
+                pre.right = null;
+                printPathReverse(root.left, pre);
+                root = root.right;
             }
         }
     }
+}
 
 
  {% endhighlight %}
