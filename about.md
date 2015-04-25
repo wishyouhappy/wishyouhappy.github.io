@@ -32,6 +32,7 @@ title: About
 	   <a href = "https://github.com/wishyouhappy" target = "_blank"><img style = "display: inline; height: 50px; width: 50px" src= "{{ site.baseurl }}public/image/g.png" ></a>
 	   <a href = "https://www.linkedin.com/in/wishyouhappy" target = "_blank"> <img style = "display: inline; height: 50px; width: 50px" src= "{{ site.baseurl }}public/image/l.png"> </a>
 	  <a href = "https://www.facebook.com/people/Wish-Li/100006896508943" target = "_blank"> <img style = "display: inline;height: 50px; width: 50px" src= "{{ site.baseurl }}public/image/f.png" ></a>
+	  <a href = "http://www.cnblogs.com/wishyouhappy/" target = "_blank"> <img style = "display: inline;height: 42px; width: 38px; padding-bottom: 4px;" src= "{{ site.baseurl }}public/image/cn.png" ></a>
 	</div>
 
 	
