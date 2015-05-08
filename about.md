@@ -9,7 +9,7 @@ title: About
 	  <p>Hey there! I am Christina, a northwestern university graduate student majoring in computer science. I am interested and skilled in web/software development. Self-motivated, hard-working and maintain a little progress every day.</p>
 
 	 <p>
-	  Wide range of hobbies, I love piano, drawing, travel and music. I have a dream, wish that I can see the beatiful scenery, story, people around the world.</p>
+	  Wide range of hobbies, I play piano, love drawing, travel and music. I have a dream, wish that I can see the beatiful scenery, story, people around the world.</p>
 
 <!-- 	<h2>Coding skills</h2>
 	<p>
