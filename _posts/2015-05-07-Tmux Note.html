@@ -1,0 +1,73 @@
+---
+layout: post
+title: Tmux Note
+---
+
+
+
+
+<p>What is Tmux:</p>
+
+<p>Tmux is a terminal multiplexer: it enables a number of terminals, each running a separate program to be created, accessed and controlled from a single screen.</p>
+
+<p>Motivation:</p>
+
+<p>Considering that you have a lot of work to do in the same time use terminal, you might want to create a lot of tabs. One solution for this problem is the terminal multiplexer. </p>
+
+
+<p>How it works</p>
+
+<p> Tmux is developed on a client-server model. A session is a single collection of pseudo terminals under the management of tmux. Each session hasone or more windows linked to it. A window occupies the entire screen and may be split into rectangular
+panes, each of which is a separate pseudo terminal. Any number of tmux instances may connect to the
+same session, and any number of windows may be present in the same session. Once all sessions are
+killed, tmux exits.</p>
+
+<h2> How to use it</h2>
+
+<p>
+1) Install
+
+Use yum, homebrew, port, apt-get or whatever package manage tools to install.
+
+</p>
+<p>
+2) Create a session/Attach a session/ detach a session /kill a session
+</p>
+
+
+<div class="code-block">
+{% highlight java linenos%} 
+tmux new-session -s sessionname
+
+tmux attch-session -t sessionname
+
+tmux detach
+
+tmux kill-session -t sessionname
+ {% endhighlight %}
+ </div>
+
+ <p><strong> If we don't add session name, it will default number to 0, 1, 2, ....</strong></p>
+<h2> Some quick key</h2>
+
+
+<pre>
+1) <strong>Sessions</strong>
+
+- C-b s  --- Select a new session for the attached client interactively.
+-C-b d  --- Detach the current client.
+
+2) <strong>Windows</strong>
+ 
+- C-b c  --- Create a new window.
+- C-b [0-9]  --- Select windows 0 to 9.
+- C-b &  --- Kill the current window.
+
+3)  <strong>Panes</strong>
+
+-C-b %  --- Split the current pane into two, left and right.
+- C-b "  --- Split the current pane into two, top and bottom.
+- C-b C-o  ---  Rotate the panes in the current window forwards.
+-C-b x  ---  Kill the current pane.
+
+</pre>

@@ -55,6 +55,10 @@ li {
 
 }
 
+.page-date {
+  font-size:12px !important;
+}
+
 ::selection {
   background-color: #2B2B2B;
   color: #eee;

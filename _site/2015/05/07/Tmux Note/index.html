@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      wishyouhappy &middot;Tmux Note 
+    
+  </title>
+
+  <link rel="shortcut icon" type="image/x-icon"  href="/public/image/leave.ico">
+
+  <!-- CSS -->
+  <link type="text/css" rel="stylesheet" href="http://fast.fonts.com/cssapi/d70ca5cd-778e-48cc-9e59-6b276425c670.css"/>
+  <link rel="stylesheet" href="/public/css/css.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+   <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/base.css">
+  <link rel="stylesheet" href="/public/css/web-fonts.css" media="screen, projection" />
+
+   <link media="only screen and (max-device-width: 480px)" href="/public/css/agency.css" />
+    <link media="only screen and (max-device-width: 480px)" href="/public/css/bootstrap.css" />
+    <link media="only screen and (max-device-width: 480px)" href="/public/css/mobile.css" />
+    <link href='http://fonts.googleapis.com/css?family=Coustard:400,900' rel='stylesheet' type='text/css'>
+  <!-- RSS -->
+ <!--  <link rel="alternate" type="application/atom+xml" title="wishyouhappy" href="/atom.xml"> -->
+
+</head>
+
+
+  <body>
+
+  
+<div class="top-title" >
+  <div class="header">
+        <div class="container" >
+            <ul class = "menu head-ul">
+            
+              &nbsp;&nbsp;&nbsp;
+              
+                <li class="head-title"><a href="/about" style="color: #7a7a7a;">About</a></li>
+              
+            
+              &nbsp;&nbsp;&nbsp;
+              
+                <li class="head-title"><a href="/blogs" style="color: #7a7a7a;">Blogs</a></li>
+              
+            
+              &nbsp;&nbsp;&nbsp;
+              
+                <li class="head-title"><a href="/photo" style="color: #7a7a7a;">Photo</a></li>
+              
+            
+              &nbsp;&nbsp;&nbsp;
+              
+                <li class="head-title"><a href="/gallery" style="color: #7a7a7a;">Gallery</a></li>
+              
+            
+            </ul>
+  <!--           <section class = "name">       
+               <a href="/" title="Home" style="color: #565656; font-weight:800">wishyouhappy</a>
+
+             </section> -->
+        </div>
+
+      </div>
+</div>
+    </div>
+  <div class = "main-div">
+
+      <div class="container">
+      <main>
+        <div class ="container">
+  <h2>Tmux Note</h2>
+  <time datetime="2015-05-07T00:00:00-05:00" class="page-date">07 May 2015</time>
+  <p>What is Tmux:</p>
+
+<p>Tmux is a terminal multiplexer: it enables a number of terminals, each running a separate program to be created, accessed and controlled from a single screen.</p>
+
+<p>Motivation:</p>
+
+<p>Considering that you have a lot of work to do in the same time use terminal, you might want to create a lot of tabs. One solution for this problem is the terminal multiplexer. </p>
+
+
+<p>How it works</p>
+
+<p> Tmux is developed on a client-server model. A session is a single collection of pseudo terminals under the management of tmux. Each session hasone or more windows linked to it. A window occupies the entire screen and may be split into rectangular
+panes, each of which is a separate pseudo terminal. Any number of tmux instances may connect to the
+same session, and any number of windows may be present in the same session. Once all sessions are
+killed, tmux exits.</p>
+
+<h2> How to use it</h2>
+
+<p>
+1) Install
+
+Use yum, homebrew, port, apt-get or whatever package manage tools to install.
+
+</p>
+<p>
+2) Create a session/Attach a session/ detach a session /kill a session
+</p>
+
+
+<div class="code-block">
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span> <span class="n">tmux</span> <span class="k">new</span><span class="o">-</span><span class="n">session</span> <span class="o">-</span><span class="n">s</span> <span class="n">sessionname</span>
+<span class="lineno">2</span> 
+<span class="lineno">3</span> <span class="n">tmux</span> <span class="n">attch</span><span class="o">-</span><span class="n">session</span> <span class="o">-</span><span class="n">t</span> <span class="n">sessionname</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="n">tmux</span> <span class="n">detach</span>
+<span class="lineno">6</span> 
+<span class="lineno">7</span> <span class="n">tmux</span> <span class="n">kill</span><span class="o">-</span><span class="n">session</span> <span class="o">-</span><span class="n">t</span> <span class="n">sessionname</span></code></pre></div>
+ </div>
+
+ <p><strong> If we don't add session name, it will default number to 0, 1, 2, ....</strong></p>
+<h2> Some quick key</h2>
+
+
+<pre>
+1) <strong>Sessions</strong>
+
+- C-b s  --- Select a new session for the attached client interactively.
+-C-b d  --- Detach the current client.
+
+2) <strong>Windows</strong>
+ 
+- C-b c  --- Create a new window.
+- C-b [0-9]  --- Select windows 0 to 9.
+- C-b &  --- Kill the current window.
+
+3)  <strong>Panes</strong>
+
+-C-b %  --- Split the current pane into two, left and right.
+- C-b "  --- Split the current pane into two, top and bottom.
+- C-b C-o  ---  Rotate the panes in the current window forwards.
+-C-b x  ---  Kill the current pane.
+
+</pre>
+</div>
+
+<aside class="post-title">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        
+          <a href="/2015/03/01/reservoir%20sampling/">
+            Reservoir sampling
+            <small><time datetime="2015-03-01T00:00:00-06:00">01 Mar 2015</time></small>
+          </a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/2015/02/05/Moore%20voting%20algorithm/">
+            Moore's voting algorithm
+            <small><time datetime="2015-02-05T00:00:00-06:00">05 Feb 2015</time></small>
+          </a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/2014/12/26/kmp%20algorithm(knuth-morris-pratt)/">
+            KMP(knuth-morris-pratt) algorithm
+            <small><time datetime="2014-12-26T00:00:00-06:00">26 Dec 2014</time></small>
+          </a>
+        
+      </li>
+    
+  </ul>
+</aside>
+
+  <div class="comments">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'andersonvom'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+
+      </main>
+      </div>
+
+
+     <!--  <footer class="footer">
+        <small>
+          &copy; <time datetime="2015-05-07T22:43:29-05:00">2015</time>. All rights reserved.
+        </small>
+      </footer> -->
+    </div>
+<!--       <div id="bg"> -->
+      <!-- <img src="/public/image/55.jpg"  alt=""> -->
+     <!-- </div> -->
+  <div id = "container1"></div>
+
+  <footer class = "tail">
+      
+  </footer>
+  </body>
+      <!-- js -->
+<script type="text/javascript" src='/public/js/sketch.min.js'></script>
+<script type="text/javascript" src="/public/js/index.js"></script>
+
+</html>
