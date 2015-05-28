@@ -1,0 +1,259 @@
+---
+layout: post
+title: Trie
+---
+
+<p>Other names in computer science: digital tree, radix tree, prefix tree. The term trie comes from retrieval. It is pronounced like "try" by some, like "tree" (the pronunciation of "trie" in "retrieval") by others. 
+
+</p>
+<pre>
+ We use a trie to store pieces of data that have a key and possibly a value. Let's assume that the keys are strings. The trie data structure has the following attributes:
+
+ 1) each vertex represents a single character
+
+ 2) root resprent ""
+
+ 3) the direct children of root represent prefixs of length 1, grandchildren represent prefixs of length 2....
+
+
+See an example of trie tree below: in this figure, there are three keys ab dc, d whose values are 100, 20, 50
+
+</pre>
+
+<img src= "{{ site.baseurl }}pictures/trie.png">
+
+
+<h3>Advantages of trie</h3> 
+
+<p>Why we don't just use hashtable or set? </p>
+
+<Pre>
+
+1) Insert and find strings in O(L) time, L is the length of the string. Much faster than set, a little faster than hashtable
+
+2) Allows us to match the prefix other than the wholeword. 
+
+But remember some tries might require more memory than hashtable. As memory may be allocated for each character in the search string, rather than a single chunk of memory for the whole entry, as in most hash tables.
+
+</pre>
+
+<h3>Pseudocode from topcoder</h3>
+
+<div class="code-block">
+{% highlight java linenos%} 
+//Because we want to know the number of words that have like prefix a given string, we need another integer field prefixes that indicates how many words have the prefix of the vertex. Also, each vertex must have references to all his possible sons (26 references). Knowing all these details, our structure should have the following members:
+
+structure Trie
+    integer words;
+    integer prefixes;
+    reference edges[26];
+
+initialize(vertex)
+    vertex.words=0
+    vertex.prefixes=0
+    for i=0 to 26
+        edges[i]=NoEdge
+
+addWord(vertex, word)
+    if isEmpty(word)
+        vertex.words=vertex.words+1
+    else
+        vertex.prefixes=vertex.prefixes+1
+        k=firstCharacter(word)
+        if(notExists(edges[k]))
+            edges[k]=createEdge()
+            initialize(edges[k])
+        cutLeftmostCharacter(word)
+        addWord(edges[k], word)
+
+countWords(vertex, word)
+    k=firstCharacter(word)
+    if isEmpty(word)
+        return vertex.words
+    else if notExists(edges[k])
+        return 0
+    else
+        cutLeftmostCharacter(word)
+        return countWords(edges[k], word);
+
+countPrefixes(vertex, prefix)
+    k=firstCharacter(prefix)
+    if isEmpty(word)
+        return vertex.prefixes
+    else if notExists(edges[k])
+        return 0
+    else
+        cutLeftmostCharacter(prefix)
+        return countWords(edges[k], prefix)
+
+{% endhighlight %}
+ </div>
+
+
+<h3>Implementation 1 based on pseudocode</h3>
+
+<div class="code-block">
+{% highlight java linenos%} 
+class TrieNode {
+    // Initialize your data structure here.
+    public TrieNode[] edges;
+    public boolean isLeaf; //check if a trienode is a leaf node
+    public TrieNode() {
+        // all possible sons
+        edges = new TrieNode[26];
+    }
+}
+
+public class Trie {
+    private TrieNode root;
+
+    public Trie() {
+        root = new TrieNode();
+    }
+
+    // Inserts a word into the trie.
+    public void insert(String word) {
+        if (word == null || word.length() == 0) {
+            return;
+        }
+        root = insert(root, word, 0);
+    }
+    
+    public TrieNode insert(TrieNode node, String word, int len) {
+        if (node == null) {
+            node = new TrieNode();
+        }
+        if (len == word.length()) {
+            node.isLeaf = true;
+            return node;
+        }
+        int pos = word.charAt(len) - 'a';
+        node.edges[pos] = insert(node.edges[pos], word, len + 1);
+        return node;
+    }
+
+    // Returns if the word is in the trie.
+    public boolean search(String word) {
+        return search(root, word, 0);
+    }
+    
+    public boolean search(TrieNode node, String word, int len) {
+        if (node == null) {
+            return false;
+        }
+        if (len == word.length()) {
+            return node.isLeaf;
+        }
+        int pos = word.charAt(len) - 'a';
+        return search(node.edges[pos], word, len + 1);
+    }
+
+    // Returns if there is any word in the trie
+    // that starts with the given prefix.
+    public boolean startsWith(String prefix) {
+        return startsWith(root, prefix, 0);
+    }
+    
+    public boolean startsWith(TrieNode node, String word, int len) {
+        if (node == null) {
+            return false;
+        }
+        if (len == word.length()) {
+            return true;
+        }
+        int pos = word.charAt(len) - 'a';
+        return startsWith(node.edges[pos], word, len + 1);
+    }
+}
+
+{% endhighlight %}
+ </div>
+
+ <h3>Implementation 2 use hashmap</h3>
+
+<div class="code-block">
+{% highlight java linenos%} 
+class TrieNode {
+    // Initialize your data structure here.
+    public Map<Character, TrieNode> edges;
+    public boolean isLeaf; //check if a trienode is a leaf node
+    public TrieNode() {
+        // all possible sons
+        edges = new HashMap<Character, TrieNode>();
+    }
+}
+
+public class Trie {
+    private TrieNode root;
+
+    public Trie() {
+        root = new TrieNode();
+    }
+
+    // Inserts a word into the trie.
+   public void insert(String word) {
+        Map<Character, TrieNode> edges = root.edges;
+ 
+        for(int i=0; i<word.length(); i++){
+            char c = word.charAt(i);
+ 
+            TrieNode t;
+            if(edges.containsKey(c)){
+                t = edges.get(c);
+            }else{
+                t = new TrieNode();
+                edges.put(c, t);
+            }
+ 
+            edges = t.edges;
+ 
+            if(i==word.length()-1)
+                t.isLeaf = true;    
+        }
+    }
+
+    // Returns if the word is in the trie.
+    public boolean search(String word) {
+        Map<Character, TrieNode> edges = root.edges;
+        TrieNode res = null;
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            if (edges.containsKey(c)) {
+                res = edges.get(c);
+                edges = res.edges;
+            } else {
+                return false;
+            }
+        }
+        return res.isLeaf;
+    }
+
+
+    // Returns if there is any word in the trie
+    // that starts with the given prefix.
+    public boolean startsWith(String prefix) {
+        Map<Character, TrieNode> edges = root.edges;
+        TrieNode res = null;
+        for (int i = 0; i < prefix.length(); i++) {
+            char c = prefix.charAt(i);
+            if (edges.containsKey(c)) {
+                res = edges.get(c);
+                edges = res.edges;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+}
+
+{% endhighlight %}
+ </div>
+
+<p>Want to know nore, click 
+<a href = "http://en.wikipedia.org/wiki/Trie">link1</a>
+
+<a href = "https://www.cs.bu.edu/teaching/c/tree/trie/">link2</a>
+
+<a href = "https://www.topcoder.com/community/data-science/data-science-tutorials/using-tries/">link3</a> </p>

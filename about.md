@@ -4,7 +4,7 @@ title: About
 ---
 <div class ="container">
 	<h2>About me</h2>
-	<img src = "{{ site.baseurl }}public/image/me3.png" style="float: left; margin-left: -20px; margin-right: 30px;">
+	<!-- <img src = "{{ site.baseurl }}public/image/me3.png" style="float: left; margin-left: -20px; margin-right: 30px;"> -->
 
 	  <p>Hey there! I am Christina, a northwestern university graduate student majoring in computer science. I am interested and skilled in web/software development. Self-motivated, hard-working and maintain a little progress every day.</p>
 
