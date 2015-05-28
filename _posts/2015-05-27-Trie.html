@@ -134,35 +134,26 @@ public class Trie {
 
     // Returns if the word is in the trie.
     public boolean search(String word) {
-        return search(root, word, 0);
-    }
-    
-    public boolean search(TrieNode node, String word, int len) {
-        if (node == null) {
-            return false;
-        }
-        if (len == word.length()) {
-            return node.isLeaf;
-        }
-        int pos = word.charAt(len) - 'a';
-        return search(node.edges[pos], word, len + 1);
+       TrieNode temp = searchHelper(root, word, 0);
+       return temp == null ? false : temp.isLeaf;    
     }
 
     // Returns if there is any word in the trie
     // that starts with the given prefix.
     public boolean startsWith(String prefix) {
-        return startsWith(root, prefix, 0);
+        TrieNode temp = searchHelper(root, prefix, 0);
+        return temp == null ? false : true;
     }
     
-    public boolean startsWith(TrieNode node, String word, int len) {
+    public TrieNode searchHelper(TrieNode node, String word, int len) {
         if (node == null) {
-            return false;
+            return null;
         }
         if (len == word.length()) {
-            return true;
+            return node;
         }
         int pos = word.charAt(len) - 'a';
-        return startsWith(node.edges[pos], word, len + 1);
+        return searchHelper(node.edges[pos], word, len + 1);
     }
 }
 
