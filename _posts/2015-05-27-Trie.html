@@ -11,18 +11,19 @@ title: Trie
  We use a trie to store pieces of data that have a key and possibly a value. Let's assume that the keys are strings. The trie data structure has the following attributes:
 </p>
 
-
-<pre>
+<p>
  1) each vertex represents a single character
-
+ </p>
+<p>
  2) root resprent ""
-
+ </p>
+<p>
  3) the direct children of root represent prefixs of length 1, grandchildren represent prefixs of length 2....
+ </p>
 
-
+<p>
 See an example of trie tree below: in this figure, there are three keys ab dc, d whose values are 100, 20, 50
-
-</pre>
+ </p>
 
 <img src= "{{ site.baseurl }}pictures/trie.png">
 
@@ -31,15 +32,19 @@ See an example of trie tree below: in this figure, there are three keys ab dc, d
 
 <p>Why we don't just use hashtable or set? </p>
 
-<Pre>
+<P>
 
 1) Insert and find strings in O(L) time, L is the length of the string. Much faster than set, a little faster than hashtable
 
-2) Allows us to match the prefix other than the wholeword. 
+</P>
 
+<p>
+2) Allows us to match the prefix other than the wholeword. 
+ </p>
+ <p>
 But remember some tries might require more memory than hashtable. As memory may be allocated for each character in the search string, rather than a single chunk of memory for the whole entry, as in most hash tables.
 
-</pre>
+</p>
 
 <h3>Pseudocode from topcoder</h3>
 
