@@ -1,0 +1,64 @@
+<h3>1. Use Arrays.asList()</h3>
+
+<p>Let's first looks its JAVA API below. We get that it returns a **fixed size List** </p>
+<div class="code-block">
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="nd">@SafeVarargs</span>
+<span class="lineno"> 2</span> <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">asList</span><span class="o">(</span><span class="n">T</span><span class="o">...</span> <span class="n">a</span><span class="o">)</span>
+<span class="lineno"> 3</span> <span class="n">Returns</span> <span class="n">a</span> <span class="n">fixed</span><span class="o">-</span><span class="n">size</span> <span class="n">list</span> <span class="n">backed</span> <span class="n">by</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">array</span><span class="o">.</span> <span class="o">(</span><span class="n">Changes</span> <span class="n">to</span> <span class="n">the</span> <span class="n">returned</span> <span class="n">list</span> <span class="s">&quot;write through&quot;</span> <span class="n">to</span> <span class="n">the</span> <span class="n">array</span><span class="o">.)</span> <span class="n">This</span> <span class="n">method</span> <span class="n">acts</span> <span class="n">as</span> <span class="n">bridge</span> <span class="n">between</span> <span class="n">array</span><span class="o">-</span><span class="n">based</span> <span class="n">and</span> <span class="n">collection</span><span class="o">-</span><span class="n">based</span> <span class="n">APIs</span><span class="o">,</span> <span class="n">in</span> <span class="n">combination</span> <span class="n">with</span> <span class="n">Collection</span><span class="o">.</span><span class="na">toArray</span><span class="o">().</span> <span class="n">The</span> <span class="n">returned</span> <span class="n">list</span> <span class="n">is</span> <span class="n">serializable</span> <span class="n">and</span> <span class="kd">implements</span> <span class="n">RandomAccess</span><span class="o">.</span>
+<span class="lineno"> 4</span> <span class="n">This</span> <span class="n">method</span> <span class="n">also</span> <span class="n">provides</span> <span class="n">a</span> <span class="n">convenient</span> <span class="n">way</span> <span class="n">to</span> <span class="n">create</span> <span class="n">a</span> <span class="n">fixed</span><span class="o">-</span><span class="n">size</span> <span class="n">list</span> <span class="n">initialized</span> <span class="n">to</span> <span class="n">contain</span> <span class="n">several</span> <span class="nl">elements:</span>
+<span class="lineno"> 5</span> 
+<span class="lineno"> 6</span>      <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">stooges</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">&quot;Larry&quot;</span><span class="o">,</span> <span class="s">&quot;Moe&quot;</span><span class="o">,</span> <span class="s">&quot;Curly&quot;</span><span class="o">);</span>
+<span class="lineno"> 7</span>  
+<span class="lineno"> 8</span> <span class="nl">Parameters:</span>
+<span class="lineno"> 9</span> <span class="n">a</span> <span class="o">-</span> <span class="n">the</span> <span class="n">array</span> <span class="n">by</span> <span class="n">which</span> <span class="n">the</span> <span class="n">list</span> <span class="n">will</span> <span class="n">be</span> <span class="n">backed</span>
+<span class="lineno">10</span> <span class="nl">Returns:</span>
+<span class="lineno">11</span> <span class="n">a</span> <span class="n">list</span> <span class="n">view</span> <span class="n">of</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">array</span></code></pre></div>
+ </div>
+
+<p>We have two ways to use it. </p>
+
+1) The first way is call asList(), in this way, the List it returns is fixed size. If you want to add new element to it, it will returns java.lang.UnsupportedOperationException
+
+2) If you pass the return result of asList to the constructor of ArrayList, then you can add new element. 
+
+Here is an example of these two ways. 
+
+
+<div class="code-block">
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="n">String</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="o">{</span><span class="s">&quot;one&quot;</span><span class="o">,</span> <span class="s">&quot;two&quot;</span><span class="o">,</span> <span class="s">&quot;three&quot;</span><span class="o">,</span> <span class="s">&quot;four&quot;</span><span class="o">,</span> <span class="s">&quot;five&quot;</span><span class="o">};</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="c1">//way 1</span>
+<span class="lineno"> 4</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">arr</span><span class="o">);</span>
+<span class="lineno"> 5</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>  <span class="c1">//[one, two, three, four, five]</span>
+<span class="lineno"> 6</span> <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;six&quot;</span><span class="o">);</span> <span class="c1">//java.lang.UnsupportedOperationException</span>
+<span class="lineno"> 7</span> 
+<span class="lineno"> 8</span> 
+<span class="lineno"> 9</span> <span class="c1">//way 2</span>
+<span class="lineno">10</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">arr</span><span class="o">));</span>
+<span class="lineno">11</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list1</span><span class="o">);</span>  <span class="c1">//[one, two, three, four, five]</span>
+<span class="lineno">12</span> <span class="n">list1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;six&quot;</span><span class="o">);</span>
+<span class="lineno">13</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list1</span><span class="o">);</span>   <span class="c1">//[one, two, three, four, five, six]</span></code></pre></div>
+ </div>
+
+
+ <h3>2. Use Collections.addAll()</h3>
+
+ <p>In this method, you can create an List with size of the array. But you can also add new element later. Here is an example:s</p>
+<div class="code-block">
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span> <span class="n">String</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="o">{</span><span class="s">&quot;one&quot;</span><span class="o">,</span> <span class="s">&quot;two&quot;</span><span class="o">,</span> <span class="s">&quot;three&quot;</span><span class="o">,</span> <span class="s">&quot;four&quot;</span><span class="o">,</span> <span class="s">&quot;five&quot;</span><span class="o">};</span>
+<span class="lineno">2</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;(</span><span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+<span class="lineno">3</span> <span class="n">Collections</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">arr</span><span class="o">);</span>
+<span class="lineno">4</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">);</span> <span class="c1">//[one, two, three, four, five]</span>
+<span class="lineno">5</span> <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;six&quot;</span><span class="o">);</span>
+<span class="lineno">6</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">);</span> <span class="c1">//[one, two, three, four, five, six]</span></code></pre></div>
+ </div>
+
+ <h3>Additional notes</h3>
+  <p>In above example, element in the array are objects, if we just have an int array, then we need special ways</p>
+
+  <div class="code-block">
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno">1</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>   
+<span class="lineno">2</span>  <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">IntStream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">arr</span><span class="o">).</span><span class="na">boxed</span><span class="o">().</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span></code></pre></div>
+ </div>
+
+

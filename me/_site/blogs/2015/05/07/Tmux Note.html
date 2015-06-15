@@ -1,0 +1,69 @@
+<p>What is Tmux:</p>
+
+<p>Tmux is a terminal multiplexer: it enables a number of terminals, each running a separate program to be created, accessed and controlled from a single screen.</p>
+
+<p>Motivation:</p>
+
+<p>Considering that you have a lot of work to do in the same time use terminal, you might want to create a lot of tabs. One solution for this problem is the terminal multiplexer. </p>
+
+
+<p>How it works</p>
+
+<p> Tmux is developed on a client-server model. A session is a single collection of pseudo terminals under the management of tmux. Each session hasone or more windows linked to it. A window occupies the entire screen and may be split into rectangular
+panes, each of which is a separate pseudo terminal. Any number of tmux instances may connect to the
+same session, and any number of windows may be present in the same session. Once all sessions are
+killed, tmux exits.</p>
+
+<h2> How to use it</h2>
+
+<p>
+1) Install
+
+Use yum, homebrew, port, apt-get or whatever package manage tools to install.
+
+</p>
+<p>
+2) Create a session/Attach a session/ detach a session /kill a session
+</p>
+
+
+<div class="code-block">
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="n">tmux</span> <span class="k">new</span><span class="o">-</span><span class="n">session</span> <span class="o">-</span><span class="n">s</span> <span class="n">sessionname</span>
+<span class="lineno"> 2</span> 
+<span class="lineno"> 3</span> <span class="n">tmux</span> <span class="n">attch</span><span class="o">-</span><span class="n">session</span> <span class="o">-</span><span class="n">t</span> <span class="n">sessionname</span>
+<span class="lineno"> 4</span> 
+<span class="lineno"> 5</span> <span class="n">tmux</span> <span class="n">detach</span>
+<span class="lineno"> 6</span> 
+<span class="lineno"> 7</span> <span class="n">tmux</span> <span class="n">kill</span><span class="o">-</span><span class="n">session</span> <span class="o">-</span><span class="n">t</span> <span class="n">sessionname</span>
+<span class="lineno"> 8</span> 
+<span class="lineno"> 9</span> <span class="n">tmux</span> <span class="n">list</span><span class="o">-</span><span class="n">clients</span>    <span class="c1">// list all clients</span>
+<span class="lineno">10</span> 
+<span class="lineno">11</span> <span class="n">tmux</span> <span class="n">kill</span><span class="o">-</span><span class="n">server</span> <span class="c1">// kill server will kill all clients</span></code></pre></div>
+ </div>
+
+ <p><strong> If we don't add session name, it will default number to 0, 1, 2, ....</strong></p>
+<h2> Some quick key</h2>
+
+
+<pre>
+1) <strong>Sessions</strong>
+
+C-b s  --- Select a new session for the attached client interactively.
+C-b d  --- Detach the current client.
+
+2) <strong>Windows</strong>
+ 
+C-b c  --- Create a new window.
+C-b [0-9]  --- Select windows 0 to 9.
+C-b &  --- Kill the current window.
+
+3)  <strong>Panes</strong>
+
+C-b %  --- Split the current pane into two, left and right.
+C-b "  --- Split the current pane into two, top and bottom.
+C-b C-o  ---  Rotate the panes in the current window forwards.
+C-b x  ---  Kill the current pane.
+
+</pre>
+
+<p>Want to know nore, click <a href = "http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man1/tmux.1?query=tmux&sec=1">this</a>a> </p>
