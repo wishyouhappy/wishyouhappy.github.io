@@ -1,0 +1,124 @@
+---
+layout: post
+title: Union Find
+---
+
+<p>Abstarction: </p>
+<ul><li> Union: Connect two objects</li>
+<li> Find: if there is a path connecting two objects or are two objects in the same set</li>
+</ul>
+
+<p>Union-find can be applied to computer network, web pages in internet, etc</p>
+
+<h3>Quick find algorithm</h3>
+<ul>
+<li> id[] array</li>
+<li> Objects are connected if they have same id</li>
+<li> Find: if obj1 and obj2 have the same id.</li>
+<li> Union: Change all entries with id[obj1] to id[obj2]</li>
+</ul>
+
+
+<ul>
+<li> Trees are flat in this representation</li>
+<li> Slow for union, for each union, takes O(N) time</li>
+</ul>
+
+<p>Example: </p>
+
+In the example below: 2, 3, 4, 6 are connected(or in the same set)
+
+<img src= "{{ site.baseurl }}pictures/union-find-1.png">
+
+
+<p>Java implementation:</p>
+
+<div class="code-block">
+{% highlight java linenos%} 
+public class UnionFindQuickFind {
+    private int[] ids;
+
+    public UnionFindQuickFind(final int n) {
+        ids = new int[n];
+        for (int i = 0; i < n; i++) {
+            ids[i] = i;
+        }
+    }
+
+    public boolean find(final int i, final int j) {
+        return ids[i] == ids[j];
+    }
+
+    public void union(final int i, final int j) {
+        int pid = ids[i];
+        for (int k = 0; k < ids.length; k++) {
+            if (ids[k] == pid) {
+                ids[k] = ids[j];
+            }
+        }
+    }
+
+}
+{% endhighlight %}
+ </div>
+
+
+<h3>Quick Union Algorithm</h3>
+<ul>
+<li>Lazy Approach</li>
+<li>id[] array</li>
+<li> id[i] is parent of i</li>
+<li> root of i : ids[ids[...ids[i]], until ids[i] = i.</li>
+<li> Find: if obj1 and obj2 have the same root</li>
+<li> Union: change obj1's root's id to obj2's root</li>
+</ul>
+
+
+<ul>
+<li> tree has hierarchy</li>
+<li> Slow for find, might take O(N) time</li>
+</ul>
+
+<p>Example: </p>
+
+
+<img src= "{{ site.baseurl }}pictures/union-find-2.png">
+
+
+<p>Java implementation:</p>
+
+<div class="code-block">
+{% highlight java linenos%} 
+public class UnionFindQuickUnion {
+    private int[] ids;
+
+    public UnionFindQuickUnion(final int n) {
+        ids = new int[n];
+        for (int i = 0; i < n; i++) {
+            ids[i] = i;
+        }
+    }
+
+    private int root(final int i) {
+        int root = i;
+        while (root != ids[root]) {
+            root = ids[i];
+        }
+        return root;
+    }
+
+    public boolean find(final int i, final int j) {
+        return root(i) == root(j);
+    }
+
+    public void union(final int i, final int j) {
+        ids[root(i)] = root(j);
+    }
+}
+
+{% endhighlight %}
+ </div>
+
+ <p>There are other algorithms which can achieve better performance</p>
+
+<p> For example: Weighted QU, find and union both logN. Other algorithms: Path compression, Weighted + path</p>
