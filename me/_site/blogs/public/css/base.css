@@ -431,7 +431,7 @@ h1 {
   border-radius: 10px;
   padding: 4px;
   font-size: 14px !important;
-  background: #333333;
+  background: #333333 !important;
   font-family: Monaco,Consolas, Courier New, Monospace !important
 }
 
@@ -530,11 +530,6 @@ h1 {
   .container p {
     line-height: 145% !important;
     margin: 25px 0 !important;
-    text-align:justify;
-    text-justify:distribute-all-lines;/*ie6-8*/
-    text-align-last:justify;/* ie9*/
-    -moz-text-align-last:justify;/*ff*/
-    -webkit-text-align-last:justify;/*chrome 20+*/
   }
 
   
