@@ -8,7 +8,7 @@ title: Array to ArrayList in java
 
 <p>Let's first looks its JAVA API below. We get that it returns a **fixed size List** </p>
 <div class="code-block">
-{% highlight java linenos%} 
+{% highlight java %} 
 
 @SafeVarargs
 public static <T> List<T> asList(T... a)
@@ -34,7 +34,7 @@ Here is an example of these two ways.
 
 
 <div class="code-block">
-{% highlight java linenos%} 
+{% highlight java %} 
         
 String[] arr = {"one", "two", "three", "four", "five"};
 
@@ -57,7 +57,7 @@ System.out.println(list1);   //[one, two, three, four, five, six]
 
  <p>In this method, you can create an List with size of the array. But you can also add new element later. Here is an example:s</p>
 <div class="code-block">
-{% highlight java linenos%} 
+{% highlight java %} 
         
 String[] arr = {"one", "two", "three", "four", "five"};
 List<String> list = new ArrayList<String>(arr.length);
@@ -73,7 +73,7 @@ System.out.println(list); //[one, two, three, four, five, six]
   <p>In above example, element in the array are objects, if we just have an int array, then we need special ways</p>
 
   <div class="code-block">
-{% highlight java linenos%} 
+{% highlight java %} 
  int[] arr = {1, 2, 3, 4, 5};   
  List<Integer> list = IntStream.of(arr).boxed().collect(Collectors.toList());
  

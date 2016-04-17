@@ -24,36 +24,36 @@ title: Reservoir sampling
 
 
 <div class="code-block">
-{% highlight java linenos%} 
-i = 0
-while input.hasNext
-   with probability 1.0/++i
-        choice = this input Integer
-print  choice
+{% highlight java%} 
+    i = 0
+    while input.hasNext
+       with probability 1.0/++i
+            choice = this input Integer
+    print  choice
  {% endhighlight %}
  </div>
 
 <h2>The implementation of reservoir sampling of size 1:</h2>
 
 <div class="code-block">
-{% highlight java linenos%} 
-public int randNum(){
-    int res = 0;
-    int num = 1;
-    int temp = 0;
-    Scanner scan = new Scanner(System.in);
-    temp =  scan.nextInt();
-    while(scan.hasNextInt()){
-        res = scan.nextInt();
-        if(((new Random().nextInt(num))) < num-1){
-            res = temp;
+{% highlight java%} 
+    public int randNum(){
+        int res = 0;
+        int num = 1;
+        int temp = 0;
+        Scanner scan = new Scanner(System.in);
+        temp =  scan.nextInt();
+        while(scan.hasNextInt()){
+            res = scan.nextInt();
+            if(((new Random().nextInt(num))) < num-1){
+                res = temp;
+            }
+            temp = res;
+            num++;
         }
-        temp = res;
-        num++;
+        System.out.println("result is : " + res);
+        return res;
     }
-    System.out.println("result is : " + res);
-    return res;
-}
 
  {% endhighlight %}
  </div>
@@ -61,7 +61,7 @@ public int randNum(){
 <p>Because we reserve the last element Nn in P = 1/n, thus:</p>
 
 <div class="code-block">
-{% highlight java linenos%} 
+{% highlight java%} 
   if(((new Random().nextInt(num))) < num-1){
     res = temp;
   }
@@ -78,55 +78,55 @@ k/n * (k/n+1 * k-1/k + (n+1 -k)/n+1) = k/m+1.</p>
 <h2>Pseduocode</h2>
 
 <div class="code-block">
-{% highlight java linenos%} 
-Init : a reservoir with the size: k
-for i= k+1 to N
-    M=random(1, i);
-    if( M < k)
-        SWAP the Mth value and ith value
+{% highlight java%} 
+    Init : a reservoir with the size: k
+    for i= k+1 to N
+        M=random(1, i);
+        if( M < k)
+            SWAP the Mth value and ith value
  {% endhighlight %}
  </div>
 
 <h2>The implementation of reservoir sampling of size K:</h2>
 
 <div class="code-block">
-    {% highlight java linenos%} 
-public int[] randNum(int k){
-    int num = 1;
-    int temp = 0;
-    Scanner scan = new Scanner(System.in);
-    temp =  scan.nextInt();
-    int[] sample=new int[k];  
-    while(scan.hasNextInt()){
-        temp = scan.nextInt();
-        if(num <= k){
-            sample[num-1] = temp;
-        }else{
-            int j = new Random().nextInt(num);
-            if(j < k){
-                sample[j] = temp;
+    {% highlight java%} 
+    public int[] randNum(int k){
+        int num = 1;
+        int temp = 0;
+        Scanner scan = new Scanner(System.in);
+        temp =  scan.nextInt();
+        int[] sample=new int[k];  
+        while(scan.hasNextInt()){
+            temp = scan.nextInt();
+            if(num <= k){
+                sample[num-1] = temp;
+            }else{
+                int j = new Random().nextInt(num);
+                if(j < k){
+                    sample[j] = temp;
+                }
             }
+            num++;
         }
-        num++;
+        System.out.println(Arrays.toString(sample));
+        return sample;
     }
-    System.out.println(Arrays.toString(sample));
-    return sample;
-}
  {% endhighlight %}
  </div>
 
 <p>Because we reserve the last element Nn in P = k/n, thus:</p>
 
 <div class="code-block">
-{% highlight java linenos%} 
-if(num <= k){
-    sample[num-1] = temp;
-}else{
-    int j = new Random().nextInt(num);
-    if(j < k){
-        sample[j] = temp;
+{% highlight java%} 
+    if(num <= k){
+        sample[num-1] = temp;
+    }else{
+        int j = new Random().nextInt(num);
+        if(j < k){
+            sample[j] = temp;
+        }
     }
-}
  {% endhighlight %}
  </div>
 </body>

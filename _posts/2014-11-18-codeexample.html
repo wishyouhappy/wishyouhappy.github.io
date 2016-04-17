@@ -45,7 +45,7 @@ title: Code highlight example in jekyll
 	output:
 	{% endraw %}
 	<div class="code-block">
-	{% highlight js linenos%}
+	{% highlight js %}
   //example
   var adder = new Function("a", "b");
   adder(2, 6);
@@ -74,7 +74,7 @@ title: Code highlight example in jekyll
 	{% endraw %}
 	output:
 <div class="code-block">
-	{% highlight ruby linenos %}
+	{% highlight ruby  %}
 	def show
 	@widget = Widget(params[:id])
 	respond_to do |format|
@@ -92,7 +92,7 @@ title: Code highlight example in jekyll
 		{% raw %}
 		<div class="code-block1">
 	<pre>
-	{% highlight ruby linenos%}
+	{% highlight ruby %}
 	def show
 	@widget = Widget(params[:id])
 	{% endhighlight %}
@@ -105,7 +105,7 @@ title: Code highlight example in jekyll
 <p>Seperate the line number with your code, add the following to your css: </p>
 
 <div class="code-block">
-	{% highlight css linenos %}
+	{% highlight css  %}
 .highlight .lineno { color: #ccc; display:inline-block; padding: 0 5px; border-right:1px solid #ccc; }
 .highlight pre code { display: block; white-space: pre; overflow-x: auto; word-wrap: normal; }
 	{% endhighlight %}
@@ -116,7 +116,7 @@ title: Code highlight example in jekyll
 <p>Make your line number unselectable, add the following css</p>
 
 <div class="code-block">
-	{% highlight css linenos %}
+	{% highlight css  %}
 .highlight .lineno {-webkit-user-select: none;-moz-user-select: none; -o-user-select: none;} 
 .lineno::-moz-selection {background-color: transparent;} /* Mozilla specific */
 .lineno::selection {background-color: transparent;} /* Other major browsers */

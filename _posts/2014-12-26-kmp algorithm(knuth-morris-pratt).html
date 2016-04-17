@@ -60,7 +60,7 @@ String pattern = "ABDAB"</p>
 <p>Calculate partial match array:</p>
 
     <div class="code-block">
-    {% highlight java linenos%}
+    {% highlight java%}
 
  public int[] getHelperArray(String pattern){
     int i = 1, /*suffix*/ j = 0, /*prefix*/, len = pattern.length();
@@ -89,7 +89,7 @@ String pattern = "ABDAB"</p>
 
 
 <div class="code-block">
-    {% highlight java linenos%}
+    {% highlight java%}
 public void matchString(String text, String pattern){
     if(text == null || pattern == null || (text.length() < pattern.length())) return;
     if(pattern.equals("")) return;

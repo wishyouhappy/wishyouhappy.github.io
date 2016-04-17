@@ -49,7 +49,7 @@ So the majority candidate is 2. We need to traverse the array again to check if 
 <p>Java implementation to find the majority candidate</p>
 
  <div class="code-block">
-    {% highlight java linenos%}
+    {% highlight java %}
 
 public int findCandidate(int[] num){
     if(num == null || num.length == 0) return -1;
@@ -72,7 +72,7 @@ public int findCandidate(int[] num){
 <p>If we use other data structures, we might also find the majority candidate in one pass. For example if we use hashmap in java to record occurences times of each element</p>
 
  <div class="code-block">
-    {% highlight java linenos%}
+    {% highlight java %}
 
 public int findCandidate(int[] num) {
    if(num == null || num.length == 0) return -1;
@@ -96,7 +96,7 @@ public int findCandidate(int[] num) {
 
 <p>If the range of numbers is not big, we can use O(n) sort algorithms like radix to sort those numbers, then find majority. </p>
  <div class="code-block">
-    {% highlight java linenos%}
+    {% highlight java %}
 
 public int majorityElement(int[] num) {
   Arrays.sort(num);

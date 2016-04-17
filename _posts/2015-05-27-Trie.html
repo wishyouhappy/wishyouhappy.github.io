@@ -49,7 +49,7 @@ But remember some tries might require more memory than hashtable. As memory may 
 <h3>Pseudocode from topcoder</h3>
 
 <div class="code-block">
-{% highlight java linenos%} 
+{% highlight java %} 
 //Because we want to know the number of words that have like prefix a given string, we need another integer field prefixes that indicates how many words have the prefix of the vertex. Also, each vertex must have references to all his possible sons (26 references). Knowing all these details, our structure should have the following members:
 
 structure Trie
@@ -102,7 +102,7 @@ countPrefixes(vertex, prefix)
 <h3>Implementation 1 based on pseudocode</h3>
 
 <div class="code-block">
-{% highlight java linenos%} 
+{% highlight java %} 
 class TrieNode {
     // Initialize your data structure here.
     public TrieNode[] edges;
@@ -172,7 +172,7 @@ public class Trie {
  <h3>Implementation 2 use hashmap</h3>
 
 <div class="code-block">
-{% highlight java linenos%} 
+{% highlight java %} 
 class TrieNode {
     // Initialize your data structure here.
     public Map<Character, TrieNode> edges;
