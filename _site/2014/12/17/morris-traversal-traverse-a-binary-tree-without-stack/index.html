@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      wishyouhappy &middot;Morris traversal-traverse a binary tree without stack 
+    
+  </title>
+
+  <link rel="shortcut icon" type="image/x-icon"  href="/public/image/leave.ico">
+
+  <!-- CSS -->
+  <link type="text/css" rel="stylesheet" href="http://fast.fonts.com/cssapi/d70ca5cd-778e-48cc-9e59-6b276425c670.css"/>
+  <link rel="stylesheet" href="/public/css/css.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+   <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/base.css">
+  <link rel="stylesheet" href="/public/css/web-fonts.css" media="screen, projection" />
+
+   <link media="only screen and (max-device-width: 480px)" href="/public/css/agency.css" />
+    <link media="only screen and (max-device-width: 480px)" href="/public/css/bootstrap.css" />
+    <link media="only screen and (max-device-width: 480px)" href="/public/css/mobile.css" />
+    <link href='http://fonts.googleapis.com/css?family=Coustard:400,900' rel='stylesheet' type='text/css'>
+  <!-- RSS -->
+ <!--  <link rel="alternate" type="application/atom+xml" title="wishyouhappy" href="/atom.xml"> -->
+
+</head>
+
+ <div align = "center"><a href="/index.html"><img src = "/pictures/cat.png" height="200px" onclick = ""></a> </div> 
+ <!-- <img href = "../pictures/cat.png">  -->
+
+
+  <body>
+
+
+  <div class = "main-div">
+
+
+      <div class="container">
+       <div align = "left">
+         <a href="/me" title = "Click to my personal website"><img  style="display:inline;  float: left;" src = "/pictures/cat1.png" height="25px" width="27px" onclick = ""></a>
+       <a href="/index.html" title = "Click to blog home"><img src = "/pictures/home.png" height="30px" onclick = "" ></a>
+
+
+        </div> 
+
+
+      <main>
+        <div class ="container">
+  <h2>Morris traversal-traverse a binary tree without stack</h2>
+  <time datetime="2014-12-17T00:00:00-08:00" class="page-date">17 Dec 2014</time>
+  <div class ="container">
+
+<h2>About morris traversal</h2>
+
+<p>It aims at traversing an binary tree in inorder without using stack.</p>
+
+<p>The main idea:<br/>
+Create links to the successor(use leaf node's left or right null pointer)<br/>
+Print the data using these links<br>
+Revert the changes to restore original tree.</p>
+
+<h2>Inorder Example</h2>
+
+<p>Let's explain inorder traversal as an example:
+If the current node has left child, find the predecessor of current node, set current as its right child. In this way, we can return to parent after finish traverse the left subtree.</p>
+
+<p>See details on the following picture:</p>
+
+<img src= "/public/image/morristraversal1.jpg">
+
+<p>The presudo code is below:</p>
+
+
+    <div class="code-block">
+    <figure class="highlight"><pre><code class="language-python" data-lang="python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14</pre></td><td class="code"><pre><span class="n">initialize</span> <span class="n">current</span> <span class="k">as</span> <span class="n">root</span>
+<span class="k">while</span> <span class="n">current</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">NULL</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">current</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">have</span> <span class="n">left</span> <span class="n">child</span><span class="p">:</span> 
+       <span class="n">a</span><span class="o">.</span> <span class="n">Print</span> <span class="n">current</span><span class="err">’</span><span class="n">s</span> <span class="n">data</span>
+       <span class="n">b</span><span class="o">.</span> <span class="n">Go</span> <span class="n">to</span> <span class="n">the</span> <span class="n">right</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="p">,</span> <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span>
+    <span class="k">else</span><span class="p">:</span>
+       <span class="n">a</span><span class="o">.</span> <span class="n">Find</span> <span class="n">the</span> <span class="n">predecessor</span> <span class="n">of</span> <span class="n">current</span> <span class="n">node</span>
+       <span class="n">b</span><span class="o">.</span> <span class="k">if</span> <span class="n">predecessor</span><span class="s">'s right child is null:</span><span class="err">
+</span><span class="s">           1) make current the right child of its predecessor</span><span class="err">
+</span><span class="s">           2)Go to this left child, i.e., current = current-&gt;left</span><span class="err">
+</span><span class="s">        else:</span><span class="err">
+</span><span class="s">           1) if predecessor'</span><span class="n">s</span> <span class="n">right</span> <span class="n">child</span> <span class="ow">is</span> <span class="n">current</span> <span class="n">node</span><span class="p">,</span> <span class="nb">set</span> <span class="n">predecessor</span><span class="s">'s right child to null</span><span class="err">
+</span><span class="s">           2) print current node, set current node to its right child</span><span class="err">
+</span><span class="s">    </span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+    </div>
+
+
+
+<h2>Jave implementation:</h2>
+
+    <div class="code-block">
+    <figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></td><td class="code"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">morrisTraversal</span><span class="p">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">){</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">root</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span>
+    
+    <span class="n">TreeNode</span> <span class="n">pre</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">while</span><span class="o">(</span><span class="n">root</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">val</span><span class="o">);</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+            <span class="cm">/* find predecessor */</span>
+            <span class="n">pre</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">;</span>
+            <span class="k">while</span><span class="o">(</span><span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">!=</span> <span class="n">root</span><span class="o">)</span>
+                <span class="n">pre</span> <span class="o">=</span> <span class="n">pre</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+            
+            <span class="cm">/* if predecessor's right == null, set current node as its right child */</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+                <span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">root</span><span class="o">;</span>
+                <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">;</span>
+            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+                <span class="cm">/* recover tree, when return to parent node the second time */</span>
+                <span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">val</span><span class="o">);</span>
+                <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+
+ <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+    </div>
+
+<h2>Analysis:</h2>
+
+<p>To find predecessor, we visit a node at most 3 times, so the overall time complexity is O(n)</p>
+
+<h2>Preorder and Postorder</h2>
+
+<p>The morris traverse can be applied to preorder traverse and postorder traverse with some changes.</p>
+
+<h3>preorder</h3>
+
+<p>It's very similar with inorder, just change the print out sequence.</p>
+
+<p>The presudo code is below:</p>
+
+
+ 
+    <div class="code-block">
+    <figure class="highlight"><pre><code class="language-python" data-lang="python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16</pre></td><td class="code"><pre><span class="n">initialize</span> <span class="n">current</span> <span class="k">as</span> <span class="n">root</span>
+<span class="k">while</span> <span class="n">current</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">NULL</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">current</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">have</span> <span class="n">left</span> <span class="n">child</span><span class="p">:</span>  
+       <span class="n">a</span><span class="o">.</span> <span class="n">Print</span> <span class="n">current</span> <span class="n">node</span>
+       <span class="n">b</span><span class="o">.</span> <span class="n">Go</span> <span class="n">to</span> <span class="n">the</span> <span class="n">right</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="p">,</span> <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span>
+    <span class="k">else</span>
+       <span class="n">a</span><span class="o">.</span> <span class="n">Find</span> <span class="n">the</span> <span class="n">predecessor</span> <span class="n">of</span> <span class="n">current</span> <span class="n">node</span>
+       <span class="n">b</span><span class="o">.</span> <span class="k">if</span> <span class="n">predecessor</span><span class="s">'s right child is null:</span><span class="err">
+</span><span class="s">           1) make current the right child of its predecessor</span><span class="err">
+</span><span class="s">           2) Print current node</span><span class="err">
+</span><span class="s">           3)Go to this left child, i.e., current = current-&gt;left</span><span class="err">
+</span><span class="s">        else:</span><span class="err">
+</span><span class="s">           1) if predecessor'</span><span class="n">s</span> <span class="n">right</span> <span class="n">child</span> <span class="ow">is</span> <span class="n">current</span> <span class="n">node</span><span class="p">,</span> <span class="nb">set</span> <span class="n">predecessor</span><span class="s">'s right child to null</span><span class="err">
+</span><span class="s">           2) set current node to its right child</span><span class="err">
+
+</span><span class="s"> </span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+    </div>
+
+
+<p>java implementation:</p>
+
+    <div class="code-block">
+    <figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></td><td class="code"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">morrisTraversal</span><span class="p">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">){</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">root</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span>
+    
+    <span class="n">TreeNode</span> <span class="n">pre</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">while</span><span class="o">(</span><span class="n">root</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">val</span><span class="o">);</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+            <span class="cm">/* find predecessor */</span>
+            <span class="n">pre</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">;</span>
+            <span class="k">while</span><span class="o">(</span><span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">!=</span> <span class="n">root</span><span class="o">)</span>
+                <span class="n">pre</span> <span class="o">=</span> <span class="n">pre</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+            
+            <span class="cm">/* if predecessor's right == null, set current node as its right child */</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+                <span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">root</span><span class="o">;</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">val</span><span class="o">);</span>
+                <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">;</span>
+            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+                <span class="cm">/* recover tree, when return to parent node the second time */</span>
+                <span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+                <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+     <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+    </div>
+
+<h3>postorder</h3>
+
+<p>We need to create a dummy node and set root as its left child.</p>
+
+<p>The presudo code is below:</p>
+
+
+    <div class="code-block">
+    <figure class="highlight"><pre><code class="language-python" data-lang="python"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16</pre></td><td class="code"><pre><span class="n">initialize</span> <span class="n">current</span> <span class="k">as</span> <span class="n">root</span>
+<span class="k">while</span> <span class="n">current</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">NULL</span><span class="p">:</span> 
+    <span class="k">if</span> <span class="n">current</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">have</span> <span class="n">left</span> <span class="n">child</span><span class="p">:</span>
+        <span class="n">Go</span> <span class="n">to</span> <span class="n">the</span> <span class="n">right</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span><span class="p">,</span> <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">right</span>
+    <span class="k">else</span><span class="p">:</span>
+       <span class="n">a</span><span class="o">.</span> <span class="n">Find</span> <span class="n">the</span> <span class="n">predecessor</span> <span class="n">of</span> <span class="n">current</span> <span class="n">node</span>
+       <span class="n">b</span><span class="o">.</span> <span class="k">if</span> <span class="n">predecessor</span><span class="s">'s right child is null:</span><span class="err">
+</span><span class="s">           1) make current the right child of its predecessor</span><span class="err">
+</span><span class="s">           2)Go to this left child, i.e., current = current-&gt;left</span><span class="err">
+</span><span class="s">        else:</span><span class="err">
+</span><span class="s">           1) if predecessor'</span><span class="n">s</span> <span class="n">right</span> <span class="n">child</span> <span class="ow">is</span> <span class="n">current</span> <span class="n">node</span><span class="p">,</span> <span class="nb">set</span> <span class="n">predecessor</span><span class="s">'s right child to null</span><span class="err">
+</span><span class="s">           2) print out all nodes on path from current'</span><span class="n">s</span> <span class="n">left</span> <span class="n">to</span> <span class="n">current</span><span class="s">'s predecessor reversely.</span><span class="err">
+</span><span class="s">           3) set current node to its right child</span><span class="err">
+
+
+</span><span class="s"> </span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+    </div>
+
+<p>java implementation:</p>
+
+    <div class="code-block">
+    <figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></td><td class="code"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">morrisTraversal</span><span class="p">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">){</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">root</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span>
+    
+    <span class="n">TreeNode</span> <span class="n">pre</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="n">TreeNode</span> <span class="n">dummy</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    <span class="n">dummy</span><span class="o">.</span><span class="na">left</span> <span class="o">=</span> <span class="n">root</span><span class="o">;</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">dummy</span><span class="o">;</span>
+    <span class="k">while</span><span class="o">(</span><span class="n">root</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+        <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+            <span class="cm">/* find predecessor */</span>
+            <span class="n">pre</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">;</span>
+            <span class="k">while</span><span class="o">(</span><span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">!=</span> <span class="n">root</span><span class="o">)</span>
+                <span class="n">pre</span> <span class="o">=</span> <span class="n">pre</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+            
+            <span class="cm">/* if predecessor's right == null, set current node as its right child */</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+                <span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">root</span><span class="o">;</span>
+                <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">;</span>
+            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+                <span class="cm">/* recover tree, when return to parent node the second time */</span>
+                <span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+                <span class="n">printPathReverse</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">,</span> <span class="n">pre</span><span class="o">);</span>
+                <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+
+ <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+    </div>
+
+    <h2> Recover binary tree use morris traverse</h2>
+    <p>Two elements of a binary search tree (BST) are swapped by mistake. Recover the tree without changing its structure.<p>
+    <p>We can easily solve this problem by recursion or using stack. What should we do if it requires us to use constant space? Mirros Traverse! </p>
+
+    <p>java implementation:</p>
+
+    <div class="code-block">
+    <figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre></td><td class="code"><pre><span class="kn">package</span> <span class="n">leetcode</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author wish
+ *
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BinaryTree_RecoverBinarySearchTree</span> <span class="o">{</span>
+    <span class="cm">/*
+     * O(1) space
+     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">recoverTree</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">)</span> <span class="o">{</span>
+        <span class="cm">/* arr[0] arr[1] stroe two swapped elements, arr[2] store pre.*/</span>
+        <span class="n">TreeNode</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="o">[</span><span class="mi">2</span><span class="o">];</span>
+        <span class="n">morrisTraversal</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="n">arr</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">val</span><span class="o">;</span>
+        <span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">val</span> <span class="o">=</span> <span class="n">arr</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">val</span><span class="o">;</span>
+        <span class="n">arr</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="na">val</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">morrisTraversal</span><span class="o">(</span><span class="n">TreeNode</span> <span class="n">root</span><span class="o">,</span> <span class="n">TreeNode</span><span class="o">[]</span> <span class="n">arr</span><span class="o">){</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">root</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span>
+        
+        <span class="n">TreeNode</span> <span class="n">pre</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> <span class="cm">/* predecessor*/</span>
+        <span class="n">TreeNode</span> <span class="n">previous</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">root</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">left</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+                <span class="k">if</span><span class="o">(</span> <span class="n">previous</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">previous</span><span class="o">.</span><span class="na">val</span> <span class="o">&gt;</span> <span class="n">root</span><span class="o">.</span><span class="na">val</span><span class="o">){</span>
+                    <span class="k">if</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">previous</span><span class="o">;</span>
+                    <span class="n">arr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">root</span><span class="o">;</span>
+                <span class="o">}</span>
+                <span class="n">previous</span> <span class="o">=</span> <span class="n">root</span><span class="o">;</span>
+                <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+            <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+                <span class="cm">/* find predecessor */</span>
+                <span class="n">pre</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">;</span>
+                <span class="k">while</span><span class="o">(</span><span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">!=</span> <span class="n">root</span><span class="o">)</span>
+                    <span class="n">pre</span> <span class="o">=</span> <span class="n">pre</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+                
+                <span class="cm">/* if predecessor's right == null, set current node as its right child */</span>
+                <span class="k">if</span><span class="o">(</span><span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+                    <span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="n">root</span><span class="o">;</span>
+                    <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">left</span><span class="o">;</span>
+                <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+                    <span class="cm">/* recover tree, when return to parent node the second time */</span>
+                    <span class="n">pre</span><span class="o">.</span><span class="na">right</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+                    <span class="k">if</span><span class="o">(</span> <span class="n">previous</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">previous</span><span class="o">.</span><span class="na">val</span> <span class="o">&gt;</span> <span class="n">root</span><span class="o">.</span><span class="na">val</span><span class="o">){</span>
+                        <span class="k">if</span><span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="n">arr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">previous</span><span class="o">;</span>
+                        <span class="n">arr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">root</span><span class="o">;</span>
+                    <span class="o">}</span>   
+                    <span class="n">previous</span> <span class="o">=</span> <span class="n">root</span><span class="o">;</span>
+                    <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="na">right</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+
+
+ <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+    </div>
+
+
+</div>
+</div>
+
+<aside class="post-title">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        
+          <a href="/2015/10/22/Union-Find/">
+            Union Find
+            <small><time datetime="2015-10-22T00:00:00-07:00">22 Oct 2015</time></small>
+          </a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/2015/06/13/Array-to-ArrayList-in-java/">
+            Array to ArrayList in java
+            <small><time datetime="2015-06-13T00:00:00-07:00">13 Jun 2015</time></small>
+          </a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/2015/05/27/Trie/">
+            Trie
+            <small><time datetime="2015-05-27T00:00:00-07:00">27 May 2015</time></small>
+          </a>
+        
+      </li>
+    
+  </ul>
+</aside>
+
+  <div class="comments">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'andersonvom'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+
+      </main>
+      </div>
+
+
+     <!--  <footer class="footer">
+        <small>
+          &copy; <time datetime="2016-04-17T11:30:17-07:00">2016</time>. All rights reserved.
+        </small>
+      </footer> -->
+    </div>
+<!--       <div id="bg"> -->
+      <!-- <img src="/public/image/55.jpg"  alt=""> -->
+     <!-- </div> -->
+  <div id = "container1"></div>
+
+<!--   <footer class = "tail"> -->
+      
+  </footer>
+  </body>
+      <!-- js -->
+<script type="text/javascript" src='/public/js/sketch.min.js'></script>
+<script type="text/javascript" src="/public/js/index.js"></script>
+
+</html>

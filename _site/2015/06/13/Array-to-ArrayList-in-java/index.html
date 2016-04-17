@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      wishyouhappy &middot;Array to ArrayList in java 
+    
+  </title>
+
+  <link rel="shortcut icon" type="image/x-icon"  href="/public/image/leave.ico">
+
+  <!-- CSS -->
+  <link type="text/css" rel="stylesheet" href="http://fast.fonts.com/cssapi/d70ca5cd-778e-48cc-9e59-6b276425c670.css"/>
+  <link rel="stylesheet" href="/public/css/css.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+   <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/base.css">
+  <link rel="stylesheet" href="/public/css/web-fonts.css" media="screen, projection" />
+
+   <link media="only screen and (max-device-width: 480px)" href="/public/css/agency.css" />
+    <link media="only screen and (max-device-width: 480px)" href="/public/css/bootstrap.css" />
+    <link media="only screen and (max-device-width: 480px)" href="/public/css/mobile.css" />
+    <link href='http://fonts.googleapis.com/css?family=Coustard:400,900' rel='stylesheet' type='text/css'>
+  <!-- RSS -->
+ <!--  <link rel="alternate" type="application/atom+xml" title="wishyouhappy" href="/atom.xml"> -->
+
+</head>
+
+ <div align = "center"><a href="/index.html"><img src = "/pictures/cat.png" height="200px" onclick = ""></a> </div> 
+ <!-- <img href = "../pictures/cat.png">  -->
+
+
+  <body>
+
+
+  <div class = "main-div">
+
+
+      <div class="container">
+       <div align = "left">
+         <a href="/me" title = "Click to my personal website"><img  style="display:inline;  float: left;" src = "/pictures/cat1.png" height="25px" width="27px" onclick = ""></a>
+       <a href="/index.html" title = "Click to blog home"><img src = "/pictures/home.png" height="30px" onclick = "" ></a>
+
+
+        </div> 
+
+
+      <main>
+        <div class ="container">
+  <h2>Array to ArrayList in java</h2>
+  <time datetime="2015-06-13T00:00:00-07:00" class="page-date">13 Jun 2015</time>
+  <h3>1. Use Arrays.asList()</h3>
+
+<p>Let's first looks its JAVA API below. We get that it returns a **fixed size List** </p>
+<div class="code-block">
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13</pre></td><td class="code"><pre> 
+
+<span class="nd">@SafeVarargs</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">asList</span><span class="o">(</span><span class="n">T</span><span class="o">...</span> <span class="n">a</span><span class="o">)</span>
+<span class="n">Returns</span> <span class="n">a</span> <span class="n">fixed</span><span class="o">-</span><span class="n">size</span> <span class="n">list</span> <span class="n">backed</span> <span class="n">by</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">array</span><span class="o">.</span> <span class="o">(</span><span class="n">Changes</span> <span class="n">to</span> <span class="n">the</span> <span class="n">returned</span> <span class="n">list</span> <span class="s">"write through"</span> <span class="n">to</span> <span class="n">the</span> <span class="n">array</span><span class="o">.)</span> <span class="n">This</span> <span class="n">method</span> <span class="n">acts</span> <span class="n">as</span> <span class="n">bridge</span> <span class="n">between</span> <span class="n">array</span><span class="o">-</span><span class="n">based</span> <span class="n">and</span> <span class="n">collection</span><span class="o">-</span><span class="n">based</span> <span class="n">APIs</span><span class="o">,</span> <span class="n">in</span> <span class="n">combination</span> <span class="n">with</span> <span class="n">Collection</span><span class="o">.</span><span class="na">toArray</span><span class="o">().</span> <span class="n">The</span> <span class="n">returned</span> <span class="n">list</span> <span class="n">is</span> <span class="n">serializable</span> <span class="n">and</span> <span class="kd">implements</span> <span class="n">RandomAccess</span><span class="o">.</span>
+<span class="n">This</span> <span class="n">method</span> <span class="n">also</span> <span class="n">provides</span> <span class="n">a</span> <span class="n">convenient</span> <span class="n">way</span> <span class="n">to</span> <span class="n">create</span> <span class="n">a</span> <span class="n">fixed</span><span class="o">-</span><span class="n">size</span> <span class="n">list</span> <span class="n">initialized</span> <span class="n">to</span> <span class="n">contain</span> <span class="n">several</span> <span class="nl">elements:</span>
+
+     <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">stooges</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="s">"Larry"</span><span class="o">,</span> <span class="s">"Moe"</span><span class="o">,</span> <span class="s">"Curly"</span><span class="o">);</span>
+ 
+<span class="nl">Parameters:</span>
+<span class="n">a</span> <span class="o">-</span> <span class="n">the</span> <span class="n">array</span> <span class="n">by</span> <span class="n">which</span> <span class="n">the</span> <span class="n">list</span> <span class="n">will</span> <span class="n">be</span> <span class="n">backed</span>
+<span class="nl">Returns:</span>
+<span class="n">a</span> <span class="n">list</span> <span class="n">view</span> <span class="n">of</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">array</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+ </div>
+
+<p>We have two ways to use it. </p>
+
+1) The first way is call asList(), in this way, the List it returns is fixed size. If you want to add new element to it, it will returns java.lang.UnsupportedOperationException
+
+2) If you pass the return result of asList to the constructor of ArrayList, then you can add new element. 
+
+Here is an example of these two ways. 
+
+
+<div class="code-block">
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15</pre></td><td class="code"><pre> 
+        
+<span class="n">String</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="o">{</span><span class="s">"one"</span><span class="o">,</span> <span class="s">"two"</span><span class="o">,</span> <span class="s">"three"</span><span class="o">,</span> <span class="s">"four"</span><span class="o">,</span> <span class="s">"five"</span><span class="o">};</span>
+
+<span class="c1">//way 1</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">arr</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>  <span class="c1">//[one, two, three, four, five]</span>
+<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"six"</span><span class="o">);</span> <span class="c1">//java.lang.UnsupportedOperationException</span>
+
+
+<span class="c1">//way 2</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">arr</span><span class="o">));</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list1</span><span class="o">);</span>  <span class="c1">//[one, two, three, four, five]</span>
+<span class="n">list1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"six"</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list1</span><span class="o">);</span>   <span class="c1">//[one, two, three, four, five, six]</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+ </div>
+
+
+ <h3>2. Use Collections.addAll()</h3>
+
+ <p>In this method, you can create an List with size of the array. But you can also add new element later. Here is an example:s</p>
+<div class="code-block">
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre> 
+        
+<span class="n">String</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="o">{</span><span class="s">"one"</span><span class="o">,</span> <span class="s">"two"</span><span class="o">,</span> <span class="s">"three"</span><span class="o">,</span> <span class="s">"four"</span><span class="o">,</span> <span class="s">"five"</span><span class="o">};</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;(</span><span class="n">arr</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+<span class="n">Collections</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">arr</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">);</span> <span class="c1">//[one, two, three, four, five]</span>
+<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"six"</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">);</span> <span class="c1">//[one, two, three, four, five, six]</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+ </div>
+
+ <h3>Additional notes</h3>
+  <p>In above example, element in the array are objects, if we just have an int array, then we need special ways</p>
+
+  <div class="code-block">
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre> 
+ <span class="kt">int</span><span class="o">[]</span> <span class="n">arr</span> <span class="o">=</span> <span class="o">{</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">};</span>   
+ <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">IntStream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">arr</span><span class="o">).</span><span class="na">boxed</span><span class="o">().</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+ <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+ </div>
+
+
+
+</div>
+
+<aside class="post-title">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        
+          <a href="/2015/10/22/Union-Find/">
+            Union Find
+            <small><time datetime="2015-10-22T00:00:00-07:00">22 Oct 2015</time></small>
+          </a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/2015/05/27/Trie/">
+            Trie
+            <small><time datetime="2015-05-27T00:00:00-07:00">27 May 2015</time></small>
+          </a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/2015/05/07/Tmux-Note/">
+            Tmux Note
+            <small><time datetime="2015-05-07T00:00:00-07:00">07 May 2015</time></small>
+          </a>
+        
+      </li>
+    
+  </ul>
+</aside>
+
+  <div class="comments">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'andersonvom'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+
+      </main>
+      </div>
+
+
+     <!--  <footer class="footer">
+        <small>
+          &copy; <time datetime="2016-04-17T11:30:17-07:00">2016</time>. All rights reserved.
+        </small>
+      </footer> -->
+    </div>
+<!--       <div id="bg"> -->
+      <!-- <img src="/public/image/55.jpg"  alt=""> -->
+     <!-- </div> -->
+  <div id = "container1"></div>
+
+<!--   <footer class = "tail"> -->
+      
+  </footer>
+  </body>
+      <!-- js -->
+<script type="text/javascript" src='/public/js/sketch.min.js'></script>
+<script type="text/javascript" src="/public/js/index.js"></script>
+
+</html>
