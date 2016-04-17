@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      wishyouhappy &middot;Union Find 
+    
+  </title>
+
+  <link rel="shortcut icon" type="image/x-icon"  href="/public/image/leave.ico">
+
+  <!-- CSS -->
+  <link type="text/css" rel="stylesheet" href="http://fast.fonts.com/cssapi/d70ca5cd-778e-48cc-9e59-6b276425c670.css"/>
+  <link rel="stylesheet" href="/public/css/css.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+   <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/base.css">
+  <link rel="stylesheet" href="/public/css/web-fonts.css" media="screen, projection" />
+
+   <link media="only screen and (max-device-width: 480px)" href="/public/css/agency.css" />
+    <link media="only screen and (max-device-width: 480px)" href="/public/css/bootstrap.css" />
+    <link media="only screen and (max-device-width: 480px)" href="/public/css/mobile.css" />
+    <link href='http://fonts.googleapis.com/css?family=Coustard:400,900' rel='stylesheet' type='text/css'>
+  <!-- RSS -->
+ <!--  <link rel="alternate" type="application/atom+xml" title="wishyouhappy" href="/atom.xml"> -->
+
+</head>
+
+ <div align = "center"><a href="/index.html"><img src = "/pictures/cat.png" height="200px" onclick = ""></a> </div> 
+ <!-- <img href = "../pictures/cat.png">  -->
+
+
+  <body>
+
+
+  <div class = "main-div">
+
+
+      <div class="container">
+       <div align = "left">
+         <a href="/me" title = "Click to my personal website"><img  style="display:inline;  float: left;" src = "/pictures/cat1.png" height="25px" width="27px" onclick = ""></a>
+       <a href="/index.html" title = "Click to blog home"><img src = "/pictures/home.png" height="30px" onclick = "" ></a>
+
+
+        </div> 
+
+
+      <main>
+        <div class ="container">
+  <h2>Union Find</h2>
+  <time datetime="2015-10-22T00:00:00-07:00" class="page-date">22 Oct 2015</time>
+  <p>Abstarction: </p>
+<ul><li> Union: Connect two objects</li>
+<li> Find: if there is a path connecting two objects or are two objects in the same set</li>
+</ul>
+
+<p>Union-find can be applied to computer network, web pages in internet, etc</p>
+
+<h3>Quick find algorithm</h3>
+<ul>
+<li> id[] array</li>
+<li> Objects are connected if they have same id</li>
+<li> Find: if obj1 and obj2 have the same id.</li>
+<li> Union: Change all entries with id[obj1] to id[obj2]</li>
+</ul>
+
+
+<ul>
+<li> Trees are flat in this representation</li>
+<li> Slow for union, for each union, takes O(N) time</li>
+</ul>
+
+<p>Example: </p>
+
+In the example below: 2, 3, 4, 6 are connected(or in the same set)
+
+<img src= "/pictures/union-find-1.png">
+
+
+<p>Java implementation:</p>
+
+<div class="code-block">
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></td><td class="code"><pre> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UnionFindQuickFind</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">ids</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="n">UnionFindQuickFind</span><span class="o">(</span><span class="kd">final</span> <span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">ids</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="n">find</span><span class="o">(</span><span class="kd">final</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">ids</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">ids</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">union</span><span class="o">(</span><span class="kd">final</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">pid</span> <span class="o">=</span> <span class="n">ids</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">ids</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">k</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">ids</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">==</span> <span class="n">pid</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">ids</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">=</span> <span class="n">ids</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+<span class="o">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+ </div>
+
+
+<h3>Quick Union Algorithm</h3>
+<ul>
+<li>Lazy Approach</li>
+<li>id[] array</li>
+<li> id[i] is parent of i</li>
+<li> root of i : ids[ids[...ids[i]], until ids[i] = i.</li>
+<li> Find: if obj1 and obj2 have the same root</li>
+<li> Union: change obj1's root's id to obj2's root</li>
+</ul>
+
+
+<ul>
+<li> tree has hierarchy</li>
+<li> Slow for find, might take O(N) time</li>
+</ul>
+
+<p>Example: </p>
+
+
+<img src= "/pictures/union-find-2.png">
+
+
+<p>Java implementation:</p>
+
+<div class="code-block">
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></td><td class="code"><pre> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UnionFindQuickUnion</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">ids</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="n">UnionFindQuickUnion</span><span class="o">(</span><span class="kd">final</span> <span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">ids</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">root</span><span class="o">(</span><span class="kd">final</span> <span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">root</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">root</span> <span class="o">!=</span> <span class="n">ids</span><span class="o">[</span><span class="n">root</span><span class="o">])</span> <span class="o">{</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="n">ids</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">root</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="n">find</span><span class="o">(</span><span class="kd">final</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">root</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">==</span> <span class="n">root</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">union</span><span class="o">(</span><span class="kd">final</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ids</span><span class="o">[</span><span class="n">root</span><span class="o">(</span><span class="n">i</span><span class="o">)]</span> <span class="o">=</span> <span class="n">root</span><span class="o">(</span><span class="n">j</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+ </div>
+
+ <p>There are other algorithms which can achieve better performance</p>
+
+<p> For example: Weighted QU, find and union both logN. Other algorithms: Path compression, Weighted + path</p>
+
+</div>
+
+<aside class="post-title">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        
+          <a href="/2015/06/13/Array-to-ArrayList-in-java/">
+            Array to ArrayList in java
+            <small><time datetime="2015-06-13T00:00:00-07:00">13 Jun 2015</time></small>
+          </a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/2015/05/27/Trie/">
+            Trie
+            <small><time datetime="2015-05-27T00:00:00-07:00">27 May 2015</time></small>
+          </a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/2015/05/07/Tmux-Note/">
+            Tmux Note
+            <small><time datetime="2015-05-07T00:00:00-07:00">07 May 2015</time></small>
+          </a>
+        
+      </li>
+    
+  </ul>
+</aside>
+
+  <div class="comments">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'andersonvom'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>
+
+      </main>
+      </div>
+
+
+     <!--  <footer class="footer">
+        <small>
+          &copy; <time datetime="2016-04-17T11:30:17-07:00">2016</time>. All rights reserved.
+        </small>
+      </footer> -->
+    </div>
+<!--       <div id="bg"> -->
+      <!-- <img src="/public/image/55.jpg"  alt=""> -->
+     <!-- </div> -->
+  <div id = "container1"></div>
+
+<!--   <footer class = "tail"> -->
+      
+  </footer>
+  </body>
+      <!-- js -->
+<script type="text/javascript" src='/public/js/sketch.min.js'></script>
+<script type="text/javascript" src="/public/js/index.js"></script>
+
+</html>
