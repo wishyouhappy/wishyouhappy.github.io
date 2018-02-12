@@ -37,7 +37,7 @@ String pattern = "ABDAB"</p>
 
 <p>In the example above, we begin compare the two strings from beginning, we find a mismatch at index 3. Are we need to compare again from the index 1 of text "ABDEABCDABDABBB" and index 0 of the pattern "ABDAB"?</p>
 
-<div align = center><img height = "400px"  src= "{{ site.baseurl }}public/image/kmp2.jpg"> </div>
+<div align = center><img height = "400px"  src= "{{ site.baseurl }}/public/image/kmp2.jpg"> </div>
 
 <p>No, for text "ABDEABCDABDABBB" we just need to begin at index 3, and for the pattern "ABDAB", we start at index 0. Because the partial match array at index 2 --"ABD" is 0. You see if we start from index 1, "BD" in the text string is actually the suffix of "ABD", "AB" in the pattern string is the prefix of "ABD". So we can make sure that even we start from index 1, there will sure be no match.</p>
 
@@ -48,7 +48,7 @@ String pattern = "ABDAB"</p>
 
 <p>The partial match array is still {0, 0, 0, 1, 2}</p>
 
-<div align = center><img height = "400px"  src= "{{ site.baseurl }}public/image/kmp3.jpg"> </div>
+<div align = center><img height = "400px"  src= "{{ site.baseurl }}/public/image/kmp3.jpg"> </div>
 
 <p>In this example, at index 4 we find a mismatch. For text "ABDACDABDABB" We begin at index 4, for "ABDAB" we begin at index 1. Why? We can see it's 1 at index 3(the prior element in the helper array) in the partial match array.</p>
 
